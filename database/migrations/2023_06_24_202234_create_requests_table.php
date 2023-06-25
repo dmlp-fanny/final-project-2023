@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('translator_id');
             $table->string('weekday');
-            $table->integer('time_from');
-            $table->integer('time_till');
+            $table->integer('from_time');
+            $table->integer('till_time');
             $table->string('title');
             $table->foreignId('from_language');
             $table->foreignId('to_language');
