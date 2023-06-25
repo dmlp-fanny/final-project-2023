@@ -42,4 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function translator()
+    {
+        return $this->hasOne(Translator::class);
+    }
+
+    public function requests()
+    {
+        return $this->hasMany(Translator::class);
+    }
 }
