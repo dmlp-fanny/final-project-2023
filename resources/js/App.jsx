@@ -1,15 +1,20 @@
-import { useReducer, useState } from 'react'
-import reducer from './userDashboard/Context/reducer'
-import state from './userDashboard/Context/state'
-// import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Navigation from './userDashboard/Components/Navigation/Navigation'
+import Dashboard from './userDashboard/Components/Dashboard/Dashboard'
+import '../css/style.scss'
 
 function App() {
   
-  const [ context, dispatch ] = useReducer(reducer, state)
+
+
   return (
-    <>
-     <h1>hello</h1>
-    </>
+
+      <BrowserRouter>
+        <Navigation />
+          <Routes>
+            <Route path='/dashboard' element={ <Dashboard />}></Route>
+          </Routes>
+      </BrowserRouter>
   )
 }
 

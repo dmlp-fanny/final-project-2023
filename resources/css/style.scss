@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+aside {
+    background: linear-gradient(45deg, #264d59, #43978d);
+    height: 100%;
+    // width: 40%;
+    .profile_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        width: 90%;
+        margin: 0 auto;
+        button {
+            border: none;
+            width: 60%;
+        }
+    }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3rem;
+            width: 100%;
+            list-style-type: none;
+            text-transform: uppercase;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+main {
+    flex: 1;
+    .main_container {
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+        height: 100%;
+        width: 100%;
+    }
+    .requests_view_card {
+        background-color: lightgrey;
+        grid-area: 1 / 1 / 2 / 6;
+        margin: 2rem;
+        .calendar_card {
+            background-color: lightgrey;
+            grid-area: 2 / 1 / 4 / 3;
+            margin: 2rem;
+        }
+        .requests_pending_card {
+            background-color: lightgrey;
+            grid-area: 2 / 3 / 4 / 6;
+            margin: 2rem;
+        }
+    }
+}
+
+
+
