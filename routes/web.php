@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Homepage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Homepage::class, 'index']);
+
+// User Dashboard
