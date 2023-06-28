@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Request;
+use App\Models\Timeslot;
 use App\Models\Translator;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->count(10)->create();
-        Translator::factory()->count(5)->create();
+        $this->call(LanguageSeeder::class); 
+        $this->call(Timeslot::class); 
     }
 }

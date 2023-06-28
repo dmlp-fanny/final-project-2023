@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('timeslots', function (Blueprint $table) {
             $table->id();
             $table->string('weekday');
-            $table->string('from_time');
-            $table->string('till_time');
+            $table->integer('from_time');
+            $table->integer('till_time');
+            $table->timestamps();
         });
     }
 

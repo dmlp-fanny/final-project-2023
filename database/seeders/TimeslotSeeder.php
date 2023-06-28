@@ -30,8 +30,8 @@ class TimeslotSeeder extends Seeder
             'option 4' => [15, 18],
         ];
 
-        foreach ($weekday as $day) {
-            foreach ($times as $option => $times) {
+        foreach($times as $option => $times) {
+            foreach ($weekday as $day) {
                 $timeslot = new Timeslot();
                 $timeslot->weekday = $day;
                 $timeslot->from_time = $times[0];
