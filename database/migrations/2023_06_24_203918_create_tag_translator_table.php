@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tag_id');
             $table->foreignId('translator_id');
-
-            $table->unique(['tag_id', 'translator_id']);
         });
     }
 

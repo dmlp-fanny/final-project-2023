@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignId('request_id');
             $table->foreignId('translator_id');
             $table->string('status')->nullable();
-            $table->timestamps('revoked_at');
-            $table->timestamps('accepted_at');
-            $table->timestamps('denied_at');
-            $table->timestamps('expires_at');
+            $table->timestamp('created_at');
+            $table->dateTime('revoked_at')->nullable();
+            $table->dateTime('accepted_at')->nullable();
+            $table->dateTime('denied_at')->nullable();
+            $table->dateTime('expires_at');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('potential_translators');
+        Schema::dropIfExists('request_status');
     }
 };

@@ -18,6 +18,5 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->count(10)->create();
         Translator::factory()->count(5)->create();
-
     }
 }
