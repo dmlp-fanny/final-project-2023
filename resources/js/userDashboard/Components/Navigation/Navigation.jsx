@@ -10,21 +10,11 @@ export default function Navigation() {
             </article>
 
             <nav className="navigation">
-                <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                </li>
-                <li>
+                    <Link to="/dashboard">Home</Link>
                     <Link to="/dashboard/requests">Requests</Link>
-                </li>
-                <li>
                     <Link to="/dashboard/profile">Profile</Link>
-                </li>
-                <li>
                     <Link to="/dashboard/messages">Messages</Link>
-                </li>
-                <li>
                     <Link to="/dashboard/settings">Settings</Link>
-                </li>
             </nav>
         </aside>
     );

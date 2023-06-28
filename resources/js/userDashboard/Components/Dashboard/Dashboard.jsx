@@ -1,16 +1,17 @@
+import ActiveRequests from "../Translators/Dashboard/ActiveRequests";
+import CalendarView from "../Translators/Dashboard/CalendarView";
+import PendingRequests from "../Translators/Dashboard/PendingRequests";
+
 export default function Dashboard() {
     return (
         <main>
             <div className="main_container">
-                <div className="requests_view_card">
-                    <div className="requests_card_item"></div>
-                    <div className="requests_card_item"></div>
-                    <div className="requests_card_item"></div>
-                </div>
+                <ActiveRequests />
 
-                <div className="calendar_card"></div>
+                <CalendarView />
 
-                <div className="requests_pending_card"></div>
+                <PendingRequests />
+
             </div>
         </main>
     );
