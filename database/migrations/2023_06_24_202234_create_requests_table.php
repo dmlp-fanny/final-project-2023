@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('translator_id');
+            $table->string('title');
+            $table->text('description');
+            $table->string('status');
             $table->string('weekday');
             $table->integer('from_time');
             $table->integer('till_time');
-            $table->string('title');
             $table->foreignId('from_language');
             $table->foreignId('to_language');
-            $table->string('status');
-            $table->text('description');
             $table->timestamps();
         });
     }
