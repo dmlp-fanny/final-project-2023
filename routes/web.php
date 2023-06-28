@@ -22,3 +22,5 @@ Route::get('/dashboard/{path?}', function () {
     return view('user-dashboard.dashboard');
 })->where('path', '.*');
 
+
+
