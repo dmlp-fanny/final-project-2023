@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-export default function Register() {
+export default function Register(props) {
 
     const [values, setValues] = useState({
         email: '',

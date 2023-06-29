@@ -11,19 +11,19 @@ import Register from './userDashboard/Auth/Register';
 
 function App() {
 
-  // const [context, dispatch] = useReducer(reducer, state);
+  const [context, dispatch] = useReducer(reducer, state);
 
   return (
-    // <Context.Provider values = { {context, dispatch} } >
+    <Context.Provider value = { {context, dispatch} } >
       <BrowserRouter>
         <Navigation />
           <Routes>
             <Route path='/dashboard' element={ <Dashboard />}></Route>
             <Route path='/dashboard/profile' element={ < Profile/>}></Route>
-            {/* <Route path='/dashboard/register' element={ < Register />}></Route> */}
+            <Route path='/dashboard/register' element={ < Register />}></Route>
           </Routes>
       </BrowserRouter>
-    // </Context.Provider>
+    </Context.Provider>
   )
 }
 
