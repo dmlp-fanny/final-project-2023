@@ -38,8 +38,11 @@ class DatabaseSeeder extends Seeder
 
         Translator::factory(10)
             ->create()
-            ->each(function ($request) use ($tags) {
-                $request->tags()->sync($tags->random(mt_rand(1,4)));
+            ->each(function ($translator) use ($tags) {
+                $translator->tags()->sync($tags->random(mt_rand(1,4)));
+            })
+            ->each(function ($translator) {
+                $translator->timeslots()->sync(Timeslot::all()->random(mt_rand(5, 10)));
             });
     }
 }
