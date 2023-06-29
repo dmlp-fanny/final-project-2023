@@ -5,9 +5,12 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Request;
+use App\Models\Tag;
 use App\Models\Timeslot;
 use App\Models\Translator;
 use App\Models\User;
+use Database\Factories\TagFactory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,10 +21,25 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            LanguageSeeder::class, 
-            TimeslotSeeder::class]); 
+            LanguageSeeder::class,
+            TimeslotSeeder::class
+        ]);
 
-        Translator::factory(10)->create();
-        Request::factory(10)->create();
+        User::factory(10)->create();
+
+        $tags = Tag::factory(10)->create();
+
+        Request::factory(10)
+            ->state(new Sequence(fn (Sequence $sequence) => ['user_id' => User::all()->random()]))
+            ->create()
+            ->each(function ($request) use ($tags) {
+                $request->tags()->sync($tags->random(mt_rand(1,2)));
+            });
+
+        Translator::factory(10)
+            ->create()
+            ->each(function ($request) use ($tags) {
+                $request->tags()->sync($tags->random(mt_rand(1,4)));
+            });
     }
 }
