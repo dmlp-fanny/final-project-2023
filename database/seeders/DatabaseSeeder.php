@@ -17,7 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(LanguageSeeder::class); 
-        $this->call(Timeslot::class); 
+        $this->call([
+            LanguageSeeder::class, 
+            TimeslotSeeder::class]); 
+
+        Translator::factory(10)->create();
+        Request::factory(10)->create();
     }
 }

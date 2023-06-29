@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('profile_photo')->nullable();
             $table->string('location');
             $table->string('country');
-            $table->bigInteger('phone_number');
+            $table->string('phone_number');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

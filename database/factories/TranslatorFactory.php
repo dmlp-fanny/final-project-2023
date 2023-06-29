@@ -19,6 +19,7 @@ class TranslatorFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'experience' => fake()->paragraph(3)
         ];
     }
 }

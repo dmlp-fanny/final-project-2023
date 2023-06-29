@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('translator_id');
+            $table->foreignId('translator_id')->nullable();
             $table->string('title');
             $table->text('description');
-            $table->string('status');
-            $table->string('weekday');
+            $table->string('status')->nullable();
+            $table->date('date');
             $table->integer('from_time');
             $table->integer('till_time');
             $table->foreignId('from_language');
