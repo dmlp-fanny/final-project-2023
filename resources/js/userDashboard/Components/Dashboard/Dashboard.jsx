@@ -11,7 +11,6 @@ export default function Dashboard() {
                 <CalendarView />
 
                 <PendingRequests />
-
             </div>
         </main>
     );
