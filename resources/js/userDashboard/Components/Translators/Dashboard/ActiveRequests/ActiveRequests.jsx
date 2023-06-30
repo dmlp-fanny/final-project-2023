@@ -23,7 +23,7 @@ export default function ActiveRequests() {
 
     return (
         <div className="active_requests">
-            <div className="active_requests_label">Active Requests</div>
+            <h2>Active Requests</h2>
             <div className="active_requests_cards">
                 {activeRequests &&
                     activeRequests.map((request) => (

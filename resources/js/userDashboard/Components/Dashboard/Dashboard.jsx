@@ -6,7 +6,7 @@ import PendingRequests from "../Translators/Dashboard/PendingRequests";
 export default function Dashboard() {
     return (
         <main>
-            <div className="main_container">
+            <div className="dashboard_container">
                 <ActiveRequests />
 
                 <CalendarView />

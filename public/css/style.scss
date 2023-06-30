@@ -10,6 +10,13 @@
     height: 100vh;
     font-family: Lato;
 }
+h2 {
+    // color: white;
+    font-family: Montserrat;
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
 
 aside {
     background: white;
@@ -17,6 +24,7 @@ aside {
     height: 100%;
     width: 20%;
     box-shadow: 3px 0px 29px -16px rgba(0, 0, 0, 0.75);
+
     .profile_card {
         display: flex;
         flex-direction: column;
@@ -25,16 +33,19 @@ aside {
         height: 200px;
         width: 90%;
         margin: 0 auto;
+
         button {
             border: none;
             width: 60%;
         }
     }
+
     .navigation {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
+
         a {
             color: #264d59;
             padding: 1rem 0;
@@ -42,6 +53,7 @@ aside {
             text-decoration: none;
             text-transform: uppercase;
             width: 100%;
+
             &:hover {
                 background-color: #d46c4e;
                 color: white;
@@ -53,54 +65,56 @@ aside {
 
 main {
     flex: 1;
-    .main_container {
-        display: grid;
-        grid-template: repeat(3, 1fr) / repeat(5, 1fr);
-        height: 100%;
-        width: 100%;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard_container {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+    height: 100%;
+    width: 100%;
+
     .active_requests {
         background: linear-gradient(-45deg, #264d59, #43978d);
+        border-radius: 16px;
         gap: 1rem;
         grid-area: 1 / 1 / 2 / 6;
         margin: 2rem;
         padding: 1rem;
-        &_label {
-            // color: #d46c4e;
-            color: white;
-            font-family: Montserrat;
-            font-size: 2rem;
-            margin: 1rem;
-            text-align: center;
-        }
         &_cards {
             display: flex;
             flex-direction: flex-start;
             gap: 1rem;
             width: 100%;
         }
+
         &_card {
             background-color: rgba(255, 255, 255, 0.45);
             border-radius: 8px;
             font-size: 0.8rem;
             padding: 1rem;
             width: 300px;
+
             &-title {
-                text-transform: uppercase;
                 font-family: Montserrat;
                 font-size: 1.2rem;
             }
+
             &-desc {
                 font-family: Lato;
                 line-height: 1.2rem;
             }
         }
     }
+
     .calendar_view {
         background-color: lightgrey;
         grid-area: 2 / 1 / 4 / 3;
         margin: 2rem;
     }
+
     .pending_requests {
         background-color: lightgrey;
         grid-area: 2 / 3 / 4 / 6;
@@ -108,5 +122,16 @@ main {
     }
 }
 
-
-
+.profile_container {
+    background-color: white;
+    height: 80%;
+    padding: 1rem;
+    width: 60%;
+    h3 {
+        border-bottom: 1px solid #d46c4e;
+        color: #d46c4e;
+    }
+    &_card {
+        margin: 1rem 0;
+    }
+}
