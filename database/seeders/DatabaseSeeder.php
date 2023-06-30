@@ -23,24 +23,23 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             LanguageSeeder::class,
-            TimeslotSeeder::class
+            TimeslotSeeder::class,
+            TagSeeder::class
         ]);
 
         User::factory(10)->create();
 
-        $tags = Tag::factory(10)->create();
-
         Request::factory(10)
             ->state(new Sequence(fn () => ['user_id' => User::all()->random()]))
             ->create()
-            ->each(function ($request) use ($tags) {
-                $request->tags()->sync($tags->random(mt_rand(1, 2)));
+            ->each(function ($request) {
+                $request->tags()->sync(Tag::all()->random(mt_rand(1, 2)));
             });
 
         Translator::factory(10)
             ->create()
-            ->each(function ($translator) use ($tags) {
-                $translator->tags()->sync($tags->random(mt_rand(1, 4)));
+            ->each(function ($translator) {
+                $translator->tags()->sync(Tag::all()->random(mt_rand(5, 10)));
                 $translator->timeslots()->sync(Timeslot::all()->random(mt_rand(5, 10)));
                 $translator->fromLanguages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => Language::all()->random()->id]);
             });
