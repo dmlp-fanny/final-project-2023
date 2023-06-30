@@ -5,16 +5,18 @@
 }
 
 #root {
+    background-color: #f9f9f9;
     display: flex;
     height: 100vh;
     font-family: Lato;
 }
 
 aside {
-    background: linear-gradient(45deg, #264d59, #43978d);
+    background: white;
     font-family: Montserrat;
     height: 100%;
     width: 20%;
+    box-shadow: 3px 0px 29px -16px rgba(0, 0, 0, 0.75);
     .profile_card {
         display: flex;
         flex-direction: column;
@@ -34,15 +36,15 @@ aside {
         align-items: center;
         width: 100%;
         a {
-            color: white;
+            color: #264d59;
             padding: 1rem 0;
             text-align: center;
             text-decoration: none;
             text-transform: uppercase;
             width: 100%;
             &:hover {
-                background-color: white;
-                color: #264d59;
+                background-color: #d46c4e;
+                color: white;
                 cursor: pointer;
             }
         }
@@ -58,9 +60,40 @@ main {
         width: 100%;
     }
     .active_requests {
-        background-color: lightgrey;
+        background: linear-gradient(-45deg, #264d59, #43978d);
+        display: flex;
+        gap: 1rem;
         grid-area: 1 / 1 / 2 / 6;
         margin: 2rem;
+        padding: 1rem 14rem;
+        position: relative;
+        &_label {
+            color: #d46c4e;
+            font-family: Montserrat;
+            font-size: 2rem;
+            position: absolute;
+            left: 2rem;
+            top: 30%;
+            text-align: center;
+        }
+        &_card {
+            background-color: rgba(255, 255, 255, 0.45);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8rem;
+            padding: 1rem;
+            width: 300px;
+            &-title {
+                text-transform: uppercase;
+                font-family: Montserrat;
+                font-size: 1.2rem;
+            }
+            &-desc {
+                font-family: Lato;
+                line-height: 1.2rem;
+            }
+        }
     }
     .calendar_view {
         background-color: lightgrey;

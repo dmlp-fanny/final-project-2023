@@ -26,3 +26,5 @@ Route::get('/languages', [LanguageController::class, 'index']);
 Route::get('/tags', [TagController::class, 'index']);
 
 Route::get('/requests', [RequestController::class, 'index']);
+
+Route::get('/requests/{user_id}', [RequestController::class, 'show'])->where('user_id','[0-9]+');

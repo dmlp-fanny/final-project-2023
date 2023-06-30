@@ -1,4 +1,5 @@
-import ActiveRequests from "../Translators/Dashboard/ActiveRequests";
+
+import ActiveRequests from "../Translators/Dashboard/ActiveRequests/ActiveRequests";
 import CalendarView from "../Translators/Dashboard/CalendarView";
 import PendingRequests from "../Translators/Dashboard/PendingRequests";
 
