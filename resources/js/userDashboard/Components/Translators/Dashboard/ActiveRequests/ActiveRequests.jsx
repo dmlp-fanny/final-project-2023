@@ -3,30 +3,33 @@ import { useEffect, useState } from "react";
 import ActiveRequestsCard from "./ActiveRequestsCard";
 
 export default function ActiveRequests() {
-    const [activeRequests, setActiveRequests] = useState(null)
+    const [activeRequests, setActiveRequests] = useState(null);
 
-    const [userId, setUserId] = useState(1)
+    const [userId, setUserId] = useState(1);
 
     const loadRequests = async () => {
         try {
-            const response = await axios.get('/api/requests/' + userId)
+            const response = await axios.get("/api/requests/" + userId);
             setActiveRequests(response.data);
             console.log(response.data);
         } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     useEffect(() => {
-        loadRequests()
-    }, [])
+        loadRequests();
+    }, []);
 
     return (
         <div className="active_requests">
-            <div className="active_requests_label">Active<br/> Requests</div>
-            {
-                activeRequests && activeRequests.map(request => <ActiveRequestsCard request={request} />)
-            }
+            <div className="active_requests_label">Active Requests</div>
+            <div className="active_requests_cards">
+                {activeRequests &&
+                    activeRequests.map((request) => (
+                        <ActiveRequestsCard key={request.id} request={request} />
+                    ))}
+            </div>
         </div>
     );
 }
