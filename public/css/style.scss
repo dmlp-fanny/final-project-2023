@@ -127,11 +127,25 @@ main {
     height: 80%;
     padding: 1rem;
     width: 60%;
-    h3 {
-        border-bottom: 1px solid #d46c4e;
-        color: #d46c4e;
+    h2, h3 {
+        color: #43978d;
     }
-    &_card {
+    h3 {
+        border-bottom: 1px solid #43978d;
+    }
+    &_section {
         margin: 1rem 0;
+        line-height: 1.5rem;
+        color: red;
+        &-bold{
+            font-weight: 700;
+            margin: 1rem 0;
+            position: relative;
+            span {
+                font-weight: 400;
+                left: 150px;
+                position:absolute;
+            }
+        }
     }
 }
