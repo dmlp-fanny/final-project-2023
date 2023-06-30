@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function show ($user_id) 
+    public function show($user_id)
     {
-        $user = User::where('id', $user_id)->with('translator')->first();
+        $user = User::where('id', $user_id)->with(['translator.tags'])->first();
 
         return $user;
     }
