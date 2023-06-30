@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function show ($user_id) 
     {
-        $user = User::where('id', $user_id)->with('translator')->get();
+        $user = User::where('id', $user_id)->with('translator')->first();
 
         return $user;
     }
