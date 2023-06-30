@@ -18,10 +18,6 @@ Route::get('/', [Homepage::class, 'index']);
 
 // User Dashboard
 
-// Route::get('/dashboard/{path?}', function () {
-//     return view('user-dashboard.dashboard');
-// })->where('path', '.*');
-
 Route::view('/dashboard/{path?}', 'user-dashboard.dashboard')->where('path', '.*');
 
 
