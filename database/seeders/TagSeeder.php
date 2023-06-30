@@ -34,17 +34,13 @@ class TagSeeder extends Seeder
             'Language class', 
             'Politics',
             'Citizenship',
-            'Natural',
+            'Nature',
             'Fashion',
             'Employment',
             'Others',
             
         ];
-        // foreach ($tags as $tag) {
-        //     $newTag = new Tag();
-        //     $newTag->tag_name = $tag;
-        //     $newTag->save();
-        // }
+       
         foreach ($tags as $tagName) {
             Tag::create(['tag_name' => $tagName]);
         }
