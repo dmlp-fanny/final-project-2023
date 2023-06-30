@@ -10,7 +10,6 @@ use App\Models\Tag;
 use App\Models\Timeslot;
 use App\Models\Translator;
 use App\Models\User;
-use Database\Factories\TagFactory;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 

@@ -32,11 +32,11 @@ class TimeslotSeeder extends Seeder
 
         foreach($times as $option => $times) {
             foreach ($weekday as $day) {
-                $timeslot = new Timeslot();
-                $timeslot->weekday = $day;
-                $timeslot->from_time = $times[0];
-                $timeslot->till_time = $times[1];
-                $timeslot->save();
+                Timeslot::create([
+                    'weekday' => $day,
+                    'from_time' => $times[0],
+                    'till_time' => $times[1]
+                ]);
             }
         }
     }
