@@ -20,7 +20,7 @@ class RequestFactory extends Factory
         $time = fake()->numberBetween(7, 19);
 
         return [
-            'user_id' => User::factory(),
+            'user_id' => null,
             'title' => fake()->words(3, true),
             'description' => fake()->paragraph(),
             'date' => fake()->dateTimeBetween('+1 week', '+1 month'),

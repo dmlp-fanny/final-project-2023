@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\LanguageController;
+use App\Http\Controllers\Api\RequestController;
+use App\Http\Controllers\Api\TagController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/languages', [LanguageController::class, 'index']);
+
+Route::get('/tags', [TagController::class, 'index']);
+
+Route::get('/requests', [RequestController::class, 'index']);

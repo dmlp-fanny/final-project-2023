@@ -17,10 +17,10 @@ return new class extends Migration
             $table->foreignId('translator_id');
             $table->string('status')->nullable();
             $table->timestamp('created_at');
-            $table->dateTime('revoked_at')->nullable();
-            $table->dateTime('accepted_at')->nullable();
-            $table->dateTime('denied_at')->nullable();
-            $table->dateTime('expires_at');
+            $table->timestamp('revoked_at')->nullable();
+            $table->timestamp('accepted_at')->nullable();
+            $table->timestamp('denied_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
         });
     }
 
