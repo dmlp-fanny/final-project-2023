@@ -10,7 +10,7 @@
     
     @vite('public/css/style.scss')
     
-    <title>Making your everyday easier!</title>
+    <title>Making your everyday life easier!</title>
 </head>
 <body>
 
