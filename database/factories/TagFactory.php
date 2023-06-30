@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Translator>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
  */
-class TranslatorFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,7 @@ class TranslatorFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
-            'experience' => fake()->paragraph(3)
+            'tag_name' => fake()->word()
         ];
     }
 }
