@@ -25,7 +25,7 @@ export default function Profile() {
                 <div className="profile_container">
                     <h2>Your Profile</h2>
                     <h3>Personal Information:</h3>
-                    <div className="profile_container_section-bold">
+                    <div className="profile_container--section profile_container--section-bold">
                         First Name:<span>{user.first_name}</span> <br />
                         Last Name:<span>{user.last_name}</span> <br />
                         Username: <span>{user.username}</span> <br />
@@ -34,11 +34,15 @@ export default function Profile() {
                         Phone Number: <span>{user.phone_number}</span> <br />
                     </div>
                     <h3>Experience:</h3>
-                    <div className="profile_container_section">
+                    <div className="profile_container--section">
                         {user.translator.experience}
                     </div>
                     <h3>Categories:</h3>
-                    <div className="profile_container_section"></div>
+                    <div className="profile_container--section">
+                        {
+                            
+                        }
+                    </div>
                 </div>
             ) : (
                 ""
