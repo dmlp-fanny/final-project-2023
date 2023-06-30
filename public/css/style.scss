@@ -1,3 +1,5 @@
+$shadow: 3px 0px 29px -16px rgba(0, 0, 0, 0.75);
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +13,6 @@
     font-family: Lato;
 }
 h2 {
-    // color: white;
     font-family: Montserrat;
     font-size: 2rem;
     margin: 1rem;
@@ -23,7 +24,7 @@ aside {
     font-family: Montserrat;
     height: 100%;
     width: 20%;
-    box-shadow: 3px 0px 29px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: $shadow;
 
     .profile_card {
         display: flex;
@@ -68,6 +69,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
 .dashboard_container {
@@ -124,8 +126,10 @@ main {
 
 .profile_container {
     background-color: white;
-    height: 80%;
-    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: $shadow;
+    min-height: 80%;
+    padding: 3rem;
     width: 60%;
     h2, h3 {
         color: #43978d;
@@ -135,7 +139,7 @@ main {
     }
     &--section {
         margin: 1rem 0;
-        line-height: 1.5rem;
+        line-height: 2rem;
         &-bold{
             font-weight: 700;
             margin: 1rem 0;
@@ -147,4 +151,63 @@ main {
             }
         }
     }
+}
+
+.postRequests_container {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: $shadow;
+    min-height: 80%;
+    padding: 3rem;
+    width: 60%;
+    h2 {
+        color: #43978d;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        input {
+            border: none;
+            border-bottom: 1px solid black;
+            margin: 1rem;
+            padding: 0.6rem;
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid #d46c4e;
+            }
+        }
+        button {
+            background-color: #d46c4e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 1rem;
+            margin: 0 auto;
+            width: 50%;
+            &:hover {
+                background-color: #43978d;
+            }
+        }
+    }
+}
+.requests_sideMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+.postRequestsBtn, .emptydivs {
+    background-color: #264d59;
+    border-radius: 16px;
+    color: white;
+    box-shadow: $shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 100px;
+}
+
+.emptydivs {
+    background-color: white;
 }
