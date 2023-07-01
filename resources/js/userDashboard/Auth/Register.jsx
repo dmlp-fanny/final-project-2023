@@ -4,17 +4,21 @@ import React, { useState, useEffect, useContext } from 'react';
 export default function Register(props) {
 
     const [values, setValues] = useState({
-        email: '',
         first_name: '',
         last_name: '',
+        email: '',
+        phone_number: '',
         password: '',
         password_confirmation: '',
+        location: '',
         tag:'',
-        languages: '',
         from_language: '',
         to_language: '',
-        tags: '',
+        isTranslator: '',
     });
+
+    const [tags, setTags] = useState([])
+    const [languages, setLanguages] = useState([])
 
     const [isTranslator, setIsTranslator] = useState(false)
 
@@ -22,7 +26,7 @@ export default function Register(props) {
         axios.get('/api/languages')
       .then(response => {
         const languages = response.data;
-        setValues(prevValues => ({ ...prevValues, languages }));
+        setLanguages(languages)
       })
       .catch(error => {
         console.log('Error fetching languages:', error);
@@ -33,7 +37,7 @@ export default function Register(props) {
         axios.get('/api/tags')
       .then(response => {
         const tags = response.data;
-        setValues(prevValues => ({ ...prevValues, tags }));
+        setTags(tags)
       })
       .catch(error => {
         console.log('Error fetching tags:', error);
@@ -43,6 +47,7 @@ export default function Register(props) {
     const handleSubmit = async (event) => {
  
         event.preventDefault();
+
 
         try {
             const response = await axios.post('/register', values);
@@ -62,12 +67,13 @@ export default function Register(props) {
     const handleChange = (event) => {
         setValues(previous_values => {
             return ({...previous_values,
-                [event.target.name]: event.target.value
+                [event.target.name]: event.target.value,
+                isTranslator: isTranslator
             });
         });
     }
 
-    const handleUserTypeChange = () => {
+    const handleUserTypeChange = (event) => {
         setIsTranslator(!isTranslator);
       };
     
@@ -115,11 +121,11 @@ export default function Register(props) {
                 />
 
                 <br />
-                <label htmlFor="phonenumber">Phone number</label>
+                <label htmlFor="phone_number">Phone number</label>
                 <input 
                     type="text" 
-                    name="phonenumber" 
-                    value={values.phonenumber}
+                    name="phone_number" 
+                    value={values.phone_number}
                     onChange={ handleChange }
                     required 
                 />
@@ -134,10 +140,13 @@ export default function Register(props) {
                     required 
                 />
 
+                <br/>
+                <input type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } />
+
                 <br />
                 <label htmlFor="location">Location</label>
                 <input 
-                    type="location" 
+                    type="text" 
                     name="location" 
                     value={values.location}
                     onChange={ handleChange }
@@ -150,7 +159,6 @@ export default function Register(props) {
                     name="picture" 
                     value=""
                     onChange={ handleChange }
-                    required
                 />
 
                 <br />
@@ -166,15 +174,16 @@ export default function Register(props) {
                         >
                         <option value={null}>Select tag(s)</option>
                             {
-                            values.tags.map((tag) => (
+                            tags.map((tag) => (
                                 <option 
                                     key={tag.id} 
-                                    value={tag.tag_name}>
+                                    value={tag.id}>
                                     {tag.tag_name}
                                 </option>
                             ))
                             }
                         </select>
+
                         <label htmlFor="from_language">From</label>
                         <select
                             name="from_language"
@@ -186,10 +195,10 @@ export default function Register(props) {
                            
                             <option value={null}>Select a language</option>
                             {
-                                values.languages.map(language => {
+                                languages.map(language => {
                                     return <option 
                                             key={language.id} 
-                                            value={language.language_name}
+                                            value={language.id}
                                             >
                                             {language.language_name}
                                             </option>
@@ -207,10 +216,10 @@ export default function Register(props) {
                         >
                          <option value={null}>Select a language</option>
                             {
-                                values.languages.map(language => {
+                                languages.map(language => {
                                     return <option 
                                             key={language.id} 
-                                            value={language.language_name}
+                                            value={language.id}
                                             >
                                             {language.language_name}
                                             </option>

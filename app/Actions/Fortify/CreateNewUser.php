@@ -2,6 +2,9 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Language;
+use App\Models\Tag;
+use App\Models\Translator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -33,14 +36,27 @@ class CreateNewUser implements CreatesNewUsers
             'phone_number' => ['required'],
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
-            'username' => $input['name'][0].$input['name'],
-            'location' => $input['location'],
-            'phone_number' => $input['phone_number'],
+            'username' => $input['first_name'][0].$input['last_name'],
             'email' => $input['email'],
+            'phone_number' => $input['phone_number'],
             'password' => Hash::make($input['password']),
-        ])->tags()->attach($input['tags'])->fromLanguages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
+            'location' => $input['location'],
+        ]);
+
+        if ($input['isTranslator'] === true)
+        {
+            $translator = Translator::create([
+            'user_id' => $user->id,
+            // 'experience' => $input['experience']
+            ]);
+
+            $translator->tags()->sync(Tag::find($input['tag']));
+            $translator->fromLanguages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
+        }
+
+        return $user;
     }
 }

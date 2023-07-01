@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('status')->nullable();
             $table->date('date');
-            $table->integer('from_time');
-            $table->integer('till_time');
+            $table->time('from_time');
+            $table->time('till_time');
             $table->foreignId('from_language');
             $table->foreignId('to_language');
             $table->timestamps();
