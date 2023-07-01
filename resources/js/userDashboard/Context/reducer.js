@@ -1,14 +1,14 @@
-export default function reducer (context, action) {
+export default function reducer (state, action) {
 
 switch (action.type) {
 
-        case 'attribute/set':
+        case 'user/set':
             return {
-                ...context,
-                width: action.payload
+                ...state,
+                user: action.payload
             }
             break;
     }
 
-    return context;
+    return state;
 }

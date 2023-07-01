@@ -1,17 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ActiveRequestsCard from "./ActiveRequestsCard";
+import Context from "../../../Context";
+
 
 export default function ActiveRequests() {
     const [activeRequests, setActiveRequests] = useState(null);
 
-    const [userId, setUserId] = useState(1);
+    const { context: { user }} = useContext(Context)
 
     const loadRequests = async () => {
         try {
-            const response = await axios.get("/api/requests/" + userId);
+            const response = await axios.get("/api/requests/" + (user ? user.id : 0));
             setActiveRequests(response.data);
-            console.log(response.data);
         } catch (err) {
             console.log(err);
         }
@@ -19,11 +20,11 @@ export default function ActiveRequests() {
 
     useEffect(() => {
         loadRequests();
-    }, []);
+    }, [user]);
 
     return (
         <div className="active_requests">
-            <div className="active_requests_label">Active Requests</div>
+            <h2>Active Requests</h2>
             <div className="active_requests_cards">
                 {activeRequests &&
                     activeRequests.map((request) => (
