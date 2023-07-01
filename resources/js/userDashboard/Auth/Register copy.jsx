@@ -5,17 +5,16 @@ export default function Register(props) {
 
     const [values, setValues] = useState({
         email: '',
+        // name: '',
         first_name: '',
         last_name: '',
         password: '',
         password_confirmation: '',
+        userType: '',
         tag:'',
         languages: [],
-        selectedLanguages: [],
-        tags: []
+        selectedLanguages: []
     });
-
-    const [isTranslator, setIsTranslator] = useState(false)
 
     useEffect(() => {
         axios.get('/api/languages')
@@ -27,7 +26,7 @@ export default function Register(props) {
         console.log('Error fetching languages:', error);
       });
     }, []);
-    
+
     useEffect(() => {
         axios.get('/api/tags')
       .then(response => {
@@ -38,7 +37,8 @@ export default function Register(props) {
         console.log('Error fetching tags:', error);
       });
     }, []);
-
+    
+ 
     const handleSubmit = async (event) => {
  
         event.preventDefault();
@@ -58,16 +58,36 @@ export default function Register(props) {
         }
     }
  
+    // const handleChange = (event) => {
+    //     setValues(previous_values => {
+    //         return ({...previous_values,
+    //             [event.target.name]: event.target.value
+    //         });
+    //     });
+    // }
     const handleChange = (event) => {
-        setValues(previous_values => {
-            return ({...previous_values,
-                [event.target.name]: event.target.value
-            });
-        });
+        const { name, value, type } = event.target;
+        if (type === 'checkbox') {
+            const ischecked = event.target.checked;
+            setValues((prevValues) => ({
+                ...prevValues,
+                selectedLanguages: ischecked
+                ?[...prevValues.selectedLanguages,value]
+                :prevValues.selectedLanguages.filter((lang) => lang !== value)
+            }));
+        } else {
+                setValues((prevValues) => ({
+                    ...prevValues,
+                        [name]: value
+                    }));
+        };
     }
 
-    const handleUserTypeChange = () => {
-        setIsTranslator(!isTranslator);
+    const handleUserTypeChange = (event) => {
+        setValues(prevValues => ({
+          ...prevValues,
+          userType: event.target.checked ? 'translator' : '', selectedLanguages:[]//clear the selected languages when the user type changes
+        }));
       };
     
  
@@ -79,8 +99,9 @@ export default function Register(props) {
                 <input
                     type="checkbox"
                     name="translator"
-                    value={isTranslator}
+                    value="translator"
                     onChange={handleUserTypeChange}
+                    checked={values.userType === 'translator'}
                 />
                 <br />
 
@@ -128,62 +149,66 @@ export default function Register(props) {
                 <input 
                     type="password" 
                     name="password" 
-                    value={values.password}
+                    value={"values.password"}
                     onChange={ handleChange }
                     required 
                 />
 
                 <br />
                 
-                {isTranslator ? 
-                    <>
-                        <label htmlFor="tag">Tag</label>
-                        <select
-                            name="tag"
-                            value={values.tag}
-                            onChange={handleChange}
-                            required
-                        >
-                        <option value={null}>Select tag(s)</option>
-                            {
-                            values.tags.map((tag) => (
-                                <option 
-                                    key={tag.id} 
-                                    value={tag.tag_name}>
-                                    {tag.tag_name}
-                                </option>
-                            ))
-                            }
-                        </select>
-                        <label htmlFor="language">Language</label>
-                        <select
-                            name="selectedLanguages"
-                            value={values.selectedLanguages}
-                            onChange={handleChange}
-                            required
-                            
-                        >
-                            <option value={null}>Select a language</option>
-                            {
-                                values.languages.map(language => {
-                                    return <option 
-                                            key={language.id} 
-                                            value={language.language_name}
-                                            >
-                                            {language.language_name}
-                                            </option>
-                                    })
-                            }
-                        </select>
-                    </> : ''
-                }
-
+                {values.userType === 'translator' && (
+                <>
+                    <label htmlFor="tag">Tag</label>
+                    <input
+                        type="text"
+                        name="tag"
+                        value={values.tag}
+                        onChange={handleChange}
+                        required
+                    />
+                    <option value={null}>Select tag(s)</option>
+                        {values.tags.map((tag) => (
+                            <option 
+                                key={tag.id} 
+                                value={tag.tag_name}>
+                                {tag.tag_name}
+                            </option>
+                        ))}
+            
+                    <label htmlFor="selectedLanguages">Language</label>
+                    <select
+                        name="selectedLanguages"
+                        value={values.selectedLanguages}
+                        onChange={handleChange}
+                        multiple
+                        required
+                    >
+                        <option value={null}>Select language(s)</option>
+                        {values.languages.map((language) => (
+                            <option 
+                                key={language.id} 
+                                value={language.language_name}>
+                                {language.language_name}
+                            </option>
+                        ))}
+                        {/* { values.languages.map((language) => (
+                            <option 
+                                key={language.id} 
+                                value={language.language_name}>{language.language_name}
+                            </option>
+                        ))} */}
+                        
+                    </select>
+                 
+                </>
+            )}
+          
             </div>
-           
             <br />
-            <button className="btn">Register</button>
+            <button type="submit" className="btn">Register</button>
 
         </form>
+    
     </>
     )
 }
