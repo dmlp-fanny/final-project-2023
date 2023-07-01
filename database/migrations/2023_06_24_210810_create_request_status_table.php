@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('request_status', function (Blueprint $table) {
             $table->id();
             $table->foreignId('request_id');
-            $table->foreignId('translator_id');
-            $table->string('status')->nullable();
-            $table->timestamp('created_at');
+            $table->foreignId('translator_id')->nullable();
+            $table->foreignId('status_id')->nullable();
+            $table->timestamp('invitation_sent_at');
             $table->timestamp('revoked_at')->nullable();
             $table->timestamp('accepted_at')->nullable();
-            $table->timestamp('denied_at')->nullable();
+            $table->timestamp('declined_at')->nullable();
+            $table->timestamp('confirmed_at')->nullable();
+            $table->timestamp('turned_down_at')->nullable();
             $table->timestamp('expires_at')->nullable();
         });
     }

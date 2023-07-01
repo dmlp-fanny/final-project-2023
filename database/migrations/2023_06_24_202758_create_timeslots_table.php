@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('timeslots', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('translator_id');
             $table->string('weekday');
-            $table->integer('from_time');
-            $table->integer('till_time');
+            $table->time('from_time');
+            $table->time('till_time');
             $table->timestamps();
         });
     }

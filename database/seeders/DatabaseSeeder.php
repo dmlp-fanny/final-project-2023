@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             LanguageSeeder::class,
-            TimeslotSeeder::class,
+            // TimeslotSeeder::class,
             TagSeeder::class
         ]);
 
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             ->create()
             ->each(function ($translator) {
                 $translator->tags()->sync(Tag::all()->random(mt_rand(5, 10)));
-                $translator->timeslots()->sync(Timeslot::all()->random(mt_rand(5, 10)));
+                Timeslot::factory(5)->create(['translator_id' => $translator->id]);
                 $translator->fromLanguages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => Language::all()->random()->id]);
             });
     }

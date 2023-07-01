@@ -20,7 +20,8 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',
                 'string',
@@ -29,12 +30,17 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
+            'phone_number' => ['required'],
         ])->validate();
 
         return User::create([
-            'name' => $input['name'],
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'username' => $input['name'][0].$input['name'],
+            'location' => $input['location'],
+            'phone_number' => $input['phone_number'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-        ]);
+        ])->tags()->attach($input['tags'])->fromLanguages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
     }
 }

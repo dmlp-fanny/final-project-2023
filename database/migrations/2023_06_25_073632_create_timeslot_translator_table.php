@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('timeslot_translator', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('timeslot_id');
-            $table->foreignId('translator_id');
-        });
+        // Schema::create('timeslot_translator', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('timeslot_id');
+        //     $table->foreignId('translator_id');
+        // });
     }
 
     /**

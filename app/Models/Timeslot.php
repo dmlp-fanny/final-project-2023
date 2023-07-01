@@ -11,6 +11,6 @@ class Timeslot extends Model
 
     public function translators()
     {
-        return $this->belongsToMany(Translator::class);
+        return $this->belongsTo(Translator::class);
     }
 }
