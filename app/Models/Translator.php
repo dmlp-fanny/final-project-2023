@@ -9,7 +9,7 @@ class Translator extends Model
 {
     use HasFactory;
 
-    public function translator()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

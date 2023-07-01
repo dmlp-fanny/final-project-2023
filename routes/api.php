@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\LanguageController;
 use App\Http\Controllers\Api\RequestController;
 use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\TranslatorController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/languages', [LanguageController::class, 'index']);
 
+Route::get('/requests', [RequestController::class, 'index']);
+
+Route::get('/requests/{user_id}', [RequestController::class, 'show'])->where('user_id','[0-9]+');
+
 Route::get('/tags', [TagController::class, 'index']);
 
-Route::get('/requests', [RequestController::class, 'index']);
+Route::get('/translators/{translator_id}', [TranslatorController::class, 'show'])->where('translator_id', '[0-9]+');
+
+Route::get('/users/{user_id}', [UserController::class, 'show'])->where('user_id', '[0-9]+');
