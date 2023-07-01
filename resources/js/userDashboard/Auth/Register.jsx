@@ -10,9 +10,10 @@ export default function Register(props) {
         password: '',
         password_confirmation: '',
         tag:'',
-        languages: [],
-        selectedLanguages: [],
-        tags: []
+        languages: '',
+        from_language: '',
+        to_language: '',
+        tags: '',
     });
 
     const [isTranslator, setIsTranslator] = useState(false)
@@ -134,6 +135,25 @@ export default function Register(props) {
                 />
 
                 <br />
+                <label htmlFor="location">Location</label>
+                <input 
+                    type="location" 
+                    name="location" 
+                    value={values.location}
+                    onChange={ handleChange }
+                     
+                />
+                <br />
+                <label htmlFor="picture">Profile picture</label>
+                <input 
+                    type="url" 
+                    name="picture" 
+                    value=""
+                    onChange={ handleChange }
+                    required
+                />
+
+                <br />
                 
                 {isTranslator ? 
                     <>
@@ -155,14 +175,15 @@ export default function Register(props) {
                             ))
                             }
                         </select>
-                        <label htmlFor="language">Language</label>
+                        <label htmlFor="from_language">From</label>
                         <select
-                            name="selectedLanguages"
-                            value={values.selectedLanguages}
+                            name="from_language"
+                            value={values.from_language}
                             onChange={handleChange}
                             required
                             
                         >
+                           
                             <option value={null}>Select a language</option>
                             {
                                 values.languages.map(language => {
@@ -175,6 +196,28 @@ export default function Register(props) {
                                     })
                             }
                         </select>
+
+                        <label htmlFor="to_language">To</label>
+                        <select
+                            name="to_language"
+                            value={values.to_language}
+                            onChange={handleChange}
+                            required
+                            
+                        >
+                         <option value={null}>Select a language</option>
+                            {
+                                values.languages.map(language => {
+                                    return <option 
+                                            key={language.id} 
+                                            value={language.language_name}
+                                            >
+                                            {language.language_name}
+                                            </option>
+                                    })
+                            }
+                        </select>
+
                     </> : ''
                 }
 
