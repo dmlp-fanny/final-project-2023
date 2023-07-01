@@ -36,38 +36,38 @@ export default function PostRequests() {
                 >
                     <input
                         type="text"
-                        value={newRequest.title}
+                        // value={newRequest.title}
                         onChange={handleInputValues}
                     />
                     <input
                         type="textarea"
-                        value={newRequest.description}
+                        // value={newRequest.description}
                         onChange={handleInputValues}
                     />
                     <input type="text" placeholder="tags" />
                     <input
                         type="date"
-                        values={newRequest.date}
+                        // values={newRequest.date}
                         onChange={handleInputValues}
                     />
                     <input type="time" onChange={handleInputValues} />
                     For how long is this appointment?
                     <input
                         type="text"
-                        values={newRequest.duration}
+                        // values={newRequest.duration}
                         onChange={handleInputValues}
                     />
                     Where is this appointment?
                     <input
                         type="address"
-                        values={newRequest.address}
+                        // values={newRequest.address}
                         onChange={handleInputValues}
                     />
                     <button>Submit a Request</button>
                 </form>
             </div>
 
-            <PostRequestsBtn />
+            {/* <PostRequestsBtn /> */}
         </main>
     );
 }
