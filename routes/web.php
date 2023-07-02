@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Homepage::class, 'index']);
 
 // User Dashboard
+
+Route::view('/dashboard/{path?}', 'user-dashboard.dashboard')->where('path', '.*');
+
+
+
+

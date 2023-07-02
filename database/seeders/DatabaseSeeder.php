@@ -3,6 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Language;
+use App\Models\Request;
+use App\Models\Tag;
+use App\Models\Timeslot;
+use App\Models\Translator;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +20,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            LanguageSeeder::class,
+            // TimeslotSeeder::class,
+            TagSeeder::class
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(10)->create();
+
+        Request::factory(10)
+            ->state(new Sequence(fn () => ['user_id' => User::all()->random()]))
+            ->create()
+            ->each(function ($request) {
+                $request->tags()->sync(Tag::all()->random(mt_rand(1, 2)));
+            });
+
+        Translator::factory(10)
+            ->create()
+            ->each(function ($translator) {
+                $translator->tags()->sync(Tag::all()->random(mt_rand(5, 10)));
+                $translator->fromLanguages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => Language::all()->random()->id]);
+                Timeslot::factory(5)->create(['translator_id' => $translator->id]);
+            });
     }
 }
