@@ -48,7 +48,6 @@ export default function Register(props) {
  
         event.preventDefault();
 
-
         try {
             const response = await axios.post('/register', values);
             const response_data = response.data;
