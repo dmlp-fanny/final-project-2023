@@ -1,11 +1,13 @@
 import { useState } from "react";
-import PostRequestsBtn from "../PostRequestsBtn/PostRequestsBtn";
+import TagsSelection from "../TagsSelection/TagsSelection";
 
 export default function PostRequests() {
-    const [newRequest, setNewRequest] = useState(null);
+    const [newRequest, setNewRequest] = useState([]);
+    const [selectedTags, setSelectedTags] = useState([])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
             const response = await axios.post(
                 "/api/requests/store",
@@ -21,6 +23,7 @@ export default function PostRequests() {
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,
+                'tags': selectedTags
             };
         });
     };
@@ -36,38 +39,44 @@ export default function PostRequests() {
                 >
                     <input
                         type="text"
-                        // value={newRequest.title}
+                        name="title"
+                        value={newRequest.title}
                         onChange={handleInputValues}
                     />
                     <input
                         type="textarea"
-                        // value={newRequest.description}
+                        name="description"
+                        value={newRequest.description}
                         onChange={handleInputValues}
                     />
-                    <input type="text" placeholder="tags" />
                     <input
                         type="date"
-                        // values={newRequest.date}
+                        name="date"
+                        values={newRequest.date}
                         onChange={handleInputValues}
                     />
-                    <input type="time" onChange={handleInputValues} />
+                    <input type="time" name="time" onChange={handleInputValues} />
                     For how long is this appointment?
                     <input
                         type="text"
-                        // values={newRequest.duration}
+                        name="duration"
+                        values={newRequest.duration}
                         onChange={handleInputValues}
                     />
                     Where is this appointment?
                     <input
                         type="address"
-                        // values={newRequest.address}
+                        name="address"
+                        values={newRequest.address}
                         onChange={handleInputValues}
                     />
+
+                    <TagsSelection selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+
                     <button>Submit a Request</button>
                 </form>
             </div>
 
-            {/* <PostRequestsBtn /> */}
         </main>
     );
 }
