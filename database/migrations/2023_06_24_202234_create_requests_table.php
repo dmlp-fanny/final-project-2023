@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('date');
             $table->time('from_time');
             $table->time('till_time');
-            $table->foreignId('from_language');
-            $table->foreignId('to_language');
+            $table->foreignId('from_language_id');
+            $table->foreignId('to_language_id');
             $table->timestamps();
         });
     }
