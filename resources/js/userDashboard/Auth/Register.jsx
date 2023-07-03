@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
-
+import './Register.css';
 export default function Register(props) {
 
     const [values, setValues] = useState({
@@ -79,9 +79,10 @@ export default function Register(props) {
  
     return (
     <>
-        <form action="/register" method="post" onSubmit={ handleSubmit }>
+        <form className="form-signup" action="/register" method="post" onSubmit={ handleSubmit }>
             <div className="inputbox">
                 <p>Are you a translator?</p>
+                
                 <input
                     type="checkbox"
                     name="translator"
@@ -140,6 +141,7 @@ export default function Register(props) {
                 />
 
                 <br/>
+                <label htmlFor="password">Password confirmation</label>
                 <input type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } />
 
                 <br />
@@ -182,7 +184,7 @@ export default function Register(props) {
                             ))
                             }
                         </select>
-
+                        <br />
                         <label htmlFor="from_language">From</label>
                         <select
                             name="from_language"
@@ -204,7 +206,7 @@ export default function Register(props) {
                                     })
                             }
                         </select>
-
+                        <br />
                         <label htmlFor="to_language">To</label>
                         <select
                             name="to_language"
