@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.logo {
+    cursor: pointer;
+}
+li, a, button {
+    color: rgb(30, 28, 26);
+    text-decoration: none;
+    list-style-type: none;
+}
+a {
+    transition: all 0.3s ease 0s;
+}
+a:hover {
+    background-color: rgb(193, 249, 219);
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    height: 30px;
+    align-items: center;
+    background-color: grey;
+    
+}
+button {
+    padding: 5px;
+    background-color: rgba(0,136,169, 1);
+    border: none;
+    border-radius: 2px;
+}
