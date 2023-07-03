@@ -1,18 +1,30 @@
 import { useState } from "react";
 import TagsSelection from "../TagsSelection/TagsSelection";
+import axios from "axios";
+import LanguageSelection from "../LanguageSelection/LanguageSelection";
 
 export default function PostRequests() {
-    const [newRequest, setNewRequest] = useState([]);
-    const [selectedTags, setSelectedTags] = useState([])
+    const [newRequest, setNewRequest] = useState({
+        title: '',
+        description: '',
+        date: '',
+        time: '',
+        duration: '',
+        from_language: '',
+        to_language: '',
+        tags: []
+    });
+    const [selectedTags, setSelectedTags] = useState([]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        console.log({...newRequest, 'tags': selectedTags});
         try {
-            const response = await axios.post(
-                "/api/requests/store",
-                newRequest
-            );
+            const response = await axios.post("/api/requests/store", {
+                ...newRequest,
+                tags: selectedTags,
+            });
         } catch (error) {
             console.log(error);
         }
@@ -23,7 +35,6 @@ export default function PostRequests() {
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,
-                'tags': selectedTags
             };
         });
     };
@@ -44,7 +55,7 @@ export default function PostRequests() {
                         onChange={handleInputValues}
                     />
                     <input
-                        type="textarea"
+                        type="text"
                         name="description"
                         value={newRequest.description}
                         onChange={handleInputValues}
@@ -52,31 +63,35 @@ export default function PostRequests() {
                     <input
                         type="date"
                         name="date"
-                        values={newRequest.date}
+                        value={newRequest.date}
                         onChange={handleInputValues}
                     />
-                    <input type="time" name="time" onChange={handleInputValues} />
-                    For how long is this appointment?
                     <input
-                        type="text"
+                        type="time"
+                        name="time"
+                        value={newRequest.time}
+                        onChange={handleInputValues}
+                    />
+                    For how long is this appointment (in hours)?
+                    <input
+                        type="number"
                         name="duration"
-                        values={newRequest.duration}
+                        value={newRequest.duration}
                         onChange={handleInputValues}
                     />
-                    Where is this appointment?
-                    <input
-                        type="address"
-                        name="address"
-                        values={newRequest.address}
-                        onChange={handleInputValues}
+                    
+                    <TagsSelection
+                        selectedTags={selectedTags}
+                        setSelectedTags={setSelectedTags}
                     />
 
-                    <TagsSelection selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+                    From which language? 
+
+                    <LanguageSelection from_language={newRequest.from_language} to_language={newRequest.to_language} handleInputValues={handleInputValues} />
 
                     <button>Submit a Request</button>
                 </form>
             </div>
-
         </main>
     );
 }

@@ -1,10 +1,10 @@
 import { useEffect, useReducer } from 'react';
 import reducer from './userDashboard/Context/reducer'
 import state from './userDashboard/Context/state'
-import Register from './userDashboard/Auth/Register';
 import axios from 'axios';
 import UserDashboard from './userDashboard/UserDashboard';
 import Context from './userDashboard/Context';
+import Register from './userDashboard/Auth/Register';
 
 
 function App() {

@@ -35,7 +35,7 @@ class Translator extends Model
 
     public function languages()
     {
-        return $this->belongsToMany(Language::class, '');
+        return $this->belongsToMany(Language::class,'language_translator', 'translator_id', 'from_language_id');
     }
 
     public function fromLanguages()

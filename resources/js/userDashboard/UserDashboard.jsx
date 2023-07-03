@@ -4,6 +4,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Profile from "./Components/Profile/Profile";
 import Requests from "./Components/Requests/Requests";
 import Register from "./Auth/Register";
+import '../../css/style.scss'
 
 export default function UserDashboard() {
 
