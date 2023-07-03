@@ -15,7 +15,7 @@ a {
     transition: all 0.3s ease 0s;
 }
 a:hover {
-    background-color: rgb(193, 249, 219);
+    background-color: #43978d;
 }
 header {
     display: flex;
@@ -26,10 +26,11 @@ header {
 .navbar {
     display: flex;
     justify-content: space-around;
-    width: 400px;
-    height: 30px;
+    width: 600px;
+    height: 50px;
     align-items: center;
-    background-color: grey;
+    background-color: #43978d;
+    border-radius: 5px;
     
 }
 button {
@@ -37,4 +38,38 @@ button {
     background-color: rgba(0,136,169, 1);
     border: none;
     border-radius: 2px;
+}
+.hero {
+    width: 100%;
+    /* border: 1px solid grey; */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.btn {
+    width: 90px;
+    height: 30px;
+    background-color: black;
+    color: antiquewhite;
+    border-radius: 2px;
+    text-align: center;
+}
+.description-boxes {
+    width: 100%;
+    border: 1px solid grey;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.boxes {
+    height: 350px;
+    width: 350px;
+    border: 1px solid grey;
+    padding: 10px;
+    justify-content: center;
 }

@@ -23,8 +23,8 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <a href="#login" class="login-button">Login</a>
-        <a href="#signup" class="signup-button">Sign Up</a>
+        <a href="#login" class="btn login-button">Login</a>
+        <a href="#signup" class="btn signup-button">Sign Up</a>
     </header>
 
     {{-- Hero session: Headline, background img, short text, Sign up button --}}
@@ -32,7 +32,7 @@
     <section class="hero">
         <h1>Call for action text headline</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa. Placeat.</p>
-        <a href="#signup" class="signup-button">Sign Up</a>
+        <a href="#signup" class="btn signup-button">Sign Up</a>
     </section>
 
     {{-- Description session: headline, short text, 3 sub items (flexbox: each sub item includes 1 img, 1 bold text, 1 short text) --}}
@@ -82,7 +82,7 @@
               <li><a href="#">Services</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
-            <a href="#signup" class="signup-button">Sign Up</a>
+            <a href="#signup" class="btn signup-button">Sign Up</a>
           </div>
     </footer>
 </body>
