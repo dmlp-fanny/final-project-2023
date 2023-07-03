@@ -54,7 +54,7 @@ class CreateNewUser implements CreatesNewUsers
             ]);
 
             $translator->tags()->sync(Tag::find($input['tag']));
-            $translator->fromLanguages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
+            $translator->languages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
         }
 
         return $user;

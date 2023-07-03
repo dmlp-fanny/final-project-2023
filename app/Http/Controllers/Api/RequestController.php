@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\PostRequestRequest;
+use App\Models\Language;
 use App\Models\Request;
-use Illuminate\Http\Request as HttpRequest;
+use App\Models\Tag;
+use Carbon\Carbon;
 
 class RequestController extends Controller
 {
@@ -21,10 +24,25 @@ class RequestController extends Controller
 
         return $requests;
     }
-
-    public function store(HttpRequest $request)
+    public function store(PostRequestRequest $request)
     {
         $newRequest = new Request();
+
+        $newRequest->user_id = \Auth::id() ?? 1;
+        $newRequest->title = $request->input('title');
+        $newRequest->description = $request->input('description');
+        $newRequest->date = $request->input('date');
+        $newRequest->from_time = $request->input('time');
+        $newRequest->till_time = (Carbon::createFromFormat('H:i', $request->input('time'))->addHours($request->input('duration')));
+        $newRequest->from_language = $request->input('from_language');
+        $newRequest->to_language = $request->input('to_language');
+        $newRequest->save();
+
+        if ($request->has('tags')) {
+            foreach ($request->input('tags') as $tag => $value) {
+                $newRequest->tags()->sync(Tag::find($value));
+            }
+        }
 
         return $newRequest;
     }

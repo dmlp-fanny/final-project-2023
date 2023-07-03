@@ -26,8 +26,8 @@ class RequestFactory extends Factory
             'date' => fake()->dateTimeBetween('+1 week', '+1 month'),
             'from_time' => $time,
             'till_time' => $time + 2,
-            'from_language' => 4,
-            'to_language' => 5,
+            'from_language_id' => 4,
+            'to_language_id' => 5,
         ];
     }
 }

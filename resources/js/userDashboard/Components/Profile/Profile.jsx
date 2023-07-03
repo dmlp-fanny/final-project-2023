@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import TranslatorSection from "../Translators/TranslationSection/TranslatorSection";
+import TranslatorSection from "../_Translators/TranslationSection/TranslatorSection";
 import Context from "../../Context";
 
 export default function Profile() {
     const { context: { user }} = useContext(Context)
 
     return (
-        <main>
+        <>
             {user ? (
                 <div className="profile_container">
                     <h2>Your Profile</h2>
@@ -31,6 +31,6 @@ export default function Profile() {
             ) : (
                 ""
             )}
-        </main>
+        </>
     )
 }

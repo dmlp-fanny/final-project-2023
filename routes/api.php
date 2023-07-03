@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\RequestController;
 use App\Http\Controllers\Api\TagController;
 use App\Http\Controllers\Api\TranslatorController;
 use App\Http\Controllers\Api\UserController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,14 +22,18 @@ use Illuminate\Support\Facades\Route;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user', function (Request $request) {
-    $user = \App\Models\User::with('translator.tags')->find(1);
+    // working with one selected user
+
+
+    $user = User::with('translator.tags')->find(1);
+    // return $user;
+
+
+    // logged in user if there is 
+    // $user = User::with('translator.tags')->find($request->user()->id);
     return $user;
-    // 1 find user with current logged in user's ID and retrieve with tags
-    $user = \App\Models\User::with('translator.tags')->find($request->user()->id);
-    // 2 get current logged in user and propmt Laravel to get additional relationships
-    // $user = $request->user();
-    // $user->translator->tags;
-    // return $request->user();
+
+
 });
 
 Route::get('/languages', [LanguageController::class, 'index']);
@@ -36,6 +41,8 @@ Route::get('/languages', [LanguageController::class, 'index']);
 Route::get('/requests', [RequestController::class, 'index']);
 
 Route::get('/requests/{user_id}', [RequestController::class, 'show'])->where('user_id', '[0-9]+');
+
+Route::post('/requests/store', [RequestController::class, 'store']);
 
 Route::get('/tags', [TagController::class, 'index']);
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
- 
+import './Login.css';
 export default function Login(props) {
  
     const [values, setValues] = useState({
@@ -67,14 +67,26 @@ export default function Login(props) {
     }
  
     return (
-        <form action="/login" method="post" onSubmit={ handleSubmit }>
- 
-            <input type="email" name="email" value={ values.email } onChange={ handleChange } />
- 
-            <input type="password" name="password" value={ values.password } onChange={ handleChange } />
- 
-            <button>Login</button>
- 
-        </form>
+        <div className="auth">
+            <form action="/login" method="post" onSubmit={ handleSubmit }>
+                <label htmlFor="email">Email</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    value={ values.email } 
+                    onChange={ handleChange } 
+                />
+                <label htmlFor="password">Password</label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    value={ values.password } 
+                    onChange={ handleChange } 
+                    />
+    
+                <button className='btn'>Login</button>
+    
+            </form>
+        </div>
     );
 }
