@@ -22,11 +22,16 @@ use Illuminate\Support\Facades\Route;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user', function (Request $request) {
-    // $user = User::with('translator.tags')->find(1);
-    // return $user;
-    // 1 find user with current logged in user's ID and retrieve with tags
-    $user = User::with('translator.tags')->find($request->user()->id);
+    // working with one selected user
+
+
+    $user = User::with('translator.tags')->find(1);
     return $user;
+
+
+    // logged in user if there is 
+    // $user = User::with('translator.tags')->find($request->user()->id);
+    // return $user;
 
 
 });
