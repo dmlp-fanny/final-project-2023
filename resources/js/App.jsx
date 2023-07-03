@@ -5,7 +5,7 @@ import axios from 'axios';
 import UserDashboard from './userDashboard/UserDashboard';
 import Context from './userDashboard/Context';
 import Register from './userDashboard/Auth/Register';
-
+import '../css/app.css'
 
 function App() {
 

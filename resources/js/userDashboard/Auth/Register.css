@@ -1,19 +1,4 @@
-* {
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
-    font-family: Lato;
-    color: black;
-}
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100%; */
-    background: #e7faf8;
-    line-height: 25px;
-    color: #fff;
-}
+
 .form-signup {
     width: 500px;
     /* height: 100%; */

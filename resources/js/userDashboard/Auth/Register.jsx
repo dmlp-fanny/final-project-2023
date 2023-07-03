@@ -78,7 +78,7 @@ export default function Register(props) {
     
  
     return (
-    <>
+    <div className='auth'>
         <form className="form-signup" action="/register" method="post" onSubmit={ handleSubmit }>
             <div className="inputbox">
                 <p>Are you a translator?</p>
@@ -237,6 +237,6 @@ export default function Register(props) {
             <button className="btn">Register</button>
 
         </form>
-    </>
+    </div>
     )
 }

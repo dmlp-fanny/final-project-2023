@@ -4,14 +4,16 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Profile from "./Components/Profile/Profile";
 import Requests from "./Components/Requests/Requests";
 import Register from "./Auth/Register";
-import '../../css/style.scss'
+import './UserDashboard.scss';
 
 export default function UserDashboard() {
 
     return (
-        
+        <div className="dashboard">
+
             <BrowserRouter>
                 <Navigation />
+                <main>
                 <Routes>
                     <Route path="/dashboard" element={<Dashboard />}></Route>
                     <Route
@@ -27,7 +29,9 @@ export default function UserDashboard() {
                         element={<Register />}
                     ></Route>
                 </Routes>
+        </main>
             </BrowserRouter>
+        </div>
         
     );
 }
