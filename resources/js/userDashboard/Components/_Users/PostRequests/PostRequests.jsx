@@ -3,7 +3,7 @@ import TagsSelection from "../TagsSelection/TagsSelection";
 import axios from "axios";
 import LanguageSelection from "../LanguageSelection/LanguageSelection";
 
-export default function PostRequests() {
+export default function PostRequests({ loadMyRequests }) {
     const [newRequest, setNewRequest] = useState({
         title: '',
         description: '',
@@ -19,12 +19,14 @@ export default function PostRequests() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log({...newRequest, 'tags': selectedTags});
         try {
             const response = await axios.post("/api/requests/store", {
                 ...newRequest,
                 tags: selectedTags,
             });
+
+            loadMyRequests();
+            
         } catch (error) {
             console.log(error);
         }
