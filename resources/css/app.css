@@ -10,10 +10,14 @@ body {
 }
 
 .auth {
+    background: linear-gradient(300deg, rgba(38,77,89,1) 21%, rgba(67,151,141,1) 68%, rgba(249,173,106,0.7049413515406162) 100%) ;
+    background-position: fixed;
+    background-attachment: scroll;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .dashboard {
