@@ -11,7 +11,6 @@ export default function UntakenRequests() {
 
     const loadRequests = async () => {
         try {
-            // const response = await axios.get("/api/requests/" + (user ? user.id : 0));
             const response = await axios.get("/api/requests/");
             setUntakenRequests(response.data);
         } catch (err) {
@@ -29,9 +28,13 @@ export default function UntakenRequests() {
             <h2>Untaken Requests</h2>
             <div className="untaken_requests_cards">
                 {untakenRequests &&
-                    untakenRequests.map((request) => (
-                        <UntakenRequestsCard key={request.id} request={request} />
-                    ))}
+                    untakenRequests.map((request) => {
+                        if (request.translator_id === null) {
+                            return <UntakenRequestsCard key={request.id} request={request} />
+                        }
+                        console.log(request);
+                    })
+                }
             </div>
         </div>
     );

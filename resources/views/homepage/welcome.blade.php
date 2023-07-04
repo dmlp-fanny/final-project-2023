@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    @vite('resources/css/welcome.css');
+    @vite('resources/css/welcome.scss');
 
     <title>Landing page</title>
 </head>
@@ -81,20 +81,10 @@
               <li><a href="#">Services</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
-            
+               
             <p>&copy; 2023 The Chopsticks Duo. All rights reserved.</p>
-                
-            <div class="footer-contactform">
-                <h4>Contact us</h4>
-                <br/>
-                <input class="input-contactform-field" type="email" placeholder="Email address">
-                <br/>
-                <textarea placeholder="Message"></textarea>
-                <br/>
-                <a class="btn" href="#">Submit</a>
-            </div>
-          </div>
-          
+        </div>
+        
     </footer>
 </body>
 </html>
