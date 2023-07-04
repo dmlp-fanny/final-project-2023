@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function Navigation() {
 
-    const { dispatch } = useContext(Context)
+    const { context: {user}, dispatch } = useContext(Context)
 
     const handleLogout = async () => {
         const response = await axios.post('/logout')
@@ -19,8 +19,8 @@ export default function Navigation() {
         <aside>
             <article className="profile_card">
                 <img src="" alt="" />
-                <div className="profile_card_name">Name Surname</div>
-                <button className="profile_card_btn" onClick={handleLogout}>Log Out</button>
+                <div className="profile_card_name">{user.first_name} {user.last_name}</div>
+                <button className="profile_card_btn" onClick={ handleLogout }>Log Out</button>
             </article>
 
             <nav className="navigation">
