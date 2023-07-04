@@ -5,12 +5,12 @@ import PendingRequests from "../_Translators/PendingRequests";
 
 export default function Dashboard() {
     return (
-            <div className="dashboard_container">
+            <>
                 <ActiveRequests />
 
                 <CalendarView />
 
                 <PendingRequests />
-            </div>
+            </>
     );
 }

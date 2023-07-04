@@ -54,17 +54,18 @@ aside {
 
 main {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-}
-
-.dashboard_container {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(5, 1fr);
-    height: 100%;
-    width: 100%;
+}
+
+// .dashboard_container {
+//     display: grid;
+//     grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+//     height: 100%;
+//     width: 100%;
 
     .active_requests {
         background: linear-gradient(-45deg, #264d59, #43978d);
@@ -110,7 +111,7 @@ main {
         grid-area: 2 / 3 / 4 / 6;
         margin: 2rem;
     }
-}
+// }
 
 .profile_container {
     background-color: white;
@@ -141,61 +142,73 @@ main {
     }
 }
 
-.postRequests_container {
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: $shadow;
-    min-height: 80%;
-    padding: 3rem;
-    width: 60%;
-    h2 {
-        color: #43978d;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
-        input {
-            border: none;
-            border-bottom: 1px solid black;
-            margin: 1rem;
-            padding: 0.6rem;
-            &:focus {
-                outline: none;
-                border-bottom: 1px solid #d46c4e;
+// .requests_container {
+//     display: flex;
+//     height: 100%;
+//     width: 100%;
+//     justify-content: space-around;
+//     align-items: center;
+//     gap: 10px;
+    .requests_view {
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: $shadow;
+        margin: 2rem 4rem;
+        grid-area: 1 / 1 / 5 / 5;
+        overflow-y: scroll;
+        padding: 3rem;
+
+        h2 {
+            color: #43978d;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            input {
+                border: none;
+                border-bottom: 1px solid black;
+                margin: 1rem;
+                padding: 0.6rem;
+                &:focus {
+                    outline: none;
+                    border-bottom: 1px solid #d46c4e;
+                }
+            }
+            button {
+                background-color: #d46c4e;
+                border: none;
+                color: white;
+                cursor: pointer;
+                padding: 1rem;
+                margin: 0 auto;
+                width: 50%;
+                &:hover {
+                    background-color: #43978d;
+                }
             }
         }
-        button {
-            background-color: #d46c4e;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 1rem;
-            margin: 0 auto;
-            width: 50%;
-            &:hover {
-                background-color: #43978d;
-            }
-        }
     }
-}
+// }
 .requests_sideMenu {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 80%;
-}
-.postRequestsBtn, .emptydivs {
-    background-color: #264d59;
     border-radius: 16px;
-    color: white;
-    box-shadow: $shadow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 250px;
-    height: 100px;
+    overflow-y: scroll;
+    grid-area: 1 / 5 / 5 / 6;
+    margin: 2rem;
+    flex-direction: column;
+    gap: 10px;
+    .postRequestsBtn, .emptydivs {
+        background-color: #264d59;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+    .emptydivs {
+        background-color: white;
+        height: 150px;
+    }
 }
 
-.emptydivs {
-    background-color: white;
-}

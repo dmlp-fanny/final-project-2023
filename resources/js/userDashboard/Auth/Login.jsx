@@ -1,67 +1,93 @@
-import { useState, useContext } from 'react';
-import './Login.css';
-import Context from "../Context";
-import axios from 'axios';
+import { useState } from "react";
+import "./Login.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 export default function Login(props) {
 
-    const { dispatch } = useContext(Context)
- 
     const [values, setValues] = useState({
-        email: '',
-        password: ''
-    })
+        email: "",
+        password: "",
+    });
 
     const handleSubmit = async (event) => {
- 
         event.preventDefault();
 
         try {
-            const response = await axios.post('/login', values);
-            
+            const response = await axios.post("/login", values);
+            if (response) {
+                props.loadUser() 
+            }
 
         } catch (error) {
             switch (error.response.status) {
                 case 422:
-                    console.log('VALIDATION FAILED:', error.response.data.errors);
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
                     break;
                 case 500:
-                    console.log('UNKNOWN ERROR', error.response.data);
+                    console.log("UNKNOWN ERROR", error.response.data);
                     break;
             }
         }
-    }
- 
+    };
+
     const handleChange = (event) => {
-        setValues(previous_values => {
-            return ({...previous_values, 
-                [event.target.name]: event.target.value
-            });
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                [event.target.name]: event.target.value,
+            };
         });
-    }
- 
+    };
+
     return (
         <div className="auth">
-            <form action="/login" method="post" onSubmit={ handleSubmit }>
-                <label htmlFor="email">Email</label>
-                <input 
-                    type="email" 
-                    name="email" 
-                    value={ values.email } 
-                    onChange={ handleChange } 
-                />
-                <label htmlFor="password">Password</label>
-                <input 
-                    type="password" 
-                    name="password" 
-                    value={ values.password } 
-                    onChange={ handleChange } 
-                    />
-    
-                <button className='btn'>Login</button>
-    
-            </form>
+            <div className="form-login">
+                <h1>Login</h1>
+                <form action="/login" method="post" onSubmit={handleSubmit}>
+                    <div className="inputbox">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            value={values.email}
+                            onChange={handleChange}
+                        />
+
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={values.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="remember-me">
+                        <label>
+                            <input type="checkbox" />
+                            Remember me
+                        </label>
+
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <button className="btn">
+                        Login
+                    </button>
+
+                    <div className="register">
+                        <p>
+                            Don't have an account? <Link to={"/register"}>Sign up</Link>
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

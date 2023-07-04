@@ -1,13 +1,11 @@
 export default function PostRequestsBtn () {
+
+    const handleClick = () => {
+        console.log('clickity');
+    }
     return (
-        <div className="requests_sideMenu">
-        <div className="postRequestsBtn">
+        <div className="postRequestsBtn" onClick={handleClick}>
             <h3>Post a New Request +</h3>
-        </div>
-        <div className="emptydivs"></div>
-        <div className="emptydivs"></div>
-        <div className="emptydivs"></div>
-        <div className="emptydivs"></div>
         </div>
     )
 }

@@ -40,8 +40,7 @@ export default function PostRequests() {
     };
 
     return (
-        <main>
-            <div className="postRequests_container">
+            <>
                 <h2>Post a Request</h2>
                 <form
                     onSubmit={(event) => {
@@ -91,7 +90,6 @@ export default function PostRequests() {
 
                     <button>Submit a Request</button>
                 </form>
-            </div>
-        </main>
+            </>
     );
 }
