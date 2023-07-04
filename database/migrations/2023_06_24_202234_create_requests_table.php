@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('translator_id')->nullable();
             $table->string('title');
             $table->text('description');
-            $table->string('status')->nullable();
+            $table->foreignId('status')->nullable();
             $table->date('date');
             $table->time('from_time');
             $table->time('till_time');
