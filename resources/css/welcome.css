@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: Lato;
 }
 .logo {
     cursor: pointer;
@@ -39,7 +40,7 @@ button {
     border: none;
     border-radius: 2px;
 }
-.hero {
+.banner {
     width: 100%;
     /* border: 1px solid grey; */
     height: 300px;
@@ -48,6 +49,11 @@ button {
     justify-content: center;
     align-items: center;
     gap: 50px;
+}
+.description h2,p {
+    text-align: center;
+    padding: 50px;
+
 }
 .btn {
     width: 90px;
@@ -59,17 +65,36 @@ button {
 }
 .description-boxes {
     width: 100%;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
    
 }
 .boxes {
     height: 350px;
     width: 350px;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     padding: 10px;
     justify-content: center;
+}
+
+.footer p {
+    text-align: center;
+
+}
+.footer {
+    display: flex;
+    justify-content: space-around;
+    line-height: 1.5;
+    align-items: end;
+    background-color: #43978d;
+    padding: 60px;
+    cursor: pointer;
+    min-height: 150px;
+}
+.footer-contactform {
+    margin: 10px;
 }

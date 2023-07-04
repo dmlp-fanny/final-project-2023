@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    @vite('resources/css/welcome.css');
 
     <title>Landing page</title>
 </head>
@@ -29,7 +29,7 @@
 
     {{-- Hero session: Headline, background img, short text, Sign up button --}}
 
-    <section class="hero">
+    <section class="banner">
         <h1>Call for action text headline</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa. Placeat.</p>
         <a href="#signup" class="btn signup-button">Sign Up</a>
@@ -39,7 +39,7 @@
 
     <section class="description">
         <h2>How it works?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati!Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecatiLorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati</p>
         <div class="description-boxes">
             <div class="boxes box1">
                 <img src="" alt="">
@@ -67,7 +67,7 @@
 
     {{-- Feedback session --}}
 
-    <section class="feedback">
+    <section class="joinus">
         
     </section>
 
@@ -75,15 +75,26 @@
 
     <footer>
         <div class="footer">
-            <p>&copy; 2023 The Chopsticks Duo. All rights reserved.</p>
-            <ul>
+            <ul class="footer-items">
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
-            <a href="#signup" class="btn signup-button">Sign Up</a>
+            
+            <p>&copy; 2023 The Chopsticks Duo. All rights reserved.</p>
+                
+            <div class="footer-contactform">
+                <h4>Contact us</h4>
+                <br/>
+                <input class="input-contactform-field" type="email" placeholder="Email address">
+                <br/>
+                <textarea placeholder="Message"></textarea>
+                <br/>
+                <a class="btn" href="#">Submit</a>
+            </div>
           </div>
+          
     </footer>
 </body>
 </html>
