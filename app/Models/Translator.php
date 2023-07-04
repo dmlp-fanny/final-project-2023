@@ -25,7 +25,7 @@ class Translator extends Model
 
     public function potential_requests()
     {
-        return $this->hasMany(Request::class, 'potential_translators');
+        return $this->belongsToMany(Request::class, 'request_status');
     }
 
     public function tags()

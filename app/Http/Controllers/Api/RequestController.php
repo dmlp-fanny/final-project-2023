@@ -13,7 +13,7 @@ class RequestController extends Controller
 {
     public function index()
     {
-        $requests = Request::query()->with('user')->get();
+        $requests = Request::query()->with('user')->with('from_language')->with('to_language')->get();
 
         return $requests;
     }
