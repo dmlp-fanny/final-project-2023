@@ -4,8 +4,8 @@ import state from './userDashboard/Context/state'
 import axios from 'axios';
 import UserDashboard from './userDashboard/UserDashboard';
 import Context from './userDashboard/Context';
-import Register from './userDashboard/Auth/Register';
 import '../css/app.css'
+import Login from './userDashboard/Auth/Login';
 
 function App() {
 
@@ -43,7 +43,7 @@ function App() {
   return (
     <Context.Provider value={{ context, dispatch }}>
       {
-        context.user ? <UserDashboard /> : <Register />
+        context.user ? <UserDashboard /> : <Login />
       }
     </Context.Provider>
   )

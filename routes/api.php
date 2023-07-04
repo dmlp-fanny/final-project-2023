@@ -25,12 +25,12 @@ Route::get('/user', function (Request $request) {
     // working with one selected user
 
 
-    $user = User::with('translator.tags')->find(1);
+    // $user = User::with('translator.tags')->find(1);
     // return $user;
 
 
     // logged in user if there is 
-    // $user = User::with('translator.tags')->find($request->user()->id);
+    $user = User::with('translator.tags')->find($request->user()->id);
     return $user;
 
 

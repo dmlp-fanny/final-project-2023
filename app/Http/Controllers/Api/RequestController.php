@@ -28,14 +28,14 @@ class RequestController extends Controller
     {
         $newRequest = new Request();
 
-        $newRequest->user_id = \Auth::id() ?? 1;
+        $newRequest->user_id = $request->user()->id;
         $newRequest->title = $request->input('title');
         $newRequest->description = $request->input('description');
         $newRequest->date = $request->input('date');
         $newRequest->from_time = $request->input('time');
         $newRequest->till_time = (Carbon::createFromFormat('H:i', $request->input('time'))->addHours($request->input('duration')));
-        $newRequest->from_language = $request->input('from_language');
-        $newRequest->to_language = $request->input('to_language');
+        $newRequest->from_language_id = $request->input('from_language');
+        $newRequest->to_language_id = $request->input('to_language');
         $newRequest->save();
 
         if ($request->has('tags')) {
