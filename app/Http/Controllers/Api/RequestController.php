@@ -27,7 +27,7 @@ class RequestController extends Controller
 
     public function showUserRequests($user_id)
     {
-        $requests = Request::query()->where('user_id', $user_id)->with('user')->get();
+        $requests = Request::query()->where('user_id', $user_id)->with('from_language')->with('to_language')->get();
 
         return $requests;
     }
