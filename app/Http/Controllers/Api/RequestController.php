@@ -18,12 +18,20 @@ class RequestController extends Controller
         return $requests;
     }
 
-    public function show($translator_id)
+    public function showTranslatorsRequests($translator_id)
     {
         $requests = Request::query()->where('translator_id', $translator_id)->with('user')->get();
 
         return $requests;
     }
+
+    public function showUserRequests($user_id)
+    {
+        $requests = Request::query()->where('user_id', $user_id)->with('user')->get();
+
+        return $requests;
+    }
+    
     public function store(PostRequestRequest $request)
     {
         $newRequest = new Request();
