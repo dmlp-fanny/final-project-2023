@@ -32,7 +32,8 @@ export default function UserRequests() {
                         <Route path='/matching' element={<Matching/> }/>
                         <Route path='/request-detail' element={<RequestDetail/> }/>
                     </Routes> */}
-                    <PostRequests loadMyRequests={loadMyRequests}/>
+                    {/* <PostRequests loadMyRequests={loadMyRequests}/> */}
+                    <Matching />
                 </div>
                 <div className="requests_sideMenu">
                     <PostRequestsBtn />

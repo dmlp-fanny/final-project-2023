@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import './Register.css';
-export default function Register(props) {
+export default function Register({ loadUser }) {
 
     const [values, setValues] = useState({
         first_name: '',
@@ -50,7 +50,7 @@ export default function Register(props) {
 
         try {
             const response = await axios.post('/register', values);
-            const response_data = response.data;
+            loadUser()
         } catch (error) {
             switch (error.response.status) {
                 case 422:

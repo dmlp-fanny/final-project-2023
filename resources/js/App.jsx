@@ -39,7 +39,7 @@ function App() {
         <Context.Provider value={{ context, dispatch }}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/dashboard/*" element={ context.user ? (<UserDashboard />) : (<Login loadUser={loadUser} />)} />
+                    <Route path="/dashboard/*" element={ context.user ? (<UserDashboard loadUser={loadUser}/>) : (<Login loadUser={loadUser} />)} />
                     <Route path="/register" element={<Register />} />
                 </Routes>
             </BrowserRouter>
