@@ -48,6 +48,8 @@ Route::post('/requests/store', [RequestController::class, 'store']);
 
 Route::get('/tags', [TagController::class, 'index']);
 
+Route::get('/translators', [TranslatorController::class, 'index']);
+
 Route::get('/translators/{translator_id}', [TranslatorController::class, 'show'])->where('translator_id', '[0-9]+');
 
 Route::get('/users/{user_id}', [UserController::class, 'show'])->where('user_id', '[0-9]+');
