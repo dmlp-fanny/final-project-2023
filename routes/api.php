@@ -40,7 +40,9 @@ Route::get('/languages', [LanguageController::class, 'index']);
 
 Route::get('/requests', [RequestController::class, 'index']);
 
-Route::get('/requests/{translator_id}', [RequestController::class, 'showTranslatorsRequests'])->where('translator_id', '[0-9]+');
+Route::get('/requests/{requests_id}', [RequestController::class, 'show'])->where('requests_id', '[0-9]+');
+
+Route::get('/requests/translators/{translator_id}', [RequestController::class, 'showTranslatorsRequests'])->where('translator_id', '[0-9]+');
 
 Route::get('/requests/user/{user_id}', [RequestController::class, 'showUserRequests'])->where('user_id', '[0-9]+');
 
