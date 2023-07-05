@@ -35,21 +35,16 @@ class Translator extends Model
 
     public function languages()
     {
-        return $this->belongsToMany(Language::class,'language_translator', 'translator_id', 'from_language_id');
-    }
-
-    public function fromLanguages()
-    {
         return $this->belongsToMany(Language::class, 'language_translator', 'translator_id', 'from_language_id');
-    }
-
-    public function toLanguages()
-    {
-        return $this->belongsToMany(Language::class, 'language_translator', 'translator_id', 'to_language_id');
     }
 
     public function timeslots()
     {
-        return $this->belongsToMany(Timeslot::class);
+        return $this->hasMany(Timeslot::class);
+    }
+
+    public function languageTranslators()
+    {
+        return $this->hasMany(LanguageTranslator::class);
     }
 }
