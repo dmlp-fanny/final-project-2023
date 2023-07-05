@@ -13,7 +13,7 @@ $primary_font: Lato;
 }
 
 a:hover {
-    background-color: #3cb7a9;
+    background-color: $secondary_color;
 }
 header {
     display: flex;

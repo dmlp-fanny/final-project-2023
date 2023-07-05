@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import './Register.css';
+import TagsSelection from "../Components/_Users/TagsSelection/TagsSelection";
+import TimeTable from "./TimeTable";
 export default function Register(props) {
 
     const [values, setValues] = useState({
@@ -166,7 +168,7 @@ export default function Register(props) {
                 
                 {isTranslator ? 
                     <>
-                        <label htmlFor="tag">Tag</label>
+                        {/* <label htmlFor="tag">Tag</label>
                         <select
                             name="tag"
                             value={values.tag}
@@ -183,17 +185,16 @@ export default function Register(props) {
                                 </option>
                             ))
                             }
-                        </select>
+                        </select> */}
+                        <TagsSelection />
                         <br />
                         <label htmlFor="from_language">From</label>
                         <select
                             name="from_language"
                             value={values.from_language}
                             onChange={handleChange}
-                            required
-                            
-                        >
-                           
+                            required  
+                        > 
                             <option value={null}>Select a language</option>
                             {
                                 languages.map(language => {
@@ -206,14 +207,15 @@ export default function Register(props) {
                                     })
                             }
                         </select>
+
                         <br />
+
                         <label htmlFor="to_language">To</label>
                         <select
                             name="to_language"
                             value={values.to_language}
                             onChange={handleChange}
-                            required
-                            
+                            required  
                         >
                          <option value={null}>Select a language</option>
                             {
@@ -227,10 +229,62 @@ export default function Register(props) {
                                     })
                             }
                         </select>
-
+                        <br />
+                        <label htmlFor="experience">Experience</label>
+                        <textarea cols="50" rows="10"></textarea>
+                        <TimeTable />
+                        {/* <table>
+                            <tr>
+                                <th>Day</th>
+                                <th>Start time</th>
+                                <th>End time</th>
+                            </tr>
+                            <tr>
+                                <td>Monday</td>
+                               
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00"/></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
+                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
+                                <br/></td>
+                            </tr>
+                        </table> */}
                     </> : ''
                 }
-
             </div>
            
             <br />
