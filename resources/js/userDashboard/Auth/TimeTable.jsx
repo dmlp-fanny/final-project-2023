@@ -86,7 +86,7 @@ export default function TimeTable({ setScheduleData }) {
                         ))}
                     </tbody>
       </table>
-      {/* <button className="btn" onClick={ handleSubmit }>Register</button> */}
+    
     </>
   );
 }

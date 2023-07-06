@@ -19,7 +19,7 @@ export default function Register(props) {
         isTranslator: '',
     });
 
-    const [tags, setTags] = useState([])
+    const [selectedTags, setSelectedTags] = useState([])
     const [languages, setLanguages] = useState([])
     const [isTranslator, setIsTranslator] = useState(false)
     const [scheduleData, setScheduleData] = useState([])
@@ -52,7 +52,7 @@ export default function Register(props) {
 
         try {
             // const response = await axios.post('/register', values);
-            const response = await axios.post('/register', {...values, scheduleData });
+            const response = await axios.post('/register', {...values, selectedTags, scheduleData });
             const response_data = response.data;
         } catch (error) {
             switch (error.response.status) {
@@ -169,7 +169,7 @@ export default function Register(props) {
                 
                 {isTranslator ? 
                     <>
-                        <TagsSelection />
+                        <TagsSelection setSelectedTags={ setSelectedTags }/>
                         <br />
                         <label htmlFor="from_language">From</label>
                         <select
