@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import './Register.css';
-export default function Register({ loadUser }) {
+import TagsSelection from "../Components/_Users/TagsSelection/TagsSelection";
+import TimeTable from "./TimeTable";
+export default function Register(props) {
 
     const [values, setValues] = useState({
         first_name: '',
@@ -17,10 +19,10 @@ export default function Register({ loadUser }) {
         isTranslator: '',
     });
 
-    const [tags, setTags] = useState([])
+    const [selectedTags, setSelectedTags] = useState([])
     const [languages, setLanguages] = useState([])
-
     const [isTranslator, setIsTranslator] = useState(false)
+    const [scheduleData, setScheduleData] = useState([])
 
     useEffect(() => {
         axios.get('/api/languages')
@@ -49,7 +51,7 @@ export default function Register({ loadUser }) {
         event.preventDefault();
 
         try {
-            const response = await axios.post('/register', values);
+            const response = await axios.post('/register', {...values, selectedTags, scheduleData });
             loadUser()
         } catch (error) {
             switch (error.response.status) {
@@ -166,34 +168,15 @@ export default function Register({ loadUser }) {
                 
                 {isTranslator ? 
                     <>
-                        <label htmlFor="tag">Tag</label>
-                        <select
-                            name="tag"
-                            value={values.tag}
-                            onChange={handleChange}
-                            required
-                        >
-                        <option value={null}>Select tag(s)</option>
-                            {
-                            tags.map((tag) => (
-                                <option 
-                                    key={tag.id} 
-                                    value={tag.id}>
-                                    {tag.tag_name}
-                                </option>
-                            ))
-                            }
-                        </select>
+                        <TagsSelection setSelectedTags={ setSelectedTags }/>
                         <br />
                         <label htmlFor="from_language">From</label>
                         <select
                             name="from_language"
                             value={values.from_language}
                             onChange={handleChange}
-                            required
-                            
-                        >
-                           
+                            required  
+                        > 
                             <option value={null}>Select a language</option>
                             {
                                 languages.map(language => {
@@ -206,14 +189,15 @@ export default function Register({ loadUser }) {
                                     })
                             }
                         </select>
+
                         <br />
+
                         <label htmlFor="to_language">To</label>
                         <select
                             name="to_language"
                             value={values.to_language}
                             onChange={handleChange}
-                            required
-                            
+                            required  
                         >
                          <option value={null}>Select a language</option>
                             {
@@ -227,14 +211,17 @@ export default function Register({ loadUser }) {
                                     })
                             }
                         </select>
-
+                        <br />
+                        <label htmlFor="experience">Experience</label>
+                        <textarea cols="50" rows="10"></textarea>
+                        <TimeTable setScheduleData={ setScheduleData } />
+                        
                     </> : ''
                 }
-
             </div>
            
             <br />
-            <button className="btn">Register</button>
+            <button className="btn" >Register</button>
 
         </form>
     </div>
