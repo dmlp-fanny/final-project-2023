@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './Register.css';
 import TagsSelection from "../Components/_Users/TagsSelection/TagsSelection";
 import TimeTable from "./TimeTable";
-export default function Register(props) {
+export default function Register({ loadUser }) {
 
     const [values, setValues] = useState({
         first_name: '',
@@ -34,17 +34,6 @@ export default function Register(props) {
         console.log('Error fetching languages:', error);
       });
     }, []);
-    
-    useEffect(() => {
-        axios.get('/api/tags')
-      .then(response => {
-        const tags = response.data;
-        setTags(tags)
-      })
-      .catch(error => {
-        console.log('Error fetching tags:', error);
-      });
-    }, []);
 
     const handleSubmit = async (event) => {
  
@@ -52,7 +41,9 @@ export default function Register(props) {
 
         try {
             const response = await axios.post('/register', {...values, selectedTags, scheduleData });
-            loadUser()
+            if (response) {
+                loadUser() 
+            }
         } catch (error) {
             switch (error.response.status) {
                 case 422:
@@ -169,6 +160,7 @@ export default function Register(props) {
                 {isTranslator ? 
                     <>
                         <TagsSelection setSelectedTags={ setSelectedTags }/>
+                        
                         <br />
                         <label htmlFor="from_language">From</label>
                         <select
