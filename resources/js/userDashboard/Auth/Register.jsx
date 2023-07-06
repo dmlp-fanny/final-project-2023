@@ -21,8 +21,8 @@ export default function Register(props) {
 
     const [tags, setTags] = useState([])
     const [languages, setLanguages] = useState([])
-
     const [isTranslator, setIsTranslator] = useState(false)
+    const [scheduleData, setScheduleData] = useState([])
 
     useEffect(() => {
         axios.get('/api/languages')
@@ -51,7 +51,8 @@ export default function Register(props) {
         event.preventDefault();
 
         try {
-            const response = await axios.post('/register', values);
+            // const response = await axios.post('/register', values);
+            const response = await axios.post('/register', {...values, scheduleData });
             const response_data = response.data;
         } catch (error) {
             switch (error.response.status) {
@@ -168,24 +169,6 @@ export default function Register(props) {
                 
                 {isTranslator ? 
                     <>
-                        {/* <label htmlFor="tag">Tag</label>
-                        <select
-                            name="tag"
-                            value={values.tag}
-                            onChange={handleChange}
-                            required
-                        >
-                        <option value={null}>Select tag(s)</option>
-                            {
-                            tags.map((tag) => (
-                                <option 
-                                    key={tag.id} 
-                                    value={tag.id}>
-                                    {tag.tag_name}
-                                </option>
-                            ))
-                            }
-                        </select> */}
                         <TagsSelection />
                         <br />
                         <label htmlFor="from_language">From</label>
@@ -232,63 +215,14 @@ export default function Register(props) {
                         <br />
                         <label htmlFor="experience">Experience</label>
                         <textarea cols="50" rows="10"></textarea>
-                        <TimeTable />
-                        {/* <table>
-                            <tr>
-                                <th>Day</th>
-                                <th>Start time</th>
-                                <th>End time</th>
-                            </tr>
-                            <tr>
-                                <td>Monday</td>
-                               
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00"/></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                            <tr>
-                                <td>Tuesday</td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                            <tr>
-                                <td>Wednesday</td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                            <tr>
-                                <td>Thursday</td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                            <tr>
-                                <td>Saturday</td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                            <tr>
-                                <td>Sunday</td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" /></td>
-                                <td><input id="appt-time" type="time" name="appt-time" min="07:00" max="18:00" />
-                                <br/></td>
-                            </tr>
-                        </table> */}
+                        <TimeTable setScheduleData={ setScheduleData } />
+                        
                     </> : ''
                 }
             </div>
            
             <br />
-            <button className="btn">Register</button>
+            <button className="btn" >Register</button>
 
         </form>
     </div>

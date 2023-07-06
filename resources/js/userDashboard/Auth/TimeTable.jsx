@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import './Register.css';
-export default function TimeTable(props) {
+export default function TimeTable({ setScheduleData }) {
     const [schedule, setSchedule] = useState([
         { day: "Sun", starttime: "", endtime: "" },
         { day: "Mon", starttime: "", endtime: "" },
@@ -35,7 +35,10 @@ export default function TimeTable(props) {
         list[id][name] = value;
         setSchedule(list);
     };
-   
+    
+    const handleSubmit = () => {
+        setScheduleData(schedule);
+    };
     return (
         <>
             <p>Select your availability</p>
@@ -50,39 +53,40 @@ export default function TimeTable(props) {
                     </thead>
 
                     <tbody>
-          {schedule.map((sch, id) => (
-            <tr key={id}>
-              <td>{sch.day}</td>
-              <td>
-                <select
-                  name="starttime"
-                  onChange={(e) => handleSelectedTime(e, id)}
-                  value={sch.starttime}
-                >
-                  {time.map((t) => (
-                    <option key={t.id} value={t.t}>
-                      {t.t}
-                    </option>
-                  ))}
-                </select>
-                </td>
-              <td>
-                <select
-                  name="endtime"
-                  onChange={(e) => handleSelectedTime(e, id)}
-                  value={sch.endtime}
-                >
-                  {time.map((t) => (
-                    <option key={t.id} value={t.t}>
-                      {t.t}
-                    </option>
-                  ))}
-                </select>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+                        {schedule.map((sch, id) => (
+                            <tr key={id}>
+                            <td>{sch.day}</td>
+                            <td>
+                                <select
+                                name="starttime"
+                                onChange={(e) => handleSelectedTime(e, id)}
+                                value={sch.starttime}
+                                >
+                                {time.map((t) => (
+                                    <option key={t.id} value={t.t}>
+                                    {t.t}
+                                    </option>
+                                ))}
+                                </select>
+                                </td>
+                            <td>
+                                <select
+                                name="endtime"
+                                onChange={(e) => handleSelectedTime(e, id)}
+                                value={sch.endtime}
+                                >
+                                {time.map((t) => (
+                                    <option key={t.id} value={t.t}>
+                                    {t.t}
+                                    </option>
+                                ))}
+                                </select>
+                            </td>
+                            </tr>
+                        ))}
+                    </tbody>
       </table>
+      {/* <button className="btn" onClick={ handleSubmit }>Register</button> */}
     </>
   );
 }
