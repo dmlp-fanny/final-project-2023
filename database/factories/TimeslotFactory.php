@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,14 +18,13 @@ class TimeslotFactory extends Factory
      */
     public function definition(): array
     {
-        $time = fake()->time('H:i:s', '19:00:00');
-        // $time = mt_rand(strtotime('07:00:00'), strtotime('19:00:00'));
+        $time = CarbonImmutable::createFromFormat('H:i:s', (fake()->numberBetween(7, 15)) . ':00:00');
 
         return [
             'translator_id' => null,
             'weekday' => fake()->dayOfWeek(),
-            'from_time' => Carbon::createFromFormat('H:i:s', $time)->roundHours(1),
-            'till_time' => Carbon::createFromFormat('H:i:s', $time)->roundHours(1)->addHours(fake()->numberBetween(1,5)),
+            'from_time' =>  $time,
+            'till_time' => $time->addHours(fake()->numberBetween(4, 8)),
         ];
     }
 }

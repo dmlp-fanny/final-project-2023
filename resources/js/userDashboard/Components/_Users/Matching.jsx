@@ -2,23 +2,13 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import TranslatorsCard from "./TranslatorsCard/TranslatorsCard"
 
-export default function Matching () {
+export default function Matching ( { id } ) {
 
     const [translators, setTranslators] = useState(null)
-    const [request, setRequest] = useState(null)
 
     const loadTranslators = async () => {
         try {
-            const response = await axios.get('/api/translators')
-            setTranslators(response.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    const loadRequest = async () => {
-        try {
-            const response = await axios.get('/api/requests/' + requestId)
+            const response = await axios.get(`/api/translators/matching/${1}`)
             setTranslators(response.data);
         } catch (err) {
             console.log(err);
@@ -27,7 +17,7 @@ export default function Matching () {
 
     useEffect(() => {
         loadTranslators()
-        loadRequest()
+
     }, [])
     
     return (

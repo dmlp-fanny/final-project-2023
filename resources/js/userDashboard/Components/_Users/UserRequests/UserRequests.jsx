@@ -10,7 +10,9 @@ import RequestDetail from "../RequestDetail";
 
 export default function UserRequests() {
     const {context: { user }} = useContext(Context);
+     
     const [myRequests, setMyRequests] = useState(null)
+    const [currentRequest, setCurrentRequest] = useState(null)
 
     const loadMyRequests = async () => {
         try {
@@ -32,8 +34,8 @@ export default function UserRequests() {
                         <Route path='/matching' element={<Matching/> }/>
                         <Route path='/request-detail' element={<RequestDetail/> }/>
                     </Routes> */}
-                    {/* <PostRequests loadMyRequests={loadMyRequests}/> */}
-                    <Matching />
+                    {/* <PostRequests setCurrentRequset={setCurrentRequest} loadMyRequests={loadMyRequests}/> */}
+                    <Matching request={currentRequest}/>
                 </div>
                 <div className="requests_sideMenu">
                     <PostRequestsBtn />

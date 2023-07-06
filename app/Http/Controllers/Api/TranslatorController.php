@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Request;
 use App\Models\Translator;
-use Illuminate\Database\Query\JoinClause;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class TranslatorController extends Controller
@@ -28,8 +28,35 @@ class TranslatorController extends Controller
 
     public function show($translator_id)
     {
-        $translator = Translator::findOrFail($translator_id)->with('user')->first();
+        $translator = Translator::findOrFail($translator_id)->with(['user'])->first();
 
         return $translator;
+    }
+
+    public function matching($request_id)
+    {
+        $request = Request::with('tags')->findOrFail($request_id);
+
+        $translators = Translator::whereHas('timeslots', function ($query) use ($request) {
+            $query->where('timeslots.weekday', Carbon::createFromFormat('Y-m-d', $request->date)->format('l'))
+                ->where('timeslots.from_time', '<=', $request->from_time)
+                ->where('timeslots.till_time', '>=', $request->till_time);
+        })->with('timeslots')
+            ->whereHas('tags', function ($query) use ($request) {
+                $query->whereIn('tags.id', $request->tags->pluck('id'));
+            })->with('tags')
+            ->whereHas('languageTranslators', function ($query) use ($request) {
+                $query->where('from_language_id', $request->from_language_id);
+                $query->where('to_language_id', $request->to_language_id);
+            })
+            ->with([
+                'languageTranslators',
+                'languageTranslators.fromLanguage',
+                'languageTranslators.toLanguage'
+            ])
+
+            ->get();
+
+        return $translators;
     }
 }

@@ -11,7 +11,8 @@ export default function ActiveRequests() {
 
     const loadRequests = async () => {
         try {
-            const response = await axios.get("/api/requests/" + (user ? user.id : 0));
+            const response = await axios.get(`/api/translators/${user.id}`);
+            console.log(response);
             setActiveRequests(response.data);
         } catch (err) {
             console.log(err);

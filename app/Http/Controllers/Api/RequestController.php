@@ -20,16 +20,9 @@ class RequestController extends Controller
 
     public function show($request_id)
     {
-        $request = Request::find($request_id)->with('from_language')->with('to_language')->get();
+        $request = Request::find($request_id)->with('from_language')->with('to_language')->first();
 
         return $request;
-    }
-
-    public function showTranslatorsRequests($translator_id)
-    {
-        $requests = Request::query()->where('translator_id', $translator_id)->with('user')->get();
-
-        return $requests;
     }
 
     public function showUserRequests($user_id)
