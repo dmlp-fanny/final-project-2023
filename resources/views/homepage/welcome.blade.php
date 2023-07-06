@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    @vite('resources/css/welcome.scss');
+    @vite('resources/css/welcome.scss')
 
     <title>Landing page</title>
 </head>
@@ -14,17 +14,20 @@
     {{-- Header session: Logo, Navigation bar, Login & Sign up buttons --}}
 
     <header>
-        <img class="logo" alt="">
-        <nav>
-            <ul class="navbar">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+        
+        <div class="navbar">
+            <img class="logo" src="https://img.icons8.com/dusk/64/rice-bowl.png" alt="rice-bowl"/>
+            
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li> 
             </ul>
-        </nav>
-        <a href="#login" class="btn login-button">Login</a>
-        <a href="#signup" class="btn signup-button">Sign Up</a>
+            
+            <a href="#">Login</a>
+            
+            <button class="btn signup-btn">Signup</button>
+          </div>
     </header>
 
     {{-- Hero session: Headline, background img, short text, Sign up button --}}
@@ -32,7 +35,7 @@
     <section class="banner">
         <h1>Call for action text headline</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa. Placeat.</p>
-        <a href="#signup" class="btn signup-button">Sign Up</a>
+        <a href="#signup" class="btn signup-btn">Sign Up</a>
     </section>
 
     {{-- Description session: headline, short text, 3 sub items (flexbox: each sub item includes 1 img, 1 bold text, 1 short text) --}}
@@ -62,29 +65,51 @@
      {{-- Review session --}}
 
     <section class="reviews">
-
+        <p>REVIEW SECTION IS HERE</p>
     </section>
 
     {{-- Feedback session --}}
 
     <section class="joinus">
+        <div class="testimonials">
+            <img class="card-img" src="" alt="">
+            <div class="card">
+                <header class="card-header"> 
+                    <div>
+                        <h3>Check out what others have said about us and join us to help others</h3>
+                    </div>
+                </header>
+                <p class="card-lead">John Doe</p>
+                <p class="card-quote">"I am very happy: I need a translator to help with the cardiovascular checkup. The application is very user-friendly. The translator is also very helpful and friendly...."</p>
+                <button><a href="#">Learn more</a></button>
+            </div>
+           
+        </div>
+       
         
     </section>
 
     {{-- footer section  --}}
 
     <footer>
-        <div class="footer">
-            <ul class="footer-items">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-               
-            <p>&copy; 2023 The Chopsticks Duo. All rights reserved.</p>
+        <div class="contact">
+          <a href="#">About</a>
+          <a href="#">Home</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="faq">
+            <a href="#">For translators</a>
+            <a href="#">For clients</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 The Chopsticks Duo. All rights reserved.
+          </div>
+        <div>
+          <input type="email" placeholder="Your Email">
+          <button class="btn">Register</button>
         </div>
         
-    </footer>
+      </footer>
 </body>
 </html>
