@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     @vite('resources/css/welcome.scss')
 
@@ -15,20 +16,26 @@
 
     <header>
         
-        <div class="navbar">
-            <img class="logo" src="https://img.icons8.com/dusk/64/rice-bowl.png" alt="rice-bowl"/>
-            
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li> 
-            </ul>
-            
-            <a href="/dashboard/login">Login</a>
-            
-            {{-- <button class="btn signup-btn">Signup</button> --}}
-            <a href="http://www.final-project.test/register">Signup</a>
-          </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">The Chopsticks Duo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <img class="navbar-brand" src="https://img.icons8.com/dusk/64/rice-bowl.png" alt="rice-bowl"/>
+                <div class="collapse navbar-collapse" id="navbarNav"> 
+                    <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#">Home</a></li>
+                    <li class="nav-item"><a href="#">About</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li> 
+                    </ul>
+                </div>    
+                <a class="nav-link" href="/dashboard/login">Login</a>
+                <a class="btn btn-primary" href="http://www.final-project.test/register">Signup</a>
+                
+            {{-- <a href="http://www.final-project.test/register">Signup</a> --}}
+            </div>
+        </nav>
     </header>
 
     {{-- Hero session: Headline, background img, short text, Sign up button --}}
@@ -112,5 +119,6 @@
         </div>
         
       </footer>
-</body>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
