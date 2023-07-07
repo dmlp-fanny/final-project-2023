@@ -22,11 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user', function (Request $request) {
-
-    $user = User::with('translator.tags')->find($request->user()->id);
+    $user = User::with('translator.tags')->find($request->user());
     return $user;
-
-
 });
 
 Route::get('/languages', [LanguageController::class, 'index']);

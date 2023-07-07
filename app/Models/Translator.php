@@ -10,7 +10,8 @@ class Translator extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id'
+        'user_id',
+        'experience'
     ];
 
     public function user()
