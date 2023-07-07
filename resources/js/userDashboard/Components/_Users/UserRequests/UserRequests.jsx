@@ -34,8 +34,8 @@ export default function UserRequests() {
                         <Route path='/matching' element={<Matching/> }/>
                         <Route path='/request-detail' element={<RequestDetail/> }/>
                     </Routes> */}
-                    {/* <PostRequests setCurrentRequset={setCurrentRequest} loadMyRequests={loadMyRequests}/> */}
-                    <Matching request={currentRequest}/>
+                    <PostRequests setCurrentRequset={setCurrentRequest} loadMyRequests={loadMyRequests}/>
+                    {/* <Matching request={currentRequest}/> */}
                 </div>
                 <div className="requests_sideMenu">
                     <PostRequestsBtn />

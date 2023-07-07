@@ -13,7 +13,6 @@ export default function Register({ loadUser }) {
         password: '',
         password_confirmation: '',
         location: '',
-        tag:'',
         from_language: '',
         to_language: '',
         isTranslator: '',
@@ -38,6 +37,8 @@ export default function Register({ loadUser }) {
     const handleSubmit = async (event) => {
  
         event.preventDefault();
+
+        console.log({...values, selectedTags, scheduleData });
 
         try {
             const response = await axios.post('/register', {...values, selectedTags, scheduleData });
@@ -206,6 +207,7 @@ export default function Register({ loadUser }) {
                         <br />
                         <label htmlFor="experience">Experience</label>
                         <textarea cols="50" rows="10"></textarea>
+
                         <TimeTable setScheduleData={ setScheduleData } />
                         
                     </> : ''

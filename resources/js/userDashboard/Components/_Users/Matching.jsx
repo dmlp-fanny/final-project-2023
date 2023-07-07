@@ -8,7 +8,7 @@ export default function Matching ( { id } ) {
 
     const loadTranslators = async () => {
         try {
-            const response = await axios.get(`/api/translators/matching/${1}`)
+            const response = await axios.get(`/api/translators/matching/${id}`)
             setTranslators(response.data);
         } catch (err) {
             console.log(err);
@@ -17,7 +17,6 @@ export default function Matching ( { id } ) {
 
     useEffect(() => {
         loadTranslators()
-
     }, [])
     
     return (
