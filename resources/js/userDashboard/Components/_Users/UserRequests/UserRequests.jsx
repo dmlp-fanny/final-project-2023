@@ -30,8 +30,8 @@ export default function UserRequests() {
             <>
                 <div className="requests_view">
                     {/* <Routes>
-                        <Route path='/post-request' element={<PostRequests loadMyRequests={loadMyRequests}/>}/>
-                        <Route path='/matching' element={<Matching/> }/>
+                        <Route path='/post-request' element={<PostRequests setCurrentRequset={setCurrentRequest} loadMyRequests={loadMyRequests}/>}/>
+                        <Route path='/matching' element={<Matching request={currentRequest}/> }/>
                         <Route path='/request-detail' element={<RequestDetail/> }/>
                     </Routes> */}
                     <PostRequests setCurrentRequset={setCurrentRequest} loadMyRequests={loadMyRequests}/>
