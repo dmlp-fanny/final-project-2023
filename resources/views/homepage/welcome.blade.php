@@ -24,9 +24,10 @@
               <li><a href="#">Contact</a></li> 
             </ul>
             
-            <a href="#">Login</a>
+            <a href="/dashboard/login">Login</a>
             
-            <button class="btn signup-btn">Signup</button>
+            {{-- <button class="btn signup-btn">Signup</button> --}}
+            <a href="http://www.final-project.test/register">Signup</a>
           </div>
     </header>
 

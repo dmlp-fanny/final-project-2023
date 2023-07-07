@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './Register.css';
 import TagsSelection from "../Components/_Users/TagsSelection/TagsSelection";
 import TimeTable from "./TimeTable";
+
 export default function Register({ loadUser }) {
 
     const [values, setValues] = useState({
@@ -211,7 +212,7 @@ export default function Register({ loadUser }) {
                     </> : ''
                 }
             </div>
-           
+            {/* <Link to="/register" className="btn">Register</Link> */}
             <br />
             <button className="btn" >Register</button>
 

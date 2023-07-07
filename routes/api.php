@@ -48,3 +48,4 @@ Route::get('/translators/matching/{request_id}', [TranslatorController::class, '
 Route::get('/translators/{translator_id}', [TranslatorController::class, 'show'])->where('translator_id', '[0-9]+');
 
 Route::get('/users/{user_id}', [UserController::class, 'show'])->where('user_id', '[0-9]+');
+

@@ -20,6 +20,10 @@ Route::get('/', [Homepage::class, 'index']);
 
 Route::view('/dashboard/{path?}', 'user-dashboard.dashboard')->where('path', '.*');
 
+Route::get('/register', function () {
+    return view('user-dashboard.dashboard');
+});
 
-
-
+Route::get('/login', function () {
+    return view('user-dashboard.dashboard');
+});
