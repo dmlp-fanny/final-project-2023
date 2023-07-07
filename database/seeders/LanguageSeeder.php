@@ -14,27 +14,15 @@ class LanguageSeeder extends Seeder
     public function run(): void
     {
         $languages = [
-            'Arabic', 
-            'Bengali', 
-            'Bulgarian',
             'Czech',
             'English',
-            'Farsi',
             'French',
             'German',
-            'Hindi',
-            'Indonesian',
-            'Mandarin Chinese',
-            'Polish',
-            'Portuguese',
-            'Romanian',
-            'Russian',
             'Sign Language',
-            'Slovenian',
+            'Italian',
+            'Hungarian',
             'Spanish',
-            'Turkish',
             'Ukrainian',
-            'Uzbek',
             'Vietnamese'
         ];
 
