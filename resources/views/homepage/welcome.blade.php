@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,27 +10,27 @@
 
     <title>Landing page</title>
 </head>
-<body>
+<body> --}}
 
     {{-- Header session: Logo, Navigation bar, Login & Sign up buttons --}}
-
+<x-layout>
     <header>
         
-        <nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary  custom-navbar">
+        <nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary custom-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">The Chopsticks Duo</a>
+                <div class="navbar-brand">The Chopsticks Duo</div>
                
                 <div class="collapse navbar-collapse" id="navbarNav"> 
                     <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li> 
-                    <li class="nav-item"><a class="nav-link" href="/dashboard/login">Login</a></li> 
+                    {{-- <li class="nav-item"><a class="nav-link" href="/dashboard/login">Login</a></li>  --}}
     
                     </ul>
                 </div>    
-                {{-- <a class="nav-link" href="/dashboard/login">Login</a> --}}
-                <a class="btn btn-primary signup-btn" href="http://www.final-project.test/dashboard/register">Signup</a>
+                <a class="nav-link" href="/dashboard/login">Login</a>
+                <a class="btn btn-primary signup-btn" href="/dashboard/register">Sign up</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,12 +43,11 @@
     <section class="banner">
         <div class="banner-content">
             <h1>You speak your mother tongue, we help with translation</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa. Placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa.</p>
-            <a class="btn btn-primary signup-btn" href="http://www.final-project.test/dashboard/register">Signup</a>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
     </section>
 
-    <div class="tags">
+    {{-- <div class="tags">
         <div class="language">
             <span class="badge rounded-pill text-bg-primary">English</span>
             <span class="badge rounded-pill text-bg-secondary">Czech</span>
@@ -70,13 +69,13 @@
             <span class="badge rounded-pill text-bg-dark">Citizenship</span>
             <span class="badge rounded-pill text-bg-primary">Others</span>
         </div>
-    </div>
+    </div> --}}
     
     {{-- Description session:  --}}
 
     <section class="description">
         <h2>How it works?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati!Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecatiLorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati</p>
+        <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati!Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecatiLorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, excepturi nulla omnis ipsa cumque obcaecati</p>
         <div class="description-boxes">
             
             <div class="card" style="width: 18rem;">
@@ -204,5 +203,5 @@
         
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-</html>
+
+</x-layout>
