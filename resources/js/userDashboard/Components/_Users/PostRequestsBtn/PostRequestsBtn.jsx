@@ -1,11 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function PostRequestsBtn () {
 
-    const handleClick = () => {
-        console.log('clickity');
-    }
     return (
-        <div className="postRequestsBtn" onClick={handleClick}>
-            <h3>Post a New Request +</h3>
+        <div className="postRequestsBtn">
+            <Link to="post-request" > Post a New Request </Link>
         </div>
     )
 }

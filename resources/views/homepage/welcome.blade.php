@@ -30,7 +30,7 @@
                     </ul>
                 </div>    
                 {{-- <a class="nav-link" href="/dashboard/login">Login</a> --}}
-                <a class="btn btn-primary signup-btn" href="http://www.final-project.test/register">Signup</a>
+                <a class="btn btn-primary signup-btn" href="http://www.final-project.test/dashboard/register">Signup</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,7 +44,7 @@
         <div class="banner-content">
             <h1>You speak your mother tongue, we help with translation</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa. Placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ex optio? Odio aliquam, iste saepe mollitia architecto eveniet ipsa.</p>
-            <a class="btn btn-primary signup-btn" href="http://www.final-project.test/register">Signup</a>
+            <a class="btn btn-primary signup-btn" href="http://www.final-project.test/dashboard/register">Signup</a>
         </div>
     </section>
 

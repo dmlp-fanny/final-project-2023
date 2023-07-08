@@ -40,7 +40,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/dashboard/*" element={ context.user ? (<UserDashboard loadUser={loadUser}/>) : (<Login loadUser={loadUser} />)} />
-                    <Route path="/register" element={<Register loadUser={loadUser}/>} />
+                    <Route path="/dashboard/register" element={<Register loadUser={loadUser}/>} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>

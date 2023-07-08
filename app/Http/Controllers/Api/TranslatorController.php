@@ -6,13 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Request;
 use App\Models\Translator;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class TranslatorController extends Controller
 {
     public function index()
     {
-
         $translators = Translator::with('user')
             ->with([
                 'languageTranslators',
@@ -28,7 +26,7 @@ class TranslatorController extends Controller
 
     public function show($translator_id)
     {
-        $translator = Translator::findOrFail($translator_id)->with(['user'])->first();
+        $translator = Translator::findOrFail($translator_id)->with(['user', 'requests', 'potential_requests', 'potential_requests.request'])->first();
 
         return $translator;
     }
@@ -46,15 +44,15 @@ class TranslatorController extends Controller
                 $query->whereIn('tags.id', $request->tags->pluck('id'));
             })->with('tags')
             ->whereHas('languageTranslators', function ($query) use ($request) {
-                $query->where('from_language_id', $request->from_language_id);
-                $query->where('to_language_id', $request->to_language_id);
+                $query->where('from_language_id', $request->from_language_id)
+                ->where('to_language_id', $request->to_language_id);
             })
             ->with([
                 'languageTranslators',
                 'languageTranslators.fromLanguage',
                 'languageTranslators.toLanguage'
             ])
-
+            ->with('user')
             ->get();
 
         return $translators;

@@ -10,7 +10,8 @@ class Translator extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id'
+        'user_id',
+        'experience'
     ];
 
     public function user()
@@ -23,9 +24,9 @@ class Translator extends Model
         return $this->hasMany(Request::class);
     }
 
-    public function potential_requests()
+    public function potential_requests() 
     {
-        return $this->belongsToMany(Request::class, 'request_status');
+        return $this->hasMany(RequestStatus::class);
     }
 
     public function tags()

@@ -34,8 +34,8 @@ class Request extends Model
         return $this->belongsTo(Language::class);
     }
 
-    public function potential_translators()
+    public function potential_translators() //many requestStatus
     {
-        return $this->belongsToMany(Translator::class, 'request_status');
+        return $this->hasMany(RequestStatus::class);
     }
 }

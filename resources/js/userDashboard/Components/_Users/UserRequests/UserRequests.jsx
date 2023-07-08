@@ -1,18 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import Context from "../../../Context";
-import PostRequests from "../PostRequests/PostRequests";
 import PostRequestsBtn from "../PostRequestsBtn/PostRequestsBtn";
 import axios from "axios";
 import RequestsList from "../RequestsList/RequestsList";
 import { Route, Routes } from "react-router-dom";
 import Matching from "../Matching";
 import RequestDetail from "../RequestDetail";
+import PostRequestsForm from "../PostRequestForm/PostRequestForm";
 
 export default function UserRequests() {
     const {context: { user }} = useContext(Context);
      
     const [myRequests, setMyRequests] = useState(null)
-    const [currentRequest, setCurrentRequest] = useState(null)
+    const [currentRequest_id, setCurrentRequest_id] = useState(null)
 
     const loadMyRequests = async () => {
         try {
@@ -29,13 +29,13 @@ export default function UserRequests() {
     return (
             <>
                 <div className="requests_view">
-                    {/* <Routes>
-                        <Route path='/post-request' element={<PostRequests loadMyRequests={loadMyRequests}/>}/>
-                        <Route path='/matching' element={<Matching/> }/>
+                    <Routes>
+                        <Route path='/' />
+                        <Route path='/post-request' element={<PostRequestsForm setCurrentRequest_id={setCurrentRequest_id} loadMyRequests={loadMyRequests}/>}/>
+                        <Route path='/matching' element={<Matching currentRequest_id={currentRequest_id}/> }/>
                         <Route path='/request-detail' element={<RequestDetail/> }/>
-                    </Routes> */}
-                    {/* <PostRequests setCurrentRequset={setCurrentRequest} loadMyRequests={loadMyRequests}/> */}
-                    <Matching request={currentRequest}/>
+                    </Routes>
+
                 </div>
                 <div className="requests_sideMenu">
                     <PostRequestsBtn />

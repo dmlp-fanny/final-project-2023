@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\Language;
 use App\Models\Tag;
+use App\Models\Timeslot;
 use App\Models\Translator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -49,12 +50,29 @@ class CreateNewUser implements CreatesNewUsers
         if ($input['isTranslator'] === true)
         {
             $translator = Translator::create([
-            'user_id' => $user->id,
-            // 'experience' => $input['experience']
+                'user_id' => $user->id,
+                'experience' => $input['experience']
             ]);
 
-            $translator->tags()->sync(Tag::find($input['tag']));
+            foreach ($input['scheduleData'] as $key => $timeslot) {
+                if ($timeslot['day'] !== null AND $timeslot['from_time'] !== null AND $timeslot['till_time'] !== null) {
+                    Timeslot::create([
+                        'translator_id' => $translator->id,
+                        'weekday' => $timeslot['day'],
+                        'from_time' => $timeslot['from_time'],
+                        'till_time' => $timeslot['till_time']
+                    ]);
+                }
+            }
+
+            $tags = [];
+                foreach ($input['selectedTags'] as $key => $tag) {
+                    $tags[] = $tag['value'];
+                }
+            $translator->tags()->sync($tags);
+
             $translator->languages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
+            
         }
 
         return $user;

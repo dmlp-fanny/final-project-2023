@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './Register.css';
 import TagsSelection from "../Components/_Users/TagsSelection/TagsSelection";
 import TimeTable from "./TimeTable";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register({ loadUser }) {
 
@@ -11,10 +12,10 @@ export default function Register({ loadUser }) {
         last_name: '',
         email: '',
         phone_number: '',
+        experience: '',
         password: '',
         password_confirmation: '',
         location: '',
-        tag:'',
         from_language: '',
         to_language: '',
         isTranslator: '',
@@ -24,6 +25,8 @@ export default function Register({ loadUser }) {
     const [languages, setLanguages] = useState([])
     const [isTranslator, setIsTranslator] = useState(false)
     const [scheduleData, setScheduleData] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get('/api/languages')
@@ -43,8 +46,11 @@ export default function Register({ loadUser }) {
         try {
             const response = await axios.post('/register', {...values, selectedTags, scheduleData });
             if (response) {
-                loadUser() 
+                loadUser()
             }
+            navigate('/dashboard')
+
+     
         } catch (error) {
             switch (error.response.status) {
                 case 422:
@@ -206,15 +212,15 @@ export default function Register({ loadUser }) {
                         </select>
                         <br />
                         <label htmlFor="experience">Experience</label>
-                        <textarea cols="50" rows="10"></textarea>
+                        <textarea name="experience" cols="50" rows="10" value={values.experience} onChange={ handleChange } />
+
                         <TimeTable setScheduleData={ setScheduleData } />
                         
                     </> : ''
                 }
             </div>
-            {/* <Link to="/register" className="btn">Register</Link> */}
             <br />
-            <button className="btn" >Register</button>
+            <button className="btn">Register</button>
 
         </form>
     </div>
