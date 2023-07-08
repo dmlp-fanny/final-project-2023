@@ -34,6 +34,8 @@ Route::get('/requests/{requests_id}', [RequestController::class, 'show'])->where
 
 Route::get('/requests/user/{user_id}', [RequestController::class, 'showUserRequests'])->where('user_id', '[0-9]+');
 
+Route::get('/requests/pending/{user_id}', [RequestController::class, 'showUserPendingRequests'])->where('user_id', '[0-9]+');
+
 Route::post('/requests/store', [RequestController::class, 'store']);
 
 Route::get('/tags', [TagController::class, 'index']);

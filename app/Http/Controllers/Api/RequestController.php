@@ -28,7 +28,16 @@ class RequestController extends Controller
 
     public function showUserRequests($user_id) // users
     {
-        $requests = Request::query()->where('user_id', $user_id)->with('from_language')->with('to_language')->get();
+        $requests = Request::query()->where('user_id', $user_id)->with(['from_language', 'to_language', 'potential_translators'])->get();
+
+        return $requests;
+    }
+
+    public function showUserPendingRequests($user_id) // users
+    {
+        $requests = RequestStatus::with(['request', 'status'])->whereHas('request', function ($query) use ($user_id) {
+            $query->where('requests.user_id', $user_id)->where('requests.status', null);
+        })->get();
 
         return $requests;
     }
