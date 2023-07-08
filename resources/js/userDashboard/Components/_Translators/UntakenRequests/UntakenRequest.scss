@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,400&family=Open+Sans:wght@400;700&family=PT+Serif&family=Sofia&display=swap');
+* {
+    box-sizing: border-box;
+  }
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Lato';
+  }
+.requests.untaken_requests_card {
+    .request {
+      position: relative;
+    }
+    .request::before {
+      background-image: linear-gradient(300deg, rgba(38, 77, 89, 1) 21%, rgba(67, 151, 141, 1) 68%, rgba(249, 173, 106, 0.7049413515406162) 100%);
+      border-radius: 5px;
+      box-shadow: 2px 0px 20px rgba(0, 0, 0, .1);
+      bottom: 45px;
+      content: '';
+      left: -45px;
+      position: absolute;
+      right: 45px;
+      top: -45px;
+    }
+    .request__block--main {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 5px 25px rgba(0, 0, 0, .15);
+        // min-height: 280px;
+        padding: 20px;
+        padding-top: 50px;
+        position: relative;
+        z-index: 2;
+      }
+      .request__title {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 1.1;
+        margin: 0;
+      }
+      .request__text {
+        margin-top: .66rem;
+      } 
+}
+.untaken_requests_cards {
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-gap: 70px;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 35px;
+  }
+
+  
