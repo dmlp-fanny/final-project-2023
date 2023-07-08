@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from "react";
 
 import Context from "../../../Context";
 import axios from "axios";
-import ConfirmBtn from "../ConfirmBtn/ConfirmBtn";
-import TurnDownBtn from "../TurnDownBtn/TurnDownBtn";
+
+import PendingInvitations from "../PendingInvitations/PendingInvitations";
 
 export default function UsersHome() {
 
@@ -28,22 +28,7 @@ export default function UsersHome() {
 
     return (
         <div>
-            {
-                userPendingRequests && userPendingRequests.map(request => {
-                return <li key={request.id}>
-                    {request.request.title}<br/>
-                    {request.status.status_name}<br />
-                    {
-                        request.status.id === 3 
-                        ? 
-                        <>
-                        <ConfirmBtn requestStatus_id={request.id}/> 
-                        <TurnDownBtn requestStatus_id={request.id}/> 
-                        </>
-                        : ''
-                    }
-                </li>})
-            }
+            <PendingInvitations />
         </div>
     );
 }

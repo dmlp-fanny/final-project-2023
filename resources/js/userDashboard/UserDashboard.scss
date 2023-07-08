@@ -54,8 +54,8 @@ aside {
 
 main {
     flex: 1;
-    display: grid;
-    grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+    // display: grid;
+    // grid-template: repeat(3, 1fr) / repeat(5, 1fr);
     height: 100vh;
 }
     .active_requests {
