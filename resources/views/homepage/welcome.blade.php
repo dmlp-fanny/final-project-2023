@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,10 +10,10 @@
 
     <title>Landing page</title>
 </head>
-<body>
+<body> --}}
 
     {{-- Header session: Logo, Navigation bar, Login & Sign up buttons --}}
-
+<x-layout>
     <header>
         
         <nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary  custom-navbar">
@@ -204,5 +204,5 @@
         
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-</html>
+
+</x-layout>
