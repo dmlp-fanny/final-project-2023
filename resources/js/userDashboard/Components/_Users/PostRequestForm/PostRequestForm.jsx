@@ -4,7 +4,7 @@ import axios from "axios";
 import LanguageSelection from "../LanguageSelection/LanguageSelection";
 import { useNavigate } from "react-router-dom";
 
-export default function PostRequests({ loadMyRequests, setCurrentRequset }) {
+export default function PostRequestsForm({ loadMyRequests, setCurrentRequest_id }) {
     const [newRequest, setNewRequest] = useState({
         title: '',
         description: '',
@@ -29,8 +29,8 @@ export default function PostRequests({ loadMyRequests, setCurrentRequset }) {
                 tags: selectedTags,
             });
 
-            setCurrentRequset(newRequest);
-            navigate('/matching');
+            setCurrentRequest_id(response.data);
+            navigate('/dashboard/requests/matching');
             loadMyRequests();
             
         } catch (error) {

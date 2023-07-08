@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './Register.css';
 import TagsSelection from "../Components/_Users/TagsSelection/TagsSelection";
 import TimeTable from "./TimeTable";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register({ loadUser }) {
 
@@ -25,6 +26,8 @@ export default function Register({ loadUser }) {
     const [isTranslator, setIsTranslator] = useState(false)
     const [scheduleData, setScheduleData] = useState([])
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         axios.get('/api/languages')
       .then(response => {
@@ -40,13 +43,14 @@ export default function Register({ loadUser }) {
  
         event.preventDefault();
 
-        console.log({...values, selectedTags, scheduleData });
-
         try {
             const response = await axios.post('/register', {...values, selectedTags, scheduleData });
             if (response) {
-                loadUser() 
+                loadUser()
             }
+            navigate('/dashboard')
+
+     
         } catch (error) {
             switch (error.response.status) {
                 case 422:

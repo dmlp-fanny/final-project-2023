@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             LanguageSeeder::class,
-            // TimeslotSeeder::class,
+            StatusSeeder::class,
             TagSeeder::class
         ]);
 

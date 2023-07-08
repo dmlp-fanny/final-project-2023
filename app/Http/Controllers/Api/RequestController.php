@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\PostRequestRequest;
 use App\Models\Language;
 use App\Models\Request;
+use App\Models\RequestStatus;
 use App\Models\Tag;
 use Carbon\Carbon;
 
@@ -25,14 +26,14 @@ class RequestController extends Controller
         return $request;
     }
 
-    public function showUserRequests($user_id)
+    public function showUserRequests($user_id) // users
     {
         $requests = Request::query()->where('user_id', $user_id)->with('from_language')->with('to_language')->get();
 
         return $requests;
     }
-    
-    public function store(PostRequestRequest $request)
+
+    public function store(PostRequestRequest $request) //users 
     {
         $newRequest = new Request();
 
@@ -52,6 +53,7 @@ class RequestController extends Controller
             }
         }
 
-        return $newRequest;
+        return $newRequest->id;
     }
+
 }
