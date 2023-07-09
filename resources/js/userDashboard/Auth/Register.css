@@ -1,3 +1,9 @@
+* {
+    font-family: 'Lato';
+}
+.inputbox h3 {
+    text-align: center;
+}
 .form-signup {
     width: 70%;
     background: white;
@@ -7,8 +13,7 @@
     overflow-y: scroll;
 }
 .form-signup p {
-    text-align: center;
-    color: rgb(250, 223, 187);
+    color: #333;
 }
 .inputbox input {
     width: 100%;
@@ -23,15 +28,62 @@
 .inputbox input::placeholder {
     color: #fff;
 }
-.form-signup .btn {
+.btn-signup {
     width: 100%;
     height: 45px;
-    background: #e7faf8;
+    background: #43978d;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 600px;
+    color: #fff;
 }
+.btn-signup:hover {
+    background: rgba(249, 173, 106, 0.7049413515406162) 100%;
+    color: #333;
+    border: none;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+select,
+textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    }
+select {
+    height: 30px;
+    margin: 5px;
+}
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+option {
+    padding: 5px;
+}
+table {
+    width: 80%;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+th:nth-child(2),
+td:nth-child(3) {
+    padding-left: 10px; 
+}
+
 
 
 

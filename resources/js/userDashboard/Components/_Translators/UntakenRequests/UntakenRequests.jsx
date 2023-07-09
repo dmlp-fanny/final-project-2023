@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import UntakenRequestsCard from "./UntakenRequestsCard";
 import Context from "../../../Context";
+import './UntakenRequest.scss';
 
 
 export default function UntakenRequests() {

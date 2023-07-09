@@ -22,9 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user', function (Request $request) {
-    $user = User::with('translator.tags')->find($request->user()->id);
+    $user = User::with(['translator.tags', 'translator.languageTranslators',
+    'translator.languageTranslators.fromLanguage',
+    'translator.languageTranslators.toLanguage'])->find($request->user()->id);
     return $user;
 });
+
+// Route::get('/user/{user_id}', [UserController::class, 'show'])->where('user_id', '[0-9]+');
 
 Route::get('/languages', [LanguageController::class, 'index']);
 

@@ -81,15 +81,7 @@ export default function Register({ loadUser }) {
     <div className='auth'>
         <form className="form-signup" action="/register" method="post" onSubmit={ handleSubmit }>
             <div className="inputbox">
-                <p>Are you a translator?</p>
-                
-                <input
-                    type="checkbox"
-                    name="translator"
-                    value={isTranslator}
-                    onChange={handleUserTypeChange}
-                />
-                <br />
+                <h3>SIGNUP FORM</h3>
 
                 <label htmlFor="first_name">First name</label>
                 <input 
@@ -163,64 +155,72 @@ export default function Register({ loadUser }) {
                 />
 
                 <br />
+                <p>Are you a translator?</p>
+                
+                <input
+                    type="checkbox"
+                    name="translator"
+                    value={isTranslator}
+                    onChange={handleUserTypeChange}
+                />
+                <br />
                 
                 {isTranslator ? 
                     <>
                         <TagsSelection setSelectedTags={ setSelectedTags }/>
                         
-                        <br />
-                        <label htmlFor="from_language">From</label>
-                        <select
-                            name="from_language"
-                            value={values.from_language}
-                            onChange={handleChange}
-                            required  
-                        > 
+                            <br />
+                            <label htmlFor="from_language">From</label>
+                            <select
+                                name="from_language"
+                                value={values.from_language}
+                                onChange={handleChange}
+                                required  
+                            > 
+                                <option value={null}>Select a language</option>
+                                {
+                                    languages.map(language => {
+                                        return <option 
+                                                key={language.id} 
+                                                value={language.id}
+                                                >
+                                                {language.language_name}
+                                                </option>
+                                        })
+                                }
+                            </select>
+
+                            <label htmlFor="to_language">To</label>
+                            <select
+                                name="to_language"
+                                value={values.to_language}
+                                onChange={handleChange}
+                                required  
+                            >
                             <option value={null}>Select a language</option>
-                            {
-                                languages.map(language => {
-                                    return <option 
-                                            key={language.id} 
-                                            value={language.id}
-                                            >
-                                            {language.language_name}
-                                            </option>
-                                    })
-                            }
-                        </select>
+                                {
+                                    languages.map(language => {
+                                        return <option 
+                                                key={language.id} 
+                                                value={language.id}
+                                                >
+                                                {language.language_name}
+                                                </option>
+                                        })
+                                }
+                            </select>
+                            <br />
+                            <label htmlFor="experience">Experience</label>
+                            <textarea name="experience" cols="50" rows="10" value={values.experience} onChange={ handleChange } />
 
-                        <br />
-
-                        <label htmlFor="to_language">To</label>
-                        <select
-                            name="to_language"
-                            value={values.to_language}
-                            onChange={handleChange}
-                            required  
-                        >
-                         <option value={null}>Select a language</option>
-                            {
-                                languages.map(language => {
-                                    return <option 
-                                            key={language.id} 
-                                            value={language.id}
-                                            >
-                                            {language.language_name}
-                                            </option>
-                                    })
-                            }
-                        </select>
-                        <br />
-                        <label htmlFor="experience">Experience</label>
-                        <textarea name="experience" cols="50" rows="10" value={values.experience} onChange={ handleChange } />
-
-                        <TimeTable setScheduleData={ setScheduleData } />
-                        
+                            <TimeTable setScheduleData={ setScheduleData } />
+                             
                     </> : ''
+                    
                 }
             </div>
             <br />
-            <button className="btn">Register</button>
+            <button className="btn-signup">Sign up</button>
 
         </form>
     </div>
