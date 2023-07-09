@@ -52,12 +52,12 @@ aside {
     }
 }
 
-// main {
-//     flex: 1;
-//     display: grid;
-//     grid-template: repeat(3, 1fr) / repeat(5, 1fr);
-//     height: 100vh;
-// }
+main {
+    flex: 1;
+    // display: grid;
+    // grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+    height: 100vh;
+}
     .active_requests {
         background: linear-gradient(-45deg, #264d59, #43978d);
         border-radius: 16px;
@@ -110,7 +110,8 @@ aside {
     box-shadow: $shadow;
     min-height: 80%;
     padding: 3rem;
-    width: 60%;
+    width: 80%;
+    margin: 0 auto;
     h2, h3 {
         color: #43978d;
     }

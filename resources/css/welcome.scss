@@ -172,12 +172,22 @@ header {
     z-index: 2;
     width: 90%;
     opacity: 1;
-    visibility: visible;
 }
+//check text in h5 and p:why not display with smaller screen size
 .carousel-caption p,
 .carousel-caption h5 {
     display: block;
 }
+
+@media (max-width: 768px) { 
+    .carousel-caption {
+        transform: translate(-50%, -50%);
+        display: block;
+}
+} 
+
+    
+
 .btn {
     width: 90px;
     height: 30px;
@@ -187,14 +197,14 @@ header {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    background-color: #333;
+    background-color: #43978d;
     color: #fff;
     border: none;
     cursor: pointer;
     margin: 5px;
 }
 .signup-btn:hover {
-    background-color: #43978d;
+    background-color: #333;
 }
 .card-img-top {
     height: auto;
@@ -297,4 +307,17 @@ footer .btn {
 }
 .copyright {
     text-align: center;
+}
+@media (max-width: 600px) {
+    footer {
+        div {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+    }
+    .contact,
+    .faq {
+        align-items: center;
+    }
 }

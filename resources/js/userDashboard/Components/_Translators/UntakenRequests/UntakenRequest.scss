@@ -7,6 +7,12 @@ body {
     line-height: 1.5;
     font-family: 'Lato';
   }
+.untaken_requests {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin: 50px;
+}
 .requests.untaken_requests_card {
     .request {
       position: relative;
@@ -20,34 +26,59 @@ body {
       left: -45px;
       position: absolute;
       right: 45px;
-      top: -45px;
+      top: -25px;
     }
     .request__block--main {
-        background-color: #fff;
+        background-color: whitesmoke;
         border-radius: 5px;
         box-shadow: 2px 5px 25px rgba(0, 0, 0, .15);
-        // min-height: 280px;
         padding: 20px;
-        padding-top: 50px;
+        padding-top: 30px;
         position: relative;
         z-index: 2;
       }
       .request__title {
-        font-size: 1.85rem;
-        font-weight: bold;
+        font-weight: light;
         line-height: 1.1;
         margin: 0;
       }
       .request__text {
-        margin-top: .66rem;
+        // overflow: hidden;
+        // display: -webkit-box;
+        // -webkit-line-clamp: 2; /* number of lines to show */
+        //         line-clamp: 2; 
+        // -webkit-box-orient: vertical;
+
+        display: block;/* or inline-block */
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 3.6em;
+        line-height: 1.8em;
+        -webkit-line-clamp: 2; /* number of lines to show */
+                line-clamp: 2; 
+        -webkit-box-orient: vertical;
       } 
 }
 .untaken_requests_cards {
     display: grid;
     grid-auto-flow: row dense;
-    grid-gap: 70px;
+    grid-gap: 100px;
     grid-template-columns: repeat(3, 1fr);
     padding-left: 35px;
   }
+button {
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+    background-color: #43978d;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke;
+  }
+button:hover {
+  background-color: rgba(249, 173, 106, 0.7049413515406162) 100%;
+  color: #333;
+}
 
   
