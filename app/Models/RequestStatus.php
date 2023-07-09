@@ -27,7 +27,7 @@ class RequestStatus extends Model
 
     public function translator() 
     {
-        return $this->belongsToMany(Translator::class);
+        return $this->belongsTo(Translator::class);
     } 
 
     public function status() 

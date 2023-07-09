@@ -1,0 +1,31 @@
+$border: 1px solid lightgrey;
+
+.pending-invitation-card {
+    background-color: white;
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.pending-invitation {
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr); 
+    justify-content: space-around;
+    padding-bottom: 0.6rem;
+    &-info {
+        color: lightgrey;
+        font-weight: 300;
+        span {
+            color: black;
+            font-weight: 700;
+        }
+    }
+}
+
+.potential-translators {
+    border-top: $border;
+    border-bottom: $border;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem;
+}
