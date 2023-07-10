@@ -1,15 +1,10 @@
-import AcceptBtn from "../AcceptBtn/AcceptBtn";
-import './UntakenRequest.scss';
+export default function ConfirmedRequestCard () {
 
-
-    export default function UntakenRequestsCard({ request }) {
-    const { title, description, date, user, from_time, till_time, from_language, to_language } = request;
-    
     return (
-    <>
-        <div className="requests untaken_requests_card">
+        <>
+        <div className="requests confirmed_requests_card">
             <div className="request">
-                <div className="request__block--main">
+                <div className="confirmed_request__block--main">
                     <h4 className="request__title">
                         Request title: {title}
                     </h4>

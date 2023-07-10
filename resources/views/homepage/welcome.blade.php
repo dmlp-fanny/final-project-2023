@@ -117,7 +117,7 @@
             <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="/img/meeting.jpg" class="d-block w-100" />
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption  d-md-block">
                 <h5>JOHN DOE</h5>
                 <p>Title: some rating here!</p>
 
@@ -128,7 +128,7 @@
             </div>
             <div class="carousel-item">
                 <img src="/img/horgward.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption  d-md-block">
                 <h5>HARRY POTTER</h5>
                 <p>Title: [APP NAME] - AN UNKNOWN GEM TO HOGWART !</p>
 
@@ -139,7 +139,7 @@
             </div>
             <div class="carousel-item">
                 <img src="/img/welikeyoutoo.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption  d-md-block">
                 <h5>FRODO</h5>
                 <p>Title: A Journey through Middle-earth TO PRAGUE - An App for True Adventurers!</p>
 

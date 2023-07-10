@@ -139,7 +139,7 @@ main {
     border-radius: 16px;
     box-shadow: $shadow;
     margin: 2rem 4rem;
-    // height: 80%;
+    height: 80%;
     grid-area: 1 / 1 / 5 / 5;
     overflow-y: scroll;
     padding: 3rem;
@@ -166,8 +166,9 @@ main {
             color: white;
             cursor: pointer;
             padding: 1rem;
-            margin: 0 auto;
+            margin: 30px auto;
             width: 50%;
+            height: 50px;
             &:hover {
                 background-color: #43978d;
             }
@@ -175,6 +176,17 @@ main {
     }
 }
 
+.searchbar_post {
+    display: flex;
+    align-items: center;
+} input {
+    min-width: 500px;
+    height: 50px;
+    border-radius: 16px;
+    border-color: #264d59;
+    margin-left:100px ;
+    padding: 20px;
+}
 .requests_sideMenu {
     border-radius: 16px;
     width: 250px;
@@ -192,6 +204,12 @@ main {
         background-color: white;
         height: 150px;
         margin: 20px 0;
+    }
+}
+@media (max-width: 768px) {
+    .searchbar_post {
+        display: block;
+        // align-items: center;
     }
 }
 

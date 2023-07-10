@@ -55,24 +55,28 @@ export default function PostRequestsForm({ loadMyRequests, setCurrentRequest_id 
                         handleSubmit(event);
                     }}
                 >
+                    <label htmlFor="title">Title</label>
                     <input
                         type="text"
                         name="title"
                         value={newRequest.title}
                         onChange={handleInputValues}
                     />
+                    <label htmlFor="description">Description</label>
                     <input
                         type="text"
                         name="description"
                         value={newRequest.description}
                         onChange={handleInputValues}
                     />
+                    <label htmlFor="date">Date</label>
                     <input
                         type="date"
                         name="date"
                         value={newRequest.date}
                         onChange={handleInputValues}
                     />
+                    <label htmlFor="time">Time</label>
                     <input
                         type="time"
                         name="time"
@@ -86,7 +90,7 @@ export default function PostRequestsForm({ loadMyRequests, setCurrentRequest_id 
                         value={newRequest.duration}
                         onChange={handleInputValues}
                     />
-                    
+                    <label htmlFor="tag">Select tag(s) which best describes expertise areas</label>
                     <TagsSelection
                         selectedTags={selectedTags}
                         setSelectedTags={setSelectedTags}

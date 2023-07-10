@@ -1,7 +1,8 @@
 
+
 .form-login {
-    max-width: 400px;
-    max-height: 400px;
+    min-width: 600px;
+    min-height: 400px;
     background: white;
     padding: 30px 40px;
     border-radius: 5px;
