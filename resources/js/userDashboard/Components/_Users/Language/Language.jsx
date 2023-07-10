@@ -1,12 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function LanguageSelection( {from_language, to_language, handleInputValues} ) {
+export default function Language( {languageData, setLanguageData, index} ) {
     
-    const [languages, setLanguages] = useState({
-        from_language: '',
-        to_language: ''
-    })
+    const [languages, setLanguages] = useState([])
 
     useEffect(() => {
         axios.get('/api/languages')
@@ -20,13 +17,29 @@ export default function LanguageSelection( {from_language, to_language, handleIn
     }, []);
 
 
+    const handleLanguageSelection = (event) => {
+        // const newLanguageData = [...languageData]
+        // const currentLanguage = newLanguageData[index]
+        languageData = {...languageData, 
+            [event.target.name]: event.target.value}
+        
+        // setLanguageData(languageData);
+        setLanguageData(previous_values => {
+            const previousCopy = [...previous_values]
+            previousCopy[index] = {...previous_values[index], 
+            [event.target.name]: event.target.value}
+            return previousCopy
+            // return ({...previous_values, 
+            // [event.target.name]: event.target.value})
+        })
+    }
     return (
         <>
  <label htmlFor="from_language">From</label>
                         <select
                             name="from_language"
-                            value={from_language}
-                            onChange={handleInputValues}
+                            value={languageData.from_language}
+                            onChange={handleLanguageSelection}
                             required
                             
                         >
@@ -47,8 +60,8 @@ export default function LanguageSelection( {from_language, to_language, handleIn
                         <label htmlFor="to_language">To</label>
                         <select
                             name="to_language"
-                            value={to_language}
-                            onChange={handleInputValues}
+                            value={languageData.to_language}
+                            onChange={handleLanguageSelection}
                             required
                             
                         >

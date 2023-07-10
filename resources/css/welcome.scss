@@ -55,30 +55,32 @@ header {
 .banner {
     position: relative;
     padding: 3.5%;
-    min-height: 50vh;
+    min-height: 70vh;
+    background: url('/public/img/TeamWork.svg') no-repeat center;
+    background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 }
 
-.banner::before {
-    content: "";
-    position: absolute;
-    background: $primary_color;
-    background-size: cover;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    left: 0px;
+// .banner::before {
+//     content: "";
+//     position: absolute;
+//     background: $primary_color;
+//     background-size: cover;
+//     top: 0px;
+//     width: 100%;
+//     height: 100%;
+//     left: 0px;
     // opacity: 0.75;
     // z-index: 1;
-}
+// }
 .banner-content {
     position: relative;
     text-align: center;
-    color: whitesmoke;
+    // color: whitesmoke;
     line-height: 2;
-    width: 60%;
+    width: 55%;
     margin: 0 auto;
 }
 .banner-content h1 {

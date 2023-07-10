@@ -11,6 +11,12 @@ class LanguageTranslator extends Model
 
     protected $table = 'language_translator';
 
+    protected $fillable = [
+        'translator_id',
+        'from_language_id',
+        'to_language_id'
+    ];
+
     public function fromLanguage()
     {
         return $this->belongsTo(Language::class, 'from_language_id');

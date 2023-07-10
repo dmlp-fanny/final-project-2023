@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Context from "../../Context";
 import axios from 'axios';
+import './Navigation.scss'
 
 export default function Navigation() {
 

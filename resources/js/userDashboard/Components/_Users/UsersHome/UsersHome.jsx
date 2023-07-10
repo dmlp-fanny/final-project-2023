@@ -6,6 +6,7 @@ import axios from "axios";
 import './UsersHome.scss';
 import PendingInvitations from "../PendingInvitations/PendingInvitations";
 import ConfirmedRequests from "../ConfirmedRequests/ConfirmedRequests";
+import Rating from "../Rating/Rating";
 
 export default function UsersHome() {
 
@@ -37,7 +38,7 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
         loadUserRequests();
     }, []);
 
-    console.log(userConfirmedRequests);
+
     return (
         <div>
             <div className="dashboard-header">
@@ -45,7 +46,14 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
                 <h2>Confirmed Requests</h2>
                 <ConfirmedRequests userConfirmedRequests={userConfirmedRequests} />
             </div>
+            <div className="dashboard-body">
                 <PendingInvitations userPendingRequests={userPendingRequests} />
+
+                <Rating />
+
+            </div>
+
+
         </div>
     );
 }

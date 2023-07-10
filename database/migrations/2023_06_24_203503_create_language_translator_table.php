@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('translator_id');
             $table->foreignId('from_language_id');
             $table->foreignId('to_language_id');
+            $table->timestamps();
         });
     }
 

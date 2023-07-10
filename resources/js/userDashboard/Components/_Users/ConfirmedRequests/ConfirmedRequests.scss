@@ -1,9 +1,24 @@
 .confirmed-requests {
     display: flex;
+    overflow: hidden;
+    padding: 0 5rem;
 }
 
 .confirmed-request-card {
     background-color: white;
-    height: 150px;
-    width: 100px;
+    border-radius: 8px;
+    height: 120px;
+    margin: 1rem;
+    padding: 0.6rem;
+    width: 250px;
+    .confirmed-request {
+        &-title {
+            font-family: Montserrat;
+            font-weight: 700;
+        }
+        &-info {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
