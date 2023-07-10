@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tag_id');
             $table->foreignId('request_id');
+            $table->timestamps();
         });
     }
 

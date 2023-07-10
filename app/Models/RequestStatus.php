@@ -18,7 +18,7 @@ class RequestStatus extends Model
         'invitation_sent_at'
     ];
 
-    public $timestamps = false;
+    // public $timestamps = false;
 
     public function request() 
     {

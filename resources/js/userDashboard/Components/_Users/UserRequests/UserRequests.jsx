@@ -30,19 +30,20 @@ export default function UserRequests() {
             <>
                 <div className="requests_view">
                     <Routes>
-                        <Route path='/' />
+                        <Route path='/' element={<RequestsList />}/>
+                        {/* <Route path='/' element={<PostRequestsForm setCurrentRequest_id={setCurrentRequest_id} loadMyRequests={loadMyRequests}/>}/> */}
                         <Route path='/post-request' element={<PostRequestsForm setCurrentRequest_id={setCurrentRequest_id} loadMyRequests={loadMyRequests}/>}/>
                         <Route path='/matching' element={<Matching currentRequest_id={currentRequest_id}/> }/>
                         <Route path='/request-detail' element={<RequestDetail/> }/>
                     </Routes>
 
                 </div>
-                <div className="requests_sideMenu">
+                {/* <div className="requests_sideMenu">
                     <PostRequestsBtn />
                     {
                         myRequests && myRequests.map(request => <RequestsList key={request.id} request={request} /> )
                     }
-                </div>
+                </div> */}
             </>
 
     );

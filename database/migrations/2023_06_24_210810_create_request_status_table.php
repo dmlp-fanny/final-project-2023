@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('confirmed_at')->nullable();
             $table->timestamp('turned_down_at')->nullable();
             $table->timestamp('expires_at')->nullable();
+            $table->timestamps();
         });
     }
 
