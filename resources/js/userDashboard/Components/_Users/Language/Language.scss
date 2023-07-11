@@ -1,0 +1,10 @@
+.competence {
+    display: flex;
+    gap: 2rem;
+    div {
+        flex-grow: 1;
+    }
+    &>* {
+        box-sizing: border-box
+    };
+}

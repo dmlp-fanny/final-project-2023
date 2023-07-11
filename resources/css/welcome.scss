@@ -1,9 +1,9 @@
-$primary_color: linear-gradient(
-    300deg,
-    rgba(38, 77, 89, 1) 21%,
-    rgba(67, 151, 141, 1) 68%,
-    rgba(249, 173, 106, 0.7049413515406162) 100%
-);
+// $primary_color: linear-gradient(
+//     300deg,
+//     rgba(38, 77, 89, 1) 21%,
+//     rgba(67, 151, 141, 1) 68%,
+//     rgba(249, 173, 106, 0.7049413515406162) 100%
+// );
 $primary_font: Lato;
 
 * {
@@ -12,7 +12,21 @@ $primary_font: Lato;
     padding: 0px;
     font-family: Lato;
 }
-
+.btn {
+    width: 90px;
+    height: 30px;
+    color: antiquewhite;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #43978d;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
 .custom-navbar {
     background-color: #fff;
     font-family: Montserrat;
@@ -78,7 +92,6 @@ header {
 .banner-content {
     position: relative;
     text-align: center;
-    // color: whitesmoke;
     line-height: 2;
     width: 55%;
     margin: 0 auto;
@@ -175,36 +188,13 @@ header {
     width: 90%;
     opacity: 1;
 }
-//check text in h5 and p:why not display with smaller screen size
+
 .carousel-caption p,
 .carousel-caption h5 {
     display: block;
 }
 
-@media (max-width: 768px) { 
-    .carousel-caption {
-        transform: translate(-50%, -50%);
-        display: block;
-}
-} 
 
-    
-
-.btn {
-    width: 90px;
-    height: 30px;
-    color: antiquewhite;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    background-color: #43978d;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin: 5px;
-}
 .signup-btn:hover {
     background-color: #333;
 }
@@ -271,7 +261,8 @@ header {
 //footer styling
 
 footer {
-    background-image: $primary_color;
+    background-color: #333;
+    color: whitesmoke;
     cursor: pointer;
     div {
         display: flex;
@@ -285,7 +276,7 @@ footer {
 a {
     margin-right: 10px;
     text-decoration: none;
-    color: #333;
+    color: whitesmoke
 }
 footer input[type="email"] {
     margin-top: 10px;
@@ -295,7 +286,7 @@ footer input[type="email"] {
 footer .btn {
     margin-top: 10px;
     padding: 5px 10px;
-    background-color: #333;
+    background-color: #43978d;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -310,16 +301,22 @@ footer .btn {
 .copyright {
     text-align: center;
 }
-@media (max-width: 600px) {
-    footer {
-        div {
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-        }
-    }
-    .contact,
-    .faq {
+
+@media (max-width: 768px) { 
+    .carousel-caption {
+        transform: translate(-50%, -50%);
+        display: block;
+}
+footer {
+    div {
+        flex-direction: column;
         align-items: center;
+        padding: 10px;
     }
 }
+    .contact,
+    .faq,
+    .copyright {
+        align-items: center;
+    }
+} 

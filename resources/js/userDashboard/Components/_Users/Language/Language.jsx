@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import './Language.scss';
 
 export default function Language( {languageData, setLanguageData, index} ) {
     
@@ -34,49 +35,53 @@ export default function Language( {languageData, setLanguageData, index} ) {
         })
     }
     return (
-        <>
- <label htmlFor="from_language">From</label>
-                        <select
-                            name="from_language"
-                            value={languageData.from_language}
-                            onChange={handleLanguageSelection}
-                            required
-                            
-                        >
-                           
-                            <option value={null}>Select a language</option>
-                            {
-                                languages.map(language => {
-                                    return <option 
-                                            key={language.id} 
-                                            value={language.id}
-                                            >
-                                            {language.language_name}
-                                            </option>
-                                    })
-                            }
-                        </select>
+        <div className="competence">
+            <div className="competence_input_group">
+                <label htmlFor="from_language">From</label>
+                <select
+                    name="from_language"
+                    value={languageData.from_language}
+                    onChange={handleLanguageSelection}
+                    required
+                    
+                >
+                    
+                    <option value={null}>Select a language</option>
+                    {
+                        languages.map(language => {
+                            return <option 
+                                    key={language.id} 
+                                    value={language.id}
+                                    >
+                                    {language.language_name}
+                                    </option>
+                            })
+                    }
+                </select>
+            </div>
 
-                        <label htmlFor="to_language">To</label>
-                        <select
-                            name="to_language"
-                            value={languageData.to_language}
-                            onChange={handleLanguageSelection}
-                            required
-                            
-                        >
-                         <option value={null}>Select a language</option>
-                            {
-                                languages.map(language => {
-                                    return <option 
-                                            key={language.id} 
-                                            value={language.id}
-                                            >
-                                            {language.language_name}
-                                            </option>
-                                    })
-                            }
-                        </select>
-        </>
+            <div className="competence_input_group">
+                <label htmlFor="to_language">To</label>
+                <select
+                    name="to_language"
+                    value={languageData.to_language}
+                    onChange={handleLanguageSelection}
+                    required
+                    
+                >
+                    <option value={null}>Select a language</option>
+                    {
+                        languages.map(language => {
+                            return <option 
+                                    key={language.id} 
+                                    value={language.id}
+                                    >
+                                    {language.language_name}
+                                    </option>
+                            })
+                    }
+                </select>
+            </div>
+        </div>
     );
 }

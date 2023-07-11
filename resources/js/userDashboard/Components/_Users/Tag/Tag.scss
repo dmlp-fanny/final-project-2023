@@ -1,0 +1,111 @@
+// :root {
+//     --color-text: #FFF;
+//     --color-back: rgba(38, 77, 89, 1) 21%;
+//     --color-front: rgba(67, 151, 141, 1) 68%;   
+//   }
+  
+  .tag {
+    position: relative; 
+    display: inline-block;
+    border-radius: 6px;
+    clip-path: polygon(20px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 20px);
+    padding: 0.5rem 2.5rem;
+    margin: 0 8px;
+    font-weight: 600;
+    // font-size: 12px;
+    color: #fff;
+    transition: clip-path 500ms;
+
+  }
+  
+  .tag:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 6px 0;
+    transition: transform 500ms;
+  }
+  
+  .tag:hover {
+    clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 0px);
+  }
+  
+  .tag:hover:after {
+    transform: translate(-100%, -100%);
+  }
+  
+.tag1 {
+    background: #8B4CBC;
+    &:after {
+        background:  #DA5CF2;
+    }
+}
+  
+  .tag2 {
+    background: #498A63;
+    &:after {
+        background:  #06BD4F;
+    }
+  }
+  
+  .tag3 {
+    background: #1F6AF0;
+    &:after {
+        background:  #54498A;
+    }
+  }
+  
+  .tag4 {
+    background: #BD5C11;
+    &:after {
+        background:  #F2B35C;
+    }
+  }
+  
+  .tag5 {
+    background: #F25C7F;
+    &:after {
+        background:  #BD068C;
+    }
+  }
+  
+  .tag6 {
+    background: #BD774B;
+    &:after {
+        background:  #F58B13;
+    }
+  }
+  
+  .tag7 {
+    background: #BD1420;
+    &:after {
+        background:  #F26F5C;
+    }
+  }
+  
+  .tag8 {
+    background: #49738A;
+    &:after {
+        background:  #067CBD;
+    }
+  }
+  
+  .tag9 {
+    background: #BD3011;
+    &:after {
+        background:  #F28D5C;
+    }
+  }
+  
+  .tag10 {
+    background: #495B8A;
+    &:after {
+        background:  #1FC8F0;
+    }
+  }
+ 
+  
