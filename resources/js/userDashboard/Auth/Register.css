@@ -84,7 +84,9 @@ th:nth-child(2),
 td:nth-child(3) {
     padding-left: 10px; 
 }
-
+.error {
+    color: red;
+}
 
 
 

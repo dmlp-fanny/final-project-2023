@@ -10,11 +10,14 @@ export default function TranslatorSection( { translator }) {
                     {translator.experience}
                 </div>
                 <h3>Categories:</h3>
+
                 {/* <Tag translator={translator}/> */}
                 <div className="profile_container--section">
                     {translator.tags.map((tag) => (
-                        <li key={tag.id}>{tag.tag_name}</li>
+                        <Tag key={tag.id} tag={tag}/>
                     ))}
+
+                    
                 </div>
                 <h3>Languages:</h3>
                 <div className="profile_container--section">

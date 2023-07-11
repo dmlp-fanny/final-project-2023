@@ -3,7 +3,7 @@ import TagsSelection from "../TagsSelection/TagsSelection";
 import axios from "axios";
 import LanguageSelection from "../LanguageSelection/LanguageSelection";
 import { useNavigate } from "react-router-dom";
-
+import './PostRequestForm.scss'
 export default function PostRequestsForm({ loadMyRequests }) {
     const [newRequest, setNewRequest] = useState({
         title: '',
@@ -19,6 +19,7 @@ export default function PostRequestsForm({ loadMyRequests }) {
     const [selectedTags, setSelectedTags] = useState([]);
 
     const navigate = useNavigate()
+    const [errors, setErrors] = useState({})
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -33,7 +34,18 @@ export default function PostRequestsForm({ loadMyRequests }) {
             loadMyRequests();
             
         } catch (error) {
-            console.log(error);
+            switch (error.response.status) {
+                case 422:
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
+                    setErrors(error.response.data.errors);//add this 
+                    break;
+                case 500:
+                    console.log("UNKNOWN ERROR", error.response.data);
+                    break;
+            }
         }
     };
 
@@ -61,6 +73,11 @@ export default function PostRequestsForm({ loadMyRequests }) {
                         value={newRequest.title}
                         onChange={handleInputValues}
                     />
+                    {
+                    errors['title']
+                    ? errors['title'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                     <label htmlFor="description">Description</label>
                     <input
                         type="text"
@@ -68,6 +85,11 @@ export default function PostRequestsForm({ loadMyRequests }) {
                         value={newRequest.description}
                         onChange={handleInputValues}
                     />
+                    {
+                    errors['description']
+                    ? errors['description'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                     <label htmlFor="date">Date</label>
                     <input
                         type="date"
@@ -75,6 +97,11 @@ export default function PostRequestsForm({ loadMyRequests }) {
                         value={newRequest.date}
                         onChange={handleInputValues}
                     />
+                    {
+                    errors['date']
+                    ? errors['date'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                     <label htmlFor="time">Time</label>
                     <input
                         type="time"
@@ -82,6 +109,11 @@ export default function PostRequestsForm({ loadMyRequests }) {
                         value={newRequest.time}
                         onChange={handleInputValues}
                     />
+                    {
+                    errors['time']
+                    ? errors['time'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                     For how long is this appointment (from 1-8 hours)?
                     <input
                         type="number"
@@ -91,6 +123,11 @@ export default function PostRequestsForm({ loadMyRequests }) {
                         value={newRequest.duration}
                         onChange={handleInputValues}
                     />
+                    {
+                    errors['duration']
+                    ? errors['duration'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                     <label htmlFor="tag">Select tag(s) which best describes expertise areas</label>
                     <TagsSelection
                         selectedTags={selectedTags}

@@ -101,41 +101,17 @@ main {
     h2 {
         color: #43978d;
     }
-    form {
-        display: flex;
-        flex-direction: column;
-        input {
-            border: none;
-            border-bottom: 1px solid black;
-            margin: 1rem;
-            padding: 0.6rem;
-            &:focus {
-                outline: none;
-                border-bottom: 1px solid #d46c4e;
-            }
-        }
-        button {
-            background-color: #d46c4e;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 1rem;
-            margin: 30px auto;
-            width: 50%;
-            height: 50px;
-            &:hover {
-                background-color: #43978d;
-            }
-        }
-    }
+    
 }
 
 .searchbar_post {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    
 } input {
-    // min-width: 500px; i comment this line as it overwrites the position of the checkbox in the register form at "are you a translator?"
-    width: 500px;
+    // min-width: 500px; i comment this line as it overwrites the position of the checkbox in the register form at "are you a translator?" -->change to width: 800px
+    width: 100%;
     height: 50px;
     border-radius: 16px;
     border-color: #264d59;
@@ -148,23 +124,34 @@ main {
     overflow-y: scroll;
     grid-area: 1 / 5 / 5 / 6;
     margin: 2rem;
-    .postRequestsBtn {
-        background-color: #264d59;
-        color: white;
-        text-align: center;
-        height: 50px;
-        padding-top: 1rem;
-    }
+
     .requestsList {
         background-color: white;
         height: 150px;
         margin: 20px 0;
     }
+    .postRequestsBtn {
+        background-color: #264d59;
+        text-align: center;
+        height: 50px;
+        padding-top: 1rem;
+        a {
+            color: white;
+        }
+    }
+}
+
+
+.translators-info {
+    max-width: 600px;
 }
 @media (max-width: 768px) {
     .searchbar_post {
         display: block;
-        // align-items: center;
+        align-items: center;
     }
 }
 
+a {
+    color: #333;
+}

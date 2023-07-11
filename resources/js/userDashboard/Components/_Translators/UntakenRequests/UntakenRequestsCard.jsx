@@ -1,9 +1,10 @@
+import Tag from "../../_Users/Tag/Tag";
 import AcceptBtn from "../AcceptBtn/AcceptBtn";
 import './UntakenRequest.scss';
 
 
-    export default function UntakenRequestsCard({ request }) {
-    const { title, description, date, user, from_time, till_time, from_language, to_language } = request;
+    export default function UntakenRequestsCard({ request}) {
+    const { title, description, date, user, from_time, till_time, from_language, to_language, tags } = request;
 
     console.log(request);
     
@@ -28,6 +29,9 @@ import './UntakenRequest.scss';
                     <p className="request__text">
                         <strong>From </strong> {from_language.language_name} - To {to_language.language_name}
                     </p>
+                    <p>{tags.map((tag) => (
+                        <Tag key={tag.id} tag={tag}/>
+                    ))}</p>
                     <AcceptBtn  />
                 </div>
            
