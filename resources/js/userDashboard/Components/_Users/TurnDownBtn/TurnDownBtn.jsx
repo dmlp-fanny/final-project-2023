@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function TurnDownBtn ({ requestStatus_id }) {
+export default function TurnDownBtn ({ requestStatus_id, loadUserRequests }) {
 
     const handleTurningDownOffer = async (event) => {
         event.preventDefault();
@@ -9,6 +9,10 @@ export default function TurnDownBtn ({ requestStatus_id }) {
             'requestStatusId': requestStatus_id,
             'action': 'turn down'
         })
+
+        if (response) {
+            loadUserRequests()
+        }
     }
 
     return (

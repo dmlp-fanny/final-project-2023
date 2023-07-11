@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function ConfirmBtn ({ requestStatus_id }) {
+export default function ConfirmBtn ({ requestStatus_id, loadUserRequests }) {
 
     const handleConfirmingOffer = async (event) => {
         
@@ -10,6 +10,10 @@ export default function ConfirmBtn ({ requestStatus_id }) {
             'requestStatusId': requestStatus_id,
             'action': 'confirm'
         })
+
+        if (response) {
+            loadUserRequests()
+        }
     }
 
     return (

@@ -89,6 +89,14 @@ export default function Register({ loadUser }) {
         });
     };
 
+    const handleRemovingLanguages = () => {
+        const copyLanguages = [...languageData];
+        if (copyLanguages.length > 1) {
+            copyLanguages.pop();
+        }
+        setLanguageData(copyLanguages)
+    }
+
     return (
         <div className="auth">
             <form
@@ -203,9 +211,9 @@ export default function Register({ loadUser }) {
                             ))}
 
                             <br />
-
+                                <button onClick={handleRemovingLanguages}>Remove</button>
                             <button className="btn-signup" onClick={handleAddingAnotherLanguage}>
-                                Add another Languages
+                                Add Language Competence
                             </button>
 
                             <br />

@@ -1,7 +1,7 @@
 import ConfirmBtn from "../ConfirmBtn/ConfirmBtn";
 import TurnDownBtn from "../TurnDownBtn/TurnDownBtn";
 
-export default function InvitedTranslators({ translatorData }) {
+export default function InvitedTranslators({ translatorData, loadUserRequests }) {
     const {
         id,
         status_id,
@@ -20,8 +20,8 @@ export default function InvitedTranslators({ translatorData }) {
 
             {status_id === 3 ? (
                 <>
-                    <ConfirmBtn requestStatus_id={id} />
-                    <TurnDownBtn requestStatus_id={id} />
+                    <ConfirmBtn requestStatus_id={id} loadUserRequests={loadUserRequests}/>
+                    <TurnDownBtn requestStatus_id={id} loadUserRequests={loadUserRequests}/>
                 </>
             ) : (
                 ""

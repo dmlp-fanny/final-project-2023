@@ -24,7 +24,8 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        // dd([$input, $input['isTranslator'], gettype($input['isTranslator']), $input['isTranslator'] === true]);
+        // dd($input);
+
         Validator::make($input, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -39,7 +40,14 @@ class CreateNewUser implements CreatesNewUsers
             'phone_number' => ['required'],
         ])->validate();
 
-
+        if ($input['isTranslator'] === true) {
+            Validator::make($input, [
+                'scheduleData' => 'array: from_time, till_time',
+                'selectedTags' => 'array: value, label',
+                'languageData' => 'array: from_language, to_language'
+            ])->validate();
+        }
+        
         $user = User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
@@ -58,7 +66,7 @@ class CreateNewUser implements CreatesNewUsers
 
             foreach ($input['scheduleData'] as $key => $timeslot) {
                 if ($timeslot['day'] !== null and $timeslot['from_time'] !== null and $timeslot['till_time'] !== null) {
-                    Timeslot::create([
+                    Timeslot::create([ 
                         'translator_id' => $translator->id,
                         'weekday' => $timeslot['day'],
                         'from_time' => $timeslot['from_time'],
@@ -80,8 +88,6 @@ class CreateNewUser implements CreatesNewUsers
                     'to_language_id' => $language['to_language'],
                 ]);
             }
-
-            // $translator->languages()->syncWithPivotValues($input['from_language'], ['to_language_id' => $input['to_language']]);
 
         }
 

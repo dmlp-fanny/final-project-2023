@@ -1,7 +1,18 @@
+$border: 1px solid lightgrey;
+
+.pending_requests {
+    background-color: #fff;
+    border-radius: 16px;
+    min-width: 45%;
+    margin: 1rem 0;
+}
+
 .pending-request-card {
     background-color: white;
+    border-bottom: $border;
+    padding: 1rem;
+
 }
 .pending-request-info_title {
         font-weight: 700;
-
 }

@@ -24,11 +24,16 @@ class RequestStatusController extends Controller
 
     public function edit(Request $request)
     {
+        $statusChanges = [
+            3 => 2,
+            6 => 7 
+        ];
         $editedRequestStatus = RequestStatus::findOrFail($request->requestStatusId);
-        $editedRequest = ModelsRequest::findOrFail($editedRequestStatus->request_id);
+        $editedRequest = $editedRequestStatus->request;
+        $allOtherRequestStatuses = $editedRequest->potential_translators->where('id', '!=',  $request->requestStatusId)->whereIn('status_id', array_keys($statusChanges));
 
         switch ($request->action) {
-            case 'accept': 
+            case 'accept':
                 $editedRequestStatus->accepted_at = now();
                 $editedRequestStatus->expires_at = now()->addHours(24);
                 $editedRequestStatus->status_id = 3; //Offer sent by translators
@@ -50,6 +55,10 @@ class RequestStatusController extends Controller
                 $editedRequestStatus->status_id = 1; //Invitation revoked by users
                 $editedRequest->status = 1;
                 $editedRequest->translator_id = $editedRequestStatus->translator_id;
+                $allOtherRequestStatuses->each(function ($requestStatus) use ($statusChanges) {
+                    $requestStatus->status_id = $statusChanges[$requestStatus->status_id];
+                    $requestStatus->save();
+                });
                 break;
             case 'turn down':
                 $editedRequestStatus->turned_down_at = now();

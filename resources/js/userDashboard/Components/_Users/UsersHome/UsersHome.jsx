@@ -20,15 +20,23 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
             const response = await axios.get(
                 "/api/requests/user/" + user.id
             );
+            
+            const nextStatePendRequests = []
+            const nextStateConfRequests = []
+
 
             response.data.forEach(element => {
                 if (element.potential_translators.length > 0 && element.translator_id === null) {
-                    setUserPendingRequests(current => [...current, element])
+                    nextStatePendRequests.push(element)
                 }
                 if(element.translator_id) {
-                    setUserConfirmedRequests(current => [...current, element])
+                    nextStateConfRequests.push(element)
                 }
             })
+
+            setUserPendingRequests(nextStatePendRequests)
+            setUserConfirmedRequests(nextStateConfRequests)
+
         } catch (err) {
             console.log(err);
         }
@@ -47,7 +55,7 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
                 <ConfirmedRequests userConfirmedRequests={userConfirmedRequests} />
             </div>
             <div className="dashboard-body">
-                <PendingInvitations userPendingRequests={userPendingRequests} />
+                <PendingInvitations userPendingRequests={userPendingRequests} loadUserRequests={loadUserRequests}/>
 
                 <Rating />
 

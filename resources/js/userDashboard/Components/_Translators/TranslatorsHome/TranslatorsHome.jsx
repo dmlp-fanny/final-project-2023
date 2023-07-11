@@ -1,12 +1,9 @@
-
 import { useContext, useEffect, useState } from "react";
-import ActiveRequests from "../ActiveRequests/ActiveRequests";
 import CalendarView from "../CalendarView";
 import PendingRequests from "../PendingRequests/PendingRequests";
 import Context from "../../../Context";
-import ConfirmedRequests from "../ConfirmedRequests/ConfirmedRequest"
-import './TranslatorsHome.scss';
-import NewInvitation from "./NewInvitation/NewInvitation";
+import ConfirmedRequests from "../ConfirmedRequests/ConfirmedRequests"
+import './TranslatorsHome1.scss';
 import axios from "axios";
 export default function TranslatorsHome() {
 
@@ -16,13 +13,16 @@ export default function TranslatorsHome() {
     const [pendingRequests, setPendingRequests] = useState([])
 
     const loadPendingRequests = async () => {
+
         try{
             const response = await axios.get('api/translators/' + user.translator.id)
+            const nextStateRequests = []
             response.data.potential_requests.forEach(element => {
                 if (element.status_id !== 1) {
-                    setPendingRequests(current => [...current, element])
+                    nextStateRequests.push(element)
                 }
             })
+            setPendingRequests(nextStateRequests)
 
             setConfirmedRequests(response.data.requests)
 
@@ -36,28 +36,39 @@ export default function TranslatorsHome() {
     }, [])
 
     return (
-            <>
-            <div className="translator-home">
-                <div className="active-request">
-                    <CalendarView />
-                    {/* <ActiveRequests /> */}
-                </div>
-                <div className="item confirmed-request">
-                    <ConfirmedRequests confirmedRequests={confirmedRequests}/>
-                </div>
-                <div className="item new-invitation">
-                    <NewInvitation />
-                </div>
-                <div className="item pending-request">
-                    <h2>Pending requests</h2>
-                    <PendingRequests pendingRequests={pendingRequests}/>
-                </div>
-            </div>
-            <div className="calendar">
-                    <CalendarView />
-            </div>
+            // <>
+            // <div className="translator-home">
+            //     <div className="active-request">
+            //         <CalendarView />
+            //         {/* <ActiveRequests /> */}
+            //     </div>
+            //     <div className="item confirmed-request">
+            //         <ConfirmedRequests confirmedRequests={confirmedRequests}/>
+            //     </div>
+            //     <div className="item new-invitation">
+            //         <NewInvitation />
+            //     </div>
+            //     <div className="item pending-request">
+            //         <h2>Pending requests</h2>
+            //         <PendingRequests pendingRequests={pendingRequests}/>
+            //     </div>
+            // </div>
+            // <div className="calendar">
+            //         <CalendarView />
+            // </div>
 
                 
-            </>
+            // </>
+        <>
+            <div className="dashboard-header">
+                <div className="dashboard-date">Current Date</div>
+                <CalendarView />
+            </div>
+            <div className="dashboard-body">
+                <ConfirmedRequests confirmedRequests={confirmedRequests} />
+                
+                <PendingRequests pendingRequests={pendingRequests} loadPendingRequests={loadPendingRequests}/>
+            </div>
+        </>
     );
 }

@@ -19,8 +19,11 @@ export default function Navigation() {
     return (
         <aside>
             <article className="profile_card">
-                <img src="" alt="" />
+                <div className="profile_card-img"></div>
                 <div className="profile_card_name">{user.first_name} {user.last_name}</div>
+                {
+                    user.translator ? 'TRANSLATOR' : ''
+                }
                 <button className="profile_card_btn" onClick={ handleLogout }>Log Out</button>
             </article>
 

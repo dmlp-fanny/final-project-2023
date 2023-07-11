@@ -19,31 +19,30 @@ export default function Language( {languageData, setLanguageData, index} ) {
 
 
     const handleLanguageSelection = (event) => {
-        // const newLanguageData = [...languageData]
-        // const currentLanguage = newLanguageData[index]
+
         languageData = {...languageData, 
             [event.target.name]: event.target.value}
         
-        // setLanguageData(languageData);
         setLanguageData(previous_values => {
             const previousCopy = [...previous_values]
             previousCopy[index] = {...previous_values[index], 
             [event.target.name]: event.target.value}
             return previousCopy
-            // return ({...previous_values, 
-            // [event.target.name]: event.target.value})
+
         })
     }
     return (
+        <>
+        <strong>Language competence #{index + 1}</strong>
         <div className="competence">
             <div className="competence_input_group">
-                <label htmlFor="from_language">From</label>
+                
+                {/* <label htmlFor="from_language">Language 1</label> */}
                 <select
                     name="from_language"
                     value={languageData.from_language}
                     onChange={handleLanguageSelection}
                     required
-                    
                 >
                     
                     <option value={null}>Select a language</option>
@@ -59,9 +58,9 @@ export default function Language( {languageData, setLanguageData, index} ) {
                     }
                 </select>
             </div>
-
+            <section>↔</section>   
             <div className="competence_input_group">
-                <label htmlFor="to_language">To</label>
+                {/* <label htmlFor="to_language">Language 2</label> */}
                 <select
                     name="to_language"
                     value={languageData.to_language}
@@ -83,5 +82,6 @@ export default function Language( {languageData, setLanguageData, index} ) {
                 </select>
             </div>
         </div>
+        </>
     );
 }

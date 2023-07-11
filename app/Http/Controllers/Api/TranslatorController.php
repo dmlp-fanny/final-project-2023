@@ -26,7 +26,7 @@ class TranslatorController extends Controller
 
     public function show($translator_id)
     {
-        $translator = Translator::with(['user', 'requests', 'potential_requests.request'])->findOrFail($translator_id);
+        $translator = Translator::with(['user', 'requests', 'potential_requests.request', 'potential_requests.status'])->findOrFail($translator_id);
 
         return $translator;
     }
@@ -44,8 +44,15 @@ class TranslatorController extends Controller
                 $query->whereIn('tags.id', $request->tags->pluck('id'));
             })->with('tags')
             ->whereHas('languageTranslators', function ($query) use ($request) {
-                $query->where('from_language_id', $request->from_language_id)
+            // $query->where('from_language_id', $request->from_language_id)
+            //     ->where('to_language_id', $request->to_language_id);
+                $query->where(function ($query) use ($request) {
+                    $query->where('from_language_id', $request->from_language_id)
                     ->where('to_language_id', $request->to_language_id);
+                })->orWhere(function ($query) use ($request) {
+                    $query->where('to_language_id', $request->from_language_id)
+                    ->where('from_language_id', $request->to_language_id);
+                });
             })
             ->with([
                 'languageTranslators',

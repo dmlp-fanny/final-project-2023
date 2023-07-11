@@ -1,6 +1,6 @@
 import InvitedTranslators from "./InvitedTranslators";
 
-export default function PendingInvitationCard ({pendingRequest}) {
+export default function PendingInvitationCard ({pendingRequest, loadUserRequests}) {
 
     const { title, description, date, from_time, potential_translators } = pendingRequest
 
@@ -13,7 +13,7 @@ export default function PendingInvitationCard ({pendingRequest}) {
             </div>
             <div className="potential-invitation-heading">Potential translators</div>
                 {
-                    potential_translators && potential_translators.map(translator => <InvitedTranslators key={translator.id} translatorData={translator} />)
+                    potential_translators && potential_translators.map(translator => <InvitedTranslators key={translator.id} translatorData={translator} loadUserRequests={loadUserRequests}/>)
                 }
             
         </div>

@@ -25,7 +25,7 @@ class PostRequestRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
-            'time' => 'required'
+            'time' => 'required',
         ];
     }
 }

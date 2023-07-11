@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function AcceptBtn ({ requestStatus_id }) {
+export default function AcceptBtn ({ requestStatus_id, loadPendingRequests }) {
 
     const handleAcceptingInvitation = async (event) => {
         event.preventDefault();
@@ -9,6 +9,8 @@ export default function AcceptBtn ({ requestStatus_id }) {
             'requestStatusId': requestStatus_id,
             'action': 'accept'
         })
+
+        response && loadPendingRequests()
     }
 
     return (

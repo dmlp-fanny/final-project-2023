@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function DeclineBtn ({ requestStatus_id }) {
+export default function DeclineBtn ({ requestStatus_id, loadPendingRequests }) {
 
     const handleDecliningInvitation = async (event) => {
         event.preventDefault();
@@ -9,6 +9,8 @@ export default function DeclineBtn ({ requestStatus_id }) {
             'requestStatusId': requestStatus_id,
             'action': 'decline'
         })
+
+        response && loadPendingRequests()
     }
 
     return (

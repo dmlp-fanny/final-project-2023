@@ -1,0 +1,18 @@
+.dashboard-header {
+    background: linear-gradient(-45deg, #264d59, #43978d);
+    height: 250px;
+    width: 100%;
+}
+
+.dashboard-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-body {
+        flex-direction: column;
+    }
+}
