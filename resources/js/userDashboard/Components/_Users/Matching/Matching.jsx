@@ -33,11 +33,13 @@ export default function Matching ( {myRequests} ) {
     
     return (
         <div className="translators-list">
-        {
-            translators?.length > 0 ? translators.map((translator, i) => <TranslatorsCard key={i} request_id={request_id} translator={translator} interactedWith={interactedWith && interactedWith.includes(translator.id)} />) 
-            :
-            "No translators matched your criteria"
-        }
+            <h4>Matched translators:</h4>
+        
+            {
+                translators?.length > 0 ? translators.map((translator, i) => <TranslatorsCard key={i} request_id={request_id} translator={translator} interactedWith={interactedWith && interactedWith.includes(translator.id)} />) 
+                :
+                "No translators matched your criteria"
+            }
         </div>
     )
 }

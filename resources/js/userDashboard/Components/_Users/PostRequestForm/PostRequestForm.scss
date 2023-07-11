@@ -1,0 +1,30 @@
+form {
+    display: flex;
+    flex-direction: column;
+    input {
+        border: none;
+        border-bottom: 1px solid black;
+        margin: 1rem;
+        padding: 0.6rem;
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid #d46c4e;
+        }
+    }
+    button {
+        background-color: #d46c4e;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 1rem;
+        // margin: 30px auto;
+        // width: 50%;
+        height: 50px;
+        &:hover {
+            background-color: #43978d;
+        }
+    }
+}
+.error {
+    color: red;
+}

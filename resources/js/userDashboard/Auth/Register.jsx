@@ -30,6 +30,8 @@ export default function Register({ loadUser }) {
         },
     ]);
 
+    const [errors, setErrors] = useState({})
+
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -54,6 +56,7 @@ export default function Register({ loadUser }) {
                         "VALIDATION FAILED:",
                         error.response.data.errors
                     );
+                    setErrors(error.response.data.errors);//add this 
                     break;
                 case 500:
                     console.log("UNKNOWN ERROR", error.response.data);
@@ -108,6 +111,12 @@ export default function Register({ loadUser }) {
                         onChange={handleChange}
                         required
                     />
+                   
+                    {
+                    errors['first_name']
+                    ? errors['first_name'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
 
                     <br />
                     <label htmlFor="last_name">Last Name</label>
@@ -118,6 +127,11 @@ export default function Register({ loadUser }) {
                         onChange={handleChange}
                         required
                     />
+                    {
+                    errors['last_name']
+                    ? errors['last_name'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
 
                     <br />
                     <label htmlFor="email">Email</label>
@@ -128,6 +142,11 @@ export default function Register({ loadUser }) {
                         onChange={handleChange}
                         required
                     />
+                    {
+                    errors['email']
+                    ? errors['email'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
 
                     <br />
                     <label htmlFor="phone_number">Phone number</label>
@@ -138,6 +157,11 @@ export default function Register({ loadUser }) {
                         onChange={handleChange}
                         required
                     />
+                    {
+                    errors['phone_number']
+                    ? errors['phone_number'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
 
                     <br />
                     <label htmlFor="password">Password</label>
@@ -148,6 +172,11 @@ export default function Register({ loadUser }) {
                         onChange={handleChange}
                         required
                     />
+                    {
+                    errors['password']
+                    ? errors['password'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
 
                     <br />
                     <label htmlFor="password">Password confirmation</label>
@@ -157,6 +186,11 @@ export default function Register({ loadUser }) {
                         value={values.password_confirmation}
                         onChange={handleChange}
                     />
+                    {
+                    errors['password_confirmation']
+                    ? errors['password_confirmation'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
 
                     <br />
                     <label htmlFor="location">Location</label>
@@ -166,14 +200,24 @@ export default function Register({ loadUser }) {
                         value={values.location}
                         onChange={handleChange}
                     />
+                    {
+                    errors['location']
+                    ? errors['location'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                     <br />
-                    <label htmlFor="picture">Profile picture</label>
+                    {/* <label htmlFor="picture">Profile picture</label>
                     <input
                         type="url"
                         name="picture"
                         value=""
                         onChange={handleChange}
                     />
+                    {
+                    errors['picture']
+                    ? errors['picture'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    } */}
 
                     <br />
                     <div>

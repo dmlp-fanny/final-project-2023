@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom";
+import Tag from "./Tag/Tag";
 
-export default function RequestDetail () {
+
+export default function RequestDetail (tag) {
 
     const { request_id } = useParams();
 
@@ -27,10 +29,14 @@ export default function RequestDetail () {
                     <p><strong>Description: </strong>{myRequest.description}</p>
                     <p><strong>Date: </strong>{myRequest.date}</p>
                     <p><strong>Time: </strong>{myRequest.from_time}</p>
+                    <p>{myRequest.tags.map((tag) => (
+                        <Tag key={tag.id} tag={tag}/>
+                    ))}</p>
                     {
                         myRequest.status === 1 ? 'Confirmed' :
                         <Link to={"/dashboard/requests/matching/" + request_id} > Matched Translators </Link>
                     }
+                 
                 </>
                 
                 : "Not found"

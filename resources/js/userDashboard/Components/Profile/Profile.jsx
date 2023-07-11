@@ -14,10 +14,6 @@ export default function Profile() {
                     <h2>Your Profile</h2>
                     <h3>Personal Information:</h3>
 
-                    {/* remember to delete this tag */}
-
-                    
-                    <Tag />
                     <div className="profile_container--section profile_container--section-bold">
                         First Name:<span>{user.first_name}</span> <br />
                         Last Name:<span>{user.last_name}</span> <br />

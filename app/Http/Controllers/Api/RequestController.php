@@ -14,14 +14,14 @@ class RequestController extends Controller
 {
     public function index()
     {
-        $requests = Request::query()->with('user')->with('from_language')->with('to_language')->get();
+        $requests = Request::query()->with(['user','from_language','to_language', 'tags'])->get();
 
         return $requests;
     }
 
     public function show($request_id)
     {
-        $request = Request::with('from_language')->with('to_language')->find($request_id);
+        $request = Request::with(['from_language', 'to_language', 'tags'])->find($request_id);
 
         return $request;
     }

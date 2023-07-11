@@ -12,6 +12,7 @@ export default function Login(props) {
     });
 
     const navigate = useNavigate()
+    const [errors, setErrors] = useState({})
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,6 +32,7 @@ export default function Login(props) {
                         "VALIDATION FAILED:",
                         error.response.data.errors
                     );
+                    setErrors(error.response.data.errors);
                     break;
                 case 500:
                     console.log("UNKNOWN ERROR", error.response.data);
@@ -62,6 +64,11 @@ export default function Login(props) {
                             value={values.email}
                             onChange={handleChange}
                         />
+                        {
+                        errors['email']
+                        ? errors['email'].map(error => <div className="error">{ error }</div>)
+                        : ''
+                        }
 
                         <label htmlFor="password">Password</label>
                         <input
@@ -71,6 +78,11 @@ export default function Login(props) {
                             value={values.password}
                             onChange={handleChange}
                         />
+                        {
+                        errors['password']
+                        ? errors['password'].map(error => <div className="error">{ error }</div>)
+                        : ''
+                        }
                     </div>
                     
                     <button className="btn">
