@@ -35,11 +35,11 @@ class DatabaseSeeder extends Seeder
                 $request->tags()->sync(Tag::all()->random(mt_rand(1, 2)));
             });
 
-        Translator::factory(10)
+        Translator::factory(100)
             ->create()
             ->each(function ($translator) {
                 $translator->tags()->sync(Tag::all()->random(mt_rand(5, 10)));
-                $translator->languages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => Language::all()->random()->id]);
+                $translator->languages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => mt_rand(1,2)]);
                 Timeslot::factory(5)->create(['translator_id' => $translator->id]);
             });
     }

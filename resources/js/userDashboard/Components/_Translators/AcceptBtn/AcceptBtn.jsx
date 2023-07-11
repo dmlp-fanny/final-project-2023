@@ -2,8 +2,6 @@ import axios from "axios";
 
 export default function AcceptBtn ({ requestStatus_id }) {
 
-    console.log(requestStatus_id);
-
     const handleAcceptingInvitation = async (event) => {
         event.preventDefault();
 

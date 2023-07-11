@@ -3,16 +3,13 @@ import { useEffect, useState } from "react";
 
 export default function LanguageSelection( {from_language, to_language, handleInputValues} ) {
     
-    const [languages, setLanguages] = useState({
-        from_language: '',
-        to_language: ''
-    })
+    const [languages, setLanguages] = useState(null)
 
     useEffect(() => {
         axios.get('/api/languages')
       .then(response => {
-        const languages = response.data;
-        setLanguages(languages)
+        // const languages = response.data;
+        setLanguages(response.data)
       })
       .catch(error => {
         console.log('Error fetching languages:', error);
@@ -33,7 +30,7 @@ export default function LanguageSelection( {from_language, to_language, handleIn
                            
                             <option value={null}>Select a language</option>
                             {
-                                languages.map(language => {
+                                languages && languages.map(language => {
                                     return <option 
                                             key={language.id} 
                                             value={language.id}
@@ -54,7 +51,7 @@ export default function LanguageSelection( {from_language, to_language, handleIn
                         >
                          <option value={null}>Select a language</option>
                             {
-                                languages.map(language => {
+                                languages && languages.map(language => {
                                     return <option 
                                             key={language.id} 
                                             value={language.id}

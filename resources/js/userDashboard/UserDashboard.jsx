@@ -5,13 +5,17 @@ import Profile from "./Components/Profile/Profile";
 import "./UserDashboard.scss";
 import ViewRequests from "./Components/_Translators/ViewRequests";
 import UserRequests from "./Components/_Users/UserRequests/UserRequests";
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import Context from "./Context"
 import TranslatorsHome from "./Components/_Translators/TranslatorsHome/TranslatorsHome";
 import UsersHome from "./Components/_Users/UsersHome/UsersHome";
 
 export default function UserDashboard() {
     const { context: {user} } = useContext(Context);
+
+    useEffect(() => {
+        
+    })
 
     return (
         <div className="dashboard">

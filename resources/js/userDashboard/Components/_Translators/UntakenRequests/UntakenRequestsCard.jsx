@@ -4,6 +4,8 @@ import './UntakenRequest.scss';
 
     export default function UntakenRequestsCard({ request }) {
     const { title, description, date, user, from_time, till_time, from_language, to_language } = request;
+
+    console.log(request);
     
     return (
     <>
@@ -26,7 +28,7 @@ import './UntakenRequest.scss';
                     <p className="request__text">
                         <strong>From </strong> {from_language.language_name} - To {to_language.language_name}
                     </p>
-                    <AcceptBtn />
+                    <AcceptBtn  />
                 </div>
            
             </div>

@@ -46,6 +46,7 @@ export default function Register({ loadUser }) {
                 loadUser();
             }
             navigate("/dashboard");
+            
         } catch (error) {
             switch (error.response.status) {
                 case 422:

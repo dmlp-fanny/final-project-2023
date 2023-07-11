@@ -12,11 +12,16 @@ $border: 1px solid lightgrey;
     margin: 1rem;
     padding: 1rem;
 }
+.potential-invitation-heading {
+    border-bottom: $border;
+    color: #43978d;
+    font-weight: 700;
+    text-align: center;
+}
 
 .pending-invitation {
-    display: grid;
-    grid-template: 1fr / repeat(3, 1fr); 
-    justify-content: space-around;
+    display: flex; 
+    justify-content: space-between;
     padding-bottom: 0.6rem;
     &-info {
         color: lightgrey;
@@ -26,10 +31,12 @@ $border: 1px solid lightgrey;
             font-weight: 700;
         }
     }
+    section:last-child {
+        text-align: right;
+    }
 }
 
 .potential-translators {
-    border-top: $border;
     border-bottom: $border;
     display: flex;
     justify-content: space-between;

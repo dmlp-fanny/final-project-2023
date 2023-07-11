@@ -21,7 +21,7 @@ class RequestController extends Controller
 
     public function show($request_id)
     {
-        $request = Request::find($request_id)->with('from_language')->with('to_language')->first();
+        $request = Request::with('from_language')->with('to_language')->find($request_id);
 
         return $request;
     }

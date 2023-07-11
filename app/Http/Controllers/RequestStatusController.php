@@ -25,7 +25,7 @@ class RequestStatusController extends Controller
     public function edit(Request $request)
     {
         $editedRequestStatus = RequestStatus::findOrFail($request->requestStatusId);
-        $editedRequest = Request::findOrFail($editedRequestStatus->request_id);
+        $editedRequest = ModelsRequest::findOrFail($editedRequestStatus->request_id);
 
         switch ($request->action) {
             case 'accept': 
@@ -47,8 +47,9 @@ class RequestStatusController extends Controller
                 break;
             case 'confirm':
                 $editedRequestStatus->confirmed_at = now();
-                $editedRequest->status = 1;
                 $editedRequestStatus->status_id = 1; //Invitation revoked by users
+                $editedRequest->status = 1;
+                $editedRequest->translator_id = $editedRequestStatus->translator_id;
                 break;
             case 'turn down':
                 $editedRequestStatus->turned_down_at = now();

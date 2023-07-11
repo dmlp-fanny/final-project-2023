@@ -22,10 +22,10 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
             );
 
             response.data.forEach(element => {
-                if (element.potential_translators.length > 0) {
+                if (element.potential_translators.length > 0 && element.translator_id === null) {
                     setUserPendingRequests(current => [...current, element])
                 }
-                if(element.translator_id !== null) {
+                if(element.translator_id) {
                     setUserConfirmedRequests(current => [...current, element])
                 }
             })

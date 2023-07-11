@@ -56,8 +56,6 @@ class CreateNewUser implements CreatesNewUsers
                 'experience' => $input['experience']
             ]);
 
-            // dd($translator);
-
             foreach ($input['scheduleData'] as $key => $timeslot) {
                 if ($timeslot['day'] !== null and $timeslot['from_time'] !== null and $timeslot['till_time'] !== null) {
                     Timeslot::create([

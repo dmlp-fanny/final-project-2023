@@ -4,7 +4,7 @@ import axios from "axios";
 import LanguageSelection from "../LanguageSelection/LanguageSelection";
 import { useNavigate } from "react-router-dom";
 
-export default function PostRequestsForm({ loadMyRequests, setCurrentRequest_id }) {
+export default function PostRequestsForm({ loadMyRequests }) {
     const [newRequest, setNewRequest] = useState({
         title: '',
         description: '',
@@ -29,8 +29,7 @@ export default function PostRequestsForm({ loadMyRequests, setCurrentRequest_id 
                 tags: selectedTags,
             });
 
-            setCurrentRequest_id(response.data);
-            navigate('/dashboard/requests/matching');
+            navigate('/dashboard/requests/matching/' + response.data);
             loadMyRequests();
             
         } catch (error) {
@@ -83,10 +82,12 @@ export default function PostRequestsForm({ loadMyRequests, setCurrentRequest_id 
                         value={newRequest.time}
                         onChange={handleInputValues}
                     />
-                    For how long is this appointment (in hours)?
+                    For how long is this appointment (from 1-8 hours)?
                     <input
                         type="number"
                         name="duration"
+                        min="1"
+                        max="8"
                         value={newRequest.duration}
                         onChange={handleInputValues}
                     />

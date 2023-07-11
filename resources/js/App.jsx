@@ -14,7 +14,7 @@ function App() {
 
     const loadUser = async () => {
         try {
-            const response = await axios.get("/api/user/");
+            const response = await axios.get("/api/user");
             if (Math.floor(response.status / 100) !== 2) {
                 dispatch({
                     type: "user/set",
@@ -40,7 +40,8 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/dashboard/*" element={ context.user ? (<UserDashboard loadUser={loadUser}/>) : (<Login loadUser={loadUser} />)} />
-                    <Route path="/dashboard/register" element={<Register loadUser={loadUser}/>} />
+                    <Route path="/register" element={<Register loadUser={loadUser}/>} />
+                    <Route path="/login" element={<Login loadUser={loadUser}/>} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>

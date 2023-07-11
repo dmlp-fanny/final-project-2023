@@ -29,8 +29,8 @@
     
                     </ul>
                 </div>    
-                <a class="nav-link" href="/dashboard/login">Login</a>
-                <a class="btn btn-primary signup-btn" href="/dashboard/register">Sign up</a>
+                <a class="nav-link" href="/login">Login</a>
+                <a class="btn btn-primary signup-btn" href="/register">Sign up</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

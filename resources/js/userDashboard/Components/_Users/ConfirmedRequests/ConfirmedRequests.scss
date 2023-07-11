@@ -1,7 +1,8 @@
 .confirmed-requests {
     display: flex;
-    overflow: hidden;
-    padding: 0 5rem;
+    margin: 0 auto;
+    overflow-x: auto;
+    width: 80%;
 }
 
 .confirmed-request-card {

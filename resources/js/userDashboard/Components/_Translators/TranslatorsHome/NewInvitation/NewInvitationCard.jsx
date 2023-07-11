@@ -15,7 +15,7 @@ export default function NewInvitationCard () {
                         <strong>Date: </strong> {date}
                     </p>
                     <p className="new_invitation__title">
-                        <strong>From </strong> {from_time} - Till {till_time}
+                        <strong>From </strong> {from_time} Till {till_time}
                     </p>
                     <p className="new_invitation__title">
                         <strong>From </strong> {from_language.language_name} - To {to_language.language_name}

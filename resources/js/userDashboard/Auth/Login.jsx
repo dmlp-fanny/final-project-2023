@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Login(props) {
@@ -11,6 +11,8 @@ export default function Login(props) {
         password: "",
     });
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -19,6 +21,8 @@ export default function Login(props) {
             if (response) {
                 props.loadUser() 
             }
+
+            navigate('/dashboard')
 
         } catch (error) {
             switch (error.response.status) {
@@ -83,7 +87,7 @@ export default function Login(props) {
 
                     <div className="register">
                         <p>
-                            Don't have an account? <Link to={"/dashboard/register"}>Sign up</Link>
+                            Don't have an account? <Link to={"/register"}>Sign up</Link>
                         </p>
                     </div>
                 </form>

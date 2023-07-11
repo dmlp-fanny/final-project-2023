@@ -67,15 +67,15 @@ body {
     grid-template-columns: repeat(3, 1fr);
     padding-left: 35px;
   }
-button {
-    height: 30px;
-    width: 60px;
-    border-radius: 5px;
-    background-color: #43978d;
-    border: none;
-    cursor: pointer;
-    color: whitesmoke;
-  }
+// button {
+//     height: 30px;
+//     width: 60px;
+//     border-radius: 5px;
+//     background-color: #43978d;
+//     border: none;
+//     cursor: pointer;
+//     color: whitesmoke;
+//   }
 button:hover {
   background-color: rgba(249, 173, 106, 0.7049413515406162) 100%;
   color: #333;

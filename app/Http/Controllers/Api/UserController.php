@@ -5,14 +5,20 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function show($user_id)
+    public function show()
     {
-        $user = User::where('id', $user_id)->with(['translator.tags', 'translator.languageTranslators',
-        'translator.languageTranslators.fromLanguage',
-        'translator.languageTranslators.toLanguage'])->first();
+
+        $user = User::with(
+            [
+                'translator.tags', 'translator.languageTranslators',
+                'translator.languageTranslators.fromLanguage',
+                'translator.languageTranslators.toLanguage'
+            ]
+        )->find(Auth::id());
 
         return $user;
     }

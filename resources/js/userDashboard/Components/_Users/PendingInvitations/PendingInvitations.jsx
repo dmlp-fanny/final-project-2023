@@ -1,8 +1,4 @@
-import axios from "axios";
-import ConfirmBtn from "../ConfirmBtn/ConfirmBtn";
-import TurnDownBtn from "../TurnDownBtn/TurnDownBtn";
-import { useContext, useEffect, useState } from "react";
-import Context from "../../../Context";
+
 import "./PendingInvitations.scss";
 import PendingInvitationCard from "./PendingInvitationCard";
 

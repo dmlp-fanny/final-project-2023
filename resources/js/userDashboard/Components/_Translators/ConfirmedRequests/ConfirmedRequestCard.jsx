@@ -1,29 +1,14 @@
-export default function ConfirmedRequestCard () {
+export default function ConfirmedRequestCard ({confirmedRequest}) {
 
+    const {title, date, from_time} = confirmedRequest
+    
     return (
         <>
         <div className="requests confirmed_requests_card">
-            <div className="request">
-                <div className="confirmed_request__block--main">
-                    <h4 className="request__title">
-                        Request title: {title}
-                    </h4>
-                    <p className="request__text">Name: {user.first_name + " " + user.last_name}</p>
-                    <p className="request__text">
-                        <strong>Description:</strong> {description}
-                    </p>
-                    <p className="request__text">
-                        <strong>Date: </strong> {date}
-                    </p>
-                    <p className="request__text">
-                        <strong>From </strong> {from_time} - Till {till_time}
-                    </p>
-                    <p className="request__text">
-                        <strong>From </strong> {from_language.language_name} - To {to_language.language_name}
-                    </p>
-                    <AcceptBtn />
-                </div>
-           
+            <div className="pending-request-info">
+                <section className="pending-request-info_title">{title}</section>
+                <section>{date}</section>
+                <section>{from_time}</section>
             </div>
          </div>
     </>

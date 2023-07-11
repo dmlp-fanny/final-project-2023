@@ -10,9 +10,9 @@ export default function InvitedTranslators({ translatorData }) {
         },
         status: { status_name },
     } = translatorData;
-    
+
     return (
-        <>
+        <div className="potential-translators">
             <div className="translators-name">
                 {first_name} {last_name}
             </div>
@@ -26,6 +26,6 @@ export default function InvitedTranslators({ translatorData }) {
             ) : (
                 ""
             )}
-        </>
+        </div>
     );
 }

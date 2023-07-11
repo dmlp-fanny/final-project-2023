@@ -1,24 +1,37 @@
 import axios from "axios"
+import { useState } from "react";
 
-export default function InviteBtn ( {currentRequest_id, translator_id}) {
+export default function InviteBtn ( {request_id, translator_id}) {
+
+    const [label, setLabel] = useState('Invite')
 
     const handleInvitation = async (event) => {
         event.preventDefault();
 
         try {
             const response = await axios.post('/invite', {
-                'requestId': currentRequest_id,
+                'requestId': request_id,
                 'translatorId': translator_id,
             })
-            console.log(response);
+
+            setLabel('Invitation sent to the translator')
+
         } catch (err) {
             console.log(err);
         }
     }
  
     return (
-        <form onSubmit={handleInvitation}>
-            <button>Invite</button>
-        </form>
+        <>
+        {
+            label === 'Invite' 
+            ?
+                <form onSubmit={handleInvitation}>
+                    <button>{label}</button>
+                </form>
+            :
+            'Invitation sent to the translator'
+        }
+        </>
     )
 }
