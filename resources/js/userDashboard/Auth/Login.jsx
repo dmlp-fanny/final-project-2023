@@ -72,15 +72,7 @@ export default function Login(props) {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="remember-me">
-                        <label>
-                            <input type="checkbox" />
-                            Remember me
-                        </label>
-
-                        <a href="#">Forgot password?</a>
-                    </div>
-
+                    
                     <button className="btn">
                         Login
                     </button>

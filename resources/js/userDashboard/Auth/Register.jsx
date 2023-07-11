@@ -176,14 +176,16 @@ export default function Register({ loadUser }) {
                     />
 
                     <br />
-                    <p>Are you a translator?</p>
+                    <div>
+                        <p>Are you a translator?</p>
 
-                    <input
-                        type="checkbox"
-                        name="translator"
-                        value={values.isTranslator}
-                        onChange={handleUserTypeChange}
-                    />
+                        <input
+                            type="checkbox"
+                            name="translator"
+                            value={values.isTranslator}
+                            onChange={handleUserTypeChange}
+                        />
+                    </div>
                     <br />
 
                     {values.isTranslator ? (
@@ -191,7 +193,6 @@ export default function Register({ loadUser }) {
                             <TagsSelection setSelectedTags={setSelectedTags} />
 
                             <br />
-
                             {languageData.map((competence, i) => (
                                 <Language
                                     key={i}
@@ -203,7 +204,7 @@ export default function Register({ loadUser }) {
 
                             <br />
 
-                            <button onClick={handleAddingAnotherLanguage}>
+                            <button className="btn-signup" onClick={handleAddingAnotherLanguage}>
                                 Add another Languages
                             </button>
 

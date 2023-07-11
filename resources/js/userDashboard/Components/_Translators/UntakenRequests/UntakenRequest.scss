@@ -7,6 +7,20 @@ body {
     line-height: 1.5;
     font-family: 'Lato';
   }
+
+button {
+    margin: 0.3rem;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    background-color: #43978d;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke;
+  }
+button:hover {
+  background-color: rgba(249, 173, 106, 0.7049413515406162) 100%;
+  color: #333;
+}
 .untaken_requests {
   display: flex;
   flex-direction: column;
@@ -67,18 +81,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
     padding-left: 35px;
   }
-// button {
-//     height: 30px;
-//     width: 60px;
-//     border-radius: 5px;
-//     background-color: #43978d;
-//     border: none;
-//     cursor: pointer;
-//     color: whitesmoke;
-//   }
-button:hover {
-  background-color: rgba(249, 173, 106, 0.7049413515406162) 100%;
-  color: #333;
-}
+
 
   

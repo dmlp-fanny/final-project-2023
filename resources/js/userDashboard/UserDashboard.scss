@@ -182,7 +182,8 @@ main {
     display: flex;
     align-items: center;
 } input {
-    min-width: 500px;
+    // min-width: 500px; i comment this line as it overwrites the position of the checkbox in the register form at "are you a translator?"
+    width: 500px;
     height: 50px;
     border-radius: 16px;
     border-color: #264d59;

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import TranslatorSection from "../_Translators/TranslationSection/TranslatorSection";
 import Context from "../../Context";
+import Tag from "../_Users/Tag/Tag";
 
 export default function Profile() {
     const { context: { user }} = useContext(Context)
@@ -12,6 +13,11 @@ export default function Profile() {
                 <div className="profile_container">
                     <h2>Your Profile</h2>
                     <h3>Personal Information:</h3>
+
+                    {/* remember to delete this tag */}
+
+                    
+                    <Tag />
                     <div className="profile_container--section profile_container--section-bold">
                         First Name:<span>{user.first_name}</span> <br />
                         Last Name:<span>{user.last_name}</span> <br />
