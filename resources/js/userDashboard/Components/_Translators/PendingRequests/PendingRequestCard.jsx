@@ -16,7 +16,7 @@ export default function PendingRequestCard ({ pendingRequest, loadPendingRequest
             {
                 status_id !== 3 ? 
                 <div className="pending-buttons">
-                    <AcceptBtn requestStatus_id={pendingRequest.id} loadPendingRequests={loadPendingRequests} />
+                    <AcceptBtn  requestStatus_id={pendingRequest.id} loadPendingRequests={loadPendingRequests} />
                     <DeclineBtn requestStatus_id={pendingRequest.id} loadPendingRequests={loadPendingRequests}/>
                 </div>
                 :

@@ -19,9 +19,9 @@
     text-align: center;
 }
 .form-signup {
-    width: 70%;
+    width: 60%;
     background: white;
-    padding: 30px 40px;
+    padding: 3rem 4rem;
     border-radius: 16px;
     height: 80%;
     overflow-y: scroll;
@@ -50,7 +50,7 @@ input[type="checkbox"] {
 
 label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 2rem;
         font-weight: bold;
     }
 select,
@@ -87,6 +87,47 @@ td:nth-child(3) {
 .error {
     color: red;
 }
+@media (max-width: 768px) {
+    table,
+    form {
+      width: 95%;
+    }
+  
+    input[type="text"],
+    textarea {
+      width: 75%;
+    }
+  
+    table,
+    table th,
+    table td,
+    table tr,
+    table tbody,
+    table thead,
+    table tfoot {
+      display: block;
+    }
+  
+    table tr {
+      border-bottom: none;
+    }
+  
+    table th {
+      display: none;
+    }
+  
+    table td {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  
+    .btn-signup {
+      width: 100%;
+    }
+  }
+  
+
 
 
 

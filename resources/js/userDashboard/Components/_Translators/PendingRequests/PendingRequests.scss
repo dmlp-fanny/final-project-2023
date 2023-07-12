@@ -16,3 +16,14 @@ $border: 1px solid lightgrey;
 .pending-request-info_title {
         font-weight: 700;
 }
+.pending-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+}
+
+.acceptBtn {
+    background-color: #333 ;
+    border: 1px solid; 
+}
