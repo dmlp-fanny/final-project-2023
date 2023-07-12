@@ -8,9 +8,10 @@ $border: 1px solid lightgrey;
         font-weight: 700;
         text-transform: uppercase;
     }
-    &-datetime {
+    &-info {
         display: flex;
         justify-content: space-between;
+        margin-top: 1rem;
     }
     button {
         background-color: #43978d;

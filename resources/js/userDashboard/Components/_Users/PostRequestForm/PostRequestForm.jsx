@@ -102,7 +102,7 @@ export default function PostRequestsForm({ loadMyRequests }) {
                     ? errors['date'].map(error => <div className="error">{ error }</div>)
                     : ''
                     }
-                    <label htmlFor="time">Time</label>
+                    <label htmlFor="time">When is your appointment? (Working hours is 7-19)</label>
                     <input
                         type="time"
                         name="time"

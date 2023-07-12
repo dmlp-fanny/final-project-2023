@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Route, Routes, useParams } from "react-router-dom";
 import Tag from "./Tag/Tag";
+import Matching from "./Matching/Matching";
 
 
 export default function RequestDetail (tag) {
@@ -13,7 +14,6 @@ export default function RequestDetail (tag) {
     const loadRequestDetail = async () => {
         const response = await axios.get(`/api/requests/${request_id}`)
         setMyRequest(response.data)
-        console.log(response.data);
     }
 
     useEffect(() => {
@@ -26,6 +26,7 @@ export default function RequestDetail (tag) {
                 myRequest ? 
                 <>
                     <h2>{myRequest.title}</h2>
+                    <a href=""> ✎  Edit</a> 
                     <p><strong>Description: </strong>{myRequest.description}</p>
                     <p><strong>Date: </strong>{myRequest.date}</p>
                     <p><strong>Time: </strong>{myRequest.from_time}</p>
@@ -33,12 +34,14 @@ export default function RequestDetail (tag) {
                         <Tag key={tag.id} tag={tag}/>
                     ))}</p>
                     {
-                        myRequest.status === 1 ? 'Confirmed' :
+                        myRequest.status === 1 ? <p><strong>Status:</strong> Confirmed</p>:
+                        <>
                         <Link to={"/dashboard/requests/matching/" + request_id} > Matched Translators </Link>
+                        </>
                     }
-                 
+
+                    
                 </>
-                
                 : "Not found"
             }
         </div>
