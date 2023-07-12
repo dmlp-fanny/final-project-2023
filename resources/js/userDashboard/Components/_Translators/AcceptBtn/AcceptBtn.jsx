@@ -15,7 +15,7 @@ export default function AcceptBtn ({ requestStatus_id, loadPendingRequests }) {
 
     return (
         <form onSubmit={handleAcceptingInvitation}>
-            <button>Accept</button>
+            <button className="acceptBtn">Accept</button>
         </form>
     )
 }

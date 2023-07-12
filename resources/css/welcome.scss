@@ -31,7 +31,11 @@ $primary_font: Lato;
     background-color: #fff;
     font-family: Montserrat;
 }
-
+.navbar-nav .nav-link:hover {
+    color: #333;
+    background-color: rgba(249, 173, 106, 1); 
+    
+}
 .logo {
     cursor: pointer;
     height: 50px;
@@ -76,7 +80,11 @@ header {
     justify-content: center;
     // align-items: center;
 }
+.about-us-content {
+    width: 80%;
+    margin: 100px auto;
 
+}
 // .banner::before {
 //     content: "";
 //     position: absolute;
@@ -117,7 +125,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    // margin-top: 0;
+    gap: 5rem;
     padding: 5% 0;
 }
 .description-text {
@@ -156,44 +165,43 @@ header {
 }
 
 // .carousel-inner {
-//     height: 70vh;
+//     max-height: 100vh;
 // }
-.carousel-item {
-    position: relative;
-}
+// .carousel-item {
+//     position: relative;
+// }
 
-.carousel-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 1;
-}
-.carousel-image {
-    height: auto;
-    max-height: 30vh;
-    object-fit: contain;
-}
-.carousel-caption {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    color: white;
-    z-index: 2;
-    width: 90%;
-    opacity: 1;
-}
+// .carousel-item::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(0, 0, 0, 0.5);
+//     backdrop-filter: blur(5px);
+//     z-index: 1;
+// }
+// .carousel-image {
+//     height: auto;
+//     max-height: 30vh;
+//     object-fit: contain;
+// }
+// .carousel-caption {
+//     position: relative;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -30%);
+//     color: white;
+//     z-index: 2;
+//     width: 90%;
+//     opacity: 1;
+// }
 
-.carousel-caption p,
-.carousel-caption h5 {
-    display: block;
-}
-
+// .carousel-caption p,
+// .carousel-caption h5 {
+//     display: block;
+// }
 
 .signup-btn:hover {
     background-color: #333;
@@ -213,50 +221,28 @@ header {
     justify-content: center;
 }
 .feedback {
-    background-color: #f7f7f7;
-    padding: 50px;
-    text-align: center;
-}
+    position: relative;
+    padding: 3.5%;
+    margin-top: 0;
+    min-height: 80vh;
+    background: url('/public/img/Team Work4.svg') no-repeat center;
+    background-size: contain;
+    display: flex;
+    justify-content: flex-end;
+} 
 
 .feedback-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    top: 50px;
+    max-width: 500px;
+    // background-color:rgba(17, 12, 46, 0.15);
+    border-radius: 15px;
+    padding: 5%;
 }
 
-.feedback-container .col-md-4 {
-    margin-right: 30px;
-}
-.feedback-container img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 50%;
-}
-
-.feedback-container .card {
-    max-width: 540px;
-    width: 100%;
-}
-
-.feedback-container .card-body {
-    padding: 30px;
-}
-
-.feedback-container .card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-.feedback-container .card-text {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.feedback-container .text-body-secondary {
-    color: #888;
-}
 
 //footer styling
 

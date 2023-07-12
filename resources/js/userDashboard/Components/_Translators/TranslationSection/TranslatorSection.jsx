@@ -22,7 +22,7 @@ export default function TranslatorSection( { translator }) {
                 <h3>Languages:</h3>
                 <div className="profile_container--section">
                     {translator.language_translators.map((language_translator) => (
-                        <p key={language_translator.id}>From: {language_translator.from_language.language_name} - To: {language_translator.to_language.language_name} </p>
+                        <p key={language_translator.id}> {language_translator.from_language.language_name} ↔ {language_translator.to_language.language_name} </p>
                     ))}
                 </div>
             </div>

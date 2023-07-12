@@ -56,7 +56,7 @@ export default function Register({ loadUser }) {
                         "VALIDATION FAILED:",
                         error.response.data.errors
                     );
-                    setErrors(error.response.data.errors);//add this 
+                    setErrors(error.response.data.errors);
                     break;
                 case 500:
                     console.log("UNKNOWN ERROR", error.response.data);
