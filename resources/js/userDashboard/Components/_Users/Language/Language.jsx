@@ -42,8 +42,9 @@ export default function Language( {languageData, setLanguageData, index} ) {
                     name="from_language"
                     value={languageData.from_language}
                     onChange={handleLanguageSelection}
-                    required
+                    
                 >
+                
                     
                     <option value={null}>Select a language</option>
                     {

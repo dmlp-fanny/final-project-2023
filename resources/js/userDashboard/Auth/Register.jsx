@@ -117,7 +117,7 @@ export default function Register({ loadUser }) {
                         name="first_name"
                         value={values.first_name}
                         onChange={handleChange}
-                        required
+                        
                     />
                    
                     {
@@ -133,7 +133,7 @@ export default function Register({ loadUser }) {
                         name="last_name"
                         value={values.last_name}
                         onChange={handleChange}
-                        required
+                       
                     />
                     {
                     errors['last_name']
@@ -148,7 +148,7 @@ export default function Register({ loadUser }) {
                         name="email"
                         value={values.email}
                         onChange={handleChange}
-                        required
+                        
                     />
                     {
                     errors['email']
@@ -163,7 +163,7 @@ export default function Register({ loadUser }) {
                         name="phone_number"
                         value={values.phone_number}
                         onChange={handleChange}
-                        required
+                        
                     />
                     {
                     errors['phone_number']
@@ -178,7 +178,7 @@ export default function Register({ loadUser }) {
                         name="password"
                         value={values.password}
                         onChange={handleChange}
-                        required
+                        
                     />
                     {
                     errors['password']
@@ -252,7 +252,11 @@ export default function Register({ loadUser }) {
                                     index={i}
                                     setLanguageData={setLanguageData}
                                 />
+
+                              
+                                
                             ))}
+                            
 
                             <br />
                                 <button onClick={handleRemovingLanguages}>Remove</button>
@@ -271,6 +275,7 @@ export default function Register({ loadUser }) {
                             />
 
                             <TimeTable setScheduleData={setScheduleData} />
+                           
                         </>
                     ) : (
                         ""
