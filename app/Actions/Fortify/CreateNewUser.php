@@ -41,10 +41,22 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         if ($input['isTranslator'] === true) {
+            // Validator::make($input, [
+            //     'scheduleData' => 'array: from_time, till_time',
+            //     'selectedTags' => 'array: value, label',
+            //     'languageData' => 'array: from_language, to_language'
+            // ])->validate();
+
             Validator::make($input, [
-                'scheduleData' => 'array: from_time, till_time',
-                'selectedTags' => 'array: value, label',
-                'languageData' => 'array: from_language, to_language'
+                'scheduleData' => 'sometimes|required|array',
+                'scheduleData.from_time' => 'required_if:scheduleData,array',
+                'scheduleData.till_time' => 'required_if:scheduleData,array',
+                'selectedTags' => 'sometimes|required|array',
+                'selectedTags.*.value' => 'required_if:selectedTags,array',
+                'selectedTags.*.label' => 'required_if:selectedTags,array',
+                'languageData' => 'sometimes|required|array',
+                'languageData.from_language' => 'required_if:languageData,array',
+                'languageData.to_language' => 'required_if:languageData,array',
             ])->validate();
         }
         

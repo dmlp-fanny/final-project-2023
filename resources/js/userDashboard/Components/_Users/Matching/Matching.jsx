@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import TranslatorsCard from "../TranslatorsCard/TranslatorsCard"
 import './Matching.scss'
 import { useParams } from "react-router-dom"
+import PostRequestsForm from "../PostRequestForm/PostRequestForm"
 
 export default function Matching ( {myRequests} ) {
 
@@ -38,7 +39,12 @@ export default function Matching ( {myRequests} ) {
             {
                 translators?.length > 0 ? translators.map((translator, i) => <TranslatorsCard key={i} request_id={request_id} translator={translator} interactedWith={interactedWith && interactedWith.includes(translator.id)} />) 
                 :
-                "No translators matched your criteria"
+                <>
+                <p>No translators matched your criteria</p>
+                <PostRequestsForm loadMyRequests={() => {console.log('loading request');}}/>
+                </>
+
+
             }
         </div>
     )

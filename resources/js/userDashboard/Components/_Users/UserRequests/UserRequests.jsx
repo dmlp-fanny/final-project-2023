@@ -11,7 +11,6 @@ import PostRequestsForm from "../PostRequestForm/PostRequestForm";
 export default function UserRequests() {
     const {context: { user }} = useContext(Context);
 
-     
     const [myRequests, setMyRequests] = useState(null)
 
     const loadMyRequests = async () => {
@@ -41,8 +40,9 @@ export default function UserRequests() {
                     <Routes>
                         <Route path='/' element={<RequestsList myRequests={myRequests}/>}/>
                         <Route path='/post-request' element={<PostRequestsForm  loadMyRequests={loadMyRequests}/>}/>
+                        <Route path='/matching' element={<Matching myRequests={myRequests}/> }/>
                         <Route path='/matching/:request_id' element={<Matching myRequests={myRequests}/> }/>
-                        <Route path='/request-detail/:request_id' element={<RequestDetail/> }/>
+                        <Route path='/request-detail/:request_id' element={<RequestDetail myRequests={myRequests}/> }/>
                     </Routes>
 
                 </div>

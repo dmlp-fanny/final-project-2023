@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TagsSelection from "../TagsSelection/TagsSelection";
 import axios from "axios";
 import LanguageSelection from "../LanguageSelection/LanguageSelection";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import './PostRequestForm.scss'
 export default function PostRequestsForm({ loadMyRequests }) {
     const [newRequest, setNewRequest] = useState({
@@ -17,15 +17,26 @@ export default function PostRequestsForm({ loadMyRequests }) {
     });
     
     const [selectedTags, setSelectedTags] = useState([]);
+    const [errors, setErrors] = useState({})
 
     const navigate = useNavigate()
-    const [errors, setErrors] = useState({})
+
+    const {request_id} = useParams();
+
+    const loadSubmittedRequest = async () => {
+            const response = await axios.get(`/api/requests/${request_id}`)
+            setNewRequest(response.data);
+    }
+
+    useEffect(() => {
+        loadSubmittedRequest()
+    }, [request_id])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await axios.post("/api/requests/store", {
+            const response = await axios.post("/api/requests/store" + (request_id ? '/' + request_id : ''), {
                 ...newRequest,
                 tags: selectedTags,
             });
@@ -60,7 +71,7 @@ export default function PostRequestsForm({ loadMyRequests }) {
 
     return (
             <>
-                <h2>Post a Request</h2>
+                <h2>{request_id ? 'Edit a Request' : 'Post a Request'}</h2>
                 <form
                     onSubmit={(event) => {
                         handleSubmit(event);
@@ -138,7 +149,7 @@ export default function PostRequestsForm({ loadMyRequests }) {
 
                     <LanguageSelection from_language={newRequest.from_language} to_language={newRequest.to_language} handleInputValues={handleInputValues} />
 
-                    <button>Submit a Request</button>
+                    <button>{request_id ? 'Re-submit a Request' : 'Submit a Request'}</button>
                 </form>
             </>
     );

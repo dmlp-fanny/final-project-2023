@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Context from "../../Context";
 import axios from 'axios';
 import './Navigation.scss'
+import BurgerMenu from "./BurgerMenu";
 
 export default function Navigation() {
+
+    const navigate = useNavigate()
 
     const { context: {user}, dispatch } = useContext(Context)
 
@@ -15,6 +18,8 @@ export default function Navigation() {
             type: 'user/set',
             payload: null
         })
+
+        navigate('/login')
     }
     return (
         <aside>
@@ -28,12 +33,18 @@ export default function Navigation() {
             </article>
 
             <nav className="navigation">
-                    <Link to="/dashboard">Home</Link>
+                    <Link to="/dashboard">Homey</Link>
                     <Link to="/dashboard/requests">Requests</Link>
                     <Link to="/dashboard/profile">Profile</Link>
                     <Link to="/dashboard/messages">Messages</Link>
                     <Link to="/dashboard/settings">Settings</Link>
             </nav>
+                <div className="burger-menu">
+                    <BurgerMenu />
+                </div>
         </aside>
+
+        
+
     );
 }
