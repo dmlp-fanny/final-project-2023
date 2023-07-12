@@ -24,10 +24,10 @@ body {
     display: flex;
 }
 
-/* @media screen and (max-width: 768px) {
-    aside {
-        display: none
+@media screen and (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
     }
 }
-     */
+
 
