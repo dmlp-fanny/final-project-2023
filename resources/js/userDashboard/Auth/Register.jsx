@@ -15,7 +15,7 @@ export default function Register({ loadUser }) {
         experience: "",
         password: "",
         password_confirmation: "",
-        location: "",
+        location: null,
         from_language: "",
         to_language: "",
         isTranslator: false,
@@ -244,6 +244,12 @@ export default function Register({ loadUser }) {
                         <>
                             <TagsSelection setSelectedTags={setSelectedTags} />
 
+                            {
+                    errors['selectedTags']
+                    ? errors['selectedTags'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
+
                             <br />
                             {languageData.map((competence, i) => (
                                 <Language
@@ -253,7 +259,11 @@ export default function Register({ loadUser }) {
                                     setLanguageData={setLanguageData}
                                 />
                             ))}
-
+                            {
+                    errors['languageData']
+                    ? errors['languageData'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                             <br />
                                 <button onClick={handleRemovingLanguages}>Remove</button>
                             <button className="btn-signup" onClick={handleAddingAnotherLanguage}>
@@ -271,6 +281,11 @@ export default function Register({ loadUser }) {
                             />
 
                             <TimeTable setScheduleData={setScheduleData} />
+                            {
+                    errors['scheduleData']
+                    ? errors['scheduleData'].map(error => <div className="error">{ error }</div>)
+                    : ''
+                    }
                         </>
                     ) : (
                         ""

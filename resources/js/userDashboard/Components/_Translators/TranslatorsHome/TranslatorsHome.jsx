@@ -5,6 +5,7 @@ import Context from "../../../Context";
 import ConfirmedRequests from "../ConfirmedRequests/ConfirmedRequests"
 import './TranslatorsHome1.scss';
 import axios from "axios";
+import CurrentDate from "../../CurrentDate/CurrentDate";
 export default function TranslatorsHome() {
 
     const { context: {user}} = useContext(Context)
@@ -61,7 +62,8 @@ export default function TranslatorsHome() {
             // </>
         <>
             <div className="dashboard-header">
-                <div className="dashboard-date">Current Date</div>
+                <CurrentDate />
+                
                 <CalendarView />
             </div>
             <div className="dashboard-body">

@@ -1,9 +1,16 @@
 .dashboard-header {
     background: linear-gradient(-45deg, #264d59, #43978d);
-    height: 250px;
+    color: white;
+    min-height: 300px;
+    text-align: center;
     width: 100%;
 }
 
+.dashboard-date {
+    text-transform: uppercase;
+    text-align: right;
+    padding: 1rem;
+}
 .dashboard-body {
     display: flex;
     flex-direction: row;

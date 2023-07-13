@@ -41,25 +41,20 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         if ($input['isTranslator'] === true) {
-            // Validator::make($input, [
-            //     'scheduleData' => 'array: from_time, till_time',
-            //     'selectedTags' => 'array: value, label',
-            //     'languageData' => 'array: from_language, to_language'
-            // ])->validate();
 
             Validator::make($input, [
                 'scheduleData' => 'sometimes|required|array',
-                'scheduleData.from_time' => 'required_if:scheduleData,array',
-                'scheduleData.till_time' => 'required_if:scheduleData,array',
+                'scheduleData.*.from_time' => 'required_if:scheduleData,array',
+                'scheduleData.*.till_time' => 'required_if:scheduleData,array',
                 'selectedTags' => 'sometimes|required|array',
-                'selectedTags.*.value' => 'required_if:selectedTags,array',
-                'selectedTags.*.label' => 'required_if:selectedTags,array',
+                // 'selectedTags.*.value' => 'required_if:selectedTags,array',
+                // 'selectedTags.*.label' => 'required_if:selectedTags,array',
                 'languageData' => 'sometimes|required|array',
-                'languageData.from_language' => 'required_if:languageData,array',
-                'languageData.to_language' => 'required_if:languageData,array',
+                'languageData.*.from_language' => Rule::requiredIf(gettype($input['languageData']) == "array"), 
+                'languageData.*.to_language' => Rule::requiredIf(gettype($input['languageData']) == "array"),
             ])->validate();
         }
-        
+
         $user = User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
@@ -78,7 +73,7 @@ class CreateNewUser implements CreatesNewUsers
 
             foreach ($input['scheduleData'] as $key => $timeslot) {
                 if ($timeslot['day'] !== null and $timeslot['from_time'] !== null and $timeslot['till_time'] !== null) {
-                    Timeslot::create([ 
+                    Timeslot::create([
                         'translator_id' => $translator->id,
                         'weekday' => $timeslot['day'],
                         'from_time' => $timeslot['from_time'],
@@ -100,7 +95,6 @@ class CreateNewUser implements CreatesNewUsers
                     'to_language_id' => $language['to_language'],
                 ]);
             }
-
         }
 
         return $user;

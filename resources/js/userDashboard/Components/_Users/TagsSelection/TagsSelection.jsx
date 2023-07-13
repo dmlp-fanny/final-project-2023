@@ -26,7 +26,7 @@ export default function TagsSelection ( {selectedTags, setSelectedTags} ) {
 
     return (
 
-        <Select options={tags} name='tags' placeholder='Select the category..' value={selectedTags} onChange={handleSelectingTags} isSearchable={true} isMulti/>
+        <Select options={tags} name='tags' placeholder='Select the category..' defaultValue={selectedTags} onChange={handleSelectingTags} isSearchable={true} isMulti/>
 
     )
 }

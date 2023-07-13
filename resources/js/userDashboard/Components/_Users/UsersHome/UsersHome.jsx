@@ -7,11 +7,13 @@ import './UsersHome.scss';
 import PendingInvitations from "../PendingInvitations/PendingInvitations";
 import ConfirmedRequests from "../ConfirmedRequests/ConfirmedRequests";
 import Rating from "../Rating/Rating";
+import CurrentDate from "../../CurrentDate/CurrentDate";
 
 export default function UsersHome() {
 
 const [userConfirmedRequests, setUserConfirmedRequests] = useState([]);
 const [userPendingRequests, setUserPendingRequests] = useState([]);
+
 
     const {context: { user }} = useContext(Context);
 
@@ -50,11 +52,18 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
     return (
         <div>
             <div className="dashboard-header">
-                <div className="dashboard-date">Current Date</div>
+
+                <CurrentDate />
                 <h2>Confirmed Requests</h2>
-                <ConfirmedRequests userConfirmedRequests={userConfirmedRequests} />
+                {
+                    userPendingRequests?.length > 0 ? <ConfirmedRequests userConfirmedRequests={userConfirmedRequests} /> : 'No confirmed requests yet'
+                }
+
+
+                
             </div>
             <div className="dashboard-body">
+   
                 <PendingInvitations userPendingRequests={userPendingRequests} loadUserRequests={loadUserRequests}/>
 
                 <Rating />
