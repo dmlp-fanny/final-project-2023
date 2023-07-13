@@ -18,7 +18,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $first_name = fake()->firstName();
-        $last_name = fake()->lastName();
+        $last_name = fake()->unique()->lastName();
         $username = $first_name[0] . $last_name;
         
         return [
