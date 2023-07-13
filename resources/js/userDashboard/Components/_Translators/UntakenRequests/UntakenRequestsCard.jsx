@@ -27,7 +27,7 @@ import './UntakenRequest.scss';
                         <strong>From </strong> {from_time} - Till {till_time}
                     </p>
                     <p className="request__text">
-                        <strong>From </strong> {from_language.language_name} - To {to_language.language_name}
+                        <strong></strong> {from_language.language_name} ↔  {to_language.language_name}
                     </p>
                     <p>{tags.map((tag) => (
                         <Tag key={tag.id} tag={tag}/>

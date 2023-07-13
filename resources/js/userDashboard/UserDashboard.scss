@@ -155,3 +155,35 @@ main {
 a {
     color: #333;
 }
+.profile_container {
+    padding: 2rem;
+        width: 90%;
+        
+        h2, h3 {
+            font-size: 1.5rem;
+        }
+        
+        &--section {
+            margin: 0.5rem 0;
+            line-height: 1.5rem;
+            
+            p {
+                margin-bottom: 1rem;
+                span {
+                    left: 120px;
+                }
+            }
+            
+            &-bold {
+                margin: 0.5rem 0;
+                
+                p {
+                    margin-bottom: 1rem;
+                    span {
+                        left: 120px;
+                    }
+                }
+            }
+        }
+    }
+

@@ -118,6 +118,7 @@ header {
     margin-bottom: 100px;
 }
 
+
 .description,
 .feedback {
     min-height: 300px;
@@ -164,44 +165,6 @@ header {
     text-align: center;
 }
 
-// .carousel-inner {
-//     max-height: 100vh;
-// }
-// .carousel-item {
-//     position: relative;
-// }
-
-// .carousel-item::before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: rgba(0, 0, 0, 0.5);
-//     backdrop-filter: blur(5px);
-//     z-index: 1;
-// }
-// .carousel-image {
-//     height: auto;
-//     max-height: 30vh;
-//     object-fit: contain;
-// }
-// .carousel-caption {
-//     position: relative;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -30%);
-//     color: white;
-//     z-index: 2;
-//     width: 90%;
-//     opacity: 1;
-// }
-
-// .carousel-caption p,
-// .carousel-caption h5 {
-//     display: block;
-// }
 
 .signup-btn:hover {
     background-color: #333;
@@ -243,7 +206,26 @@ header {
     padding: 5%;
 }
 
-
+.about-us {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5rem;
+    gap: 100px;
+    padding: 50px;
+}
+.about-us .content_left {
+    order: 1;
+}
+.about-us .content_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-us img {
+    max-height: 300px;
+    border-radius: 15px;
+    margin-right: 5rem;
+}
 //footer styling
 
 footer {
@@ -305,4 +287,51 @@ footer {
     .copyright {
         align-items: center;
     }
-} 
+ 
+header {
+    div {
+      ul {
+        display: none;
+      }
+    }
+    
+    .navbar-brand {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .navbar-toggler {
+      display: block;
+    }
+    // .navbar-toggler-icon {
+    //     outline: none;
+    //     box-shadow: none;
+    //     border: none;
+    // }
+    button.navbar-toggler:focus { outline: 1px none; }
+    
+    // button.navbar-toggler.ml-auto.hidden-sm-up.float-xs-right:focus {
+    //     outline: none!important;
+    // }
+    .collapse.navbar-collapse {
+      display: none;
+    }
+    .nav-link {
+      display: none;
+    }
+    .collapse.navbar-collapse.show {
+      display: block;
+      
+    }
+    .navbar-nav .nav-link {
+      display: block;
+      text-align: center;
+      margin: 10px auto;
+    }
+  }
+  .about-us {
+    display: flex;
+    flex-direction: column;
+  }
+}
+  
