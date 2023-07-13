@@ -77,5 +77,11 @@ button:hover {
     padding-left: 35px;
   }
 
+  @media screen and (max-width: 768px) {
+    .untaken_requests_cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
 
   

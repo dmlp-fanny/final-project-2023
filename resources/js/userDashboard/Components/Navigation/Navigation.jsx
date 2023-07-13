@@ -14,9 +14,11 @@ export default function Navigation() {
     } = useContext(Context);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [selected, setSelected] = useState('')
 
-    const toggleMenu = () => {
+    const toggleMenu = (page) => {
         setIsMenuOpen(!isMenuOpen);
+        setSelected(page)
     };
 
     const handleLogout = async () => {
@@ -49,11 +51,11 @@ export default function Navigation() {
                 </article>
 
                 <nav className="navigation">
-                    <Link to="/dashboard" onClick={toggleMenu}>Home</Link>
-                    <Link to="/dashboard/requests" onClick={toggleMenu}>Requests</Link>
-                    <Link to="/dashboard/profile" onClick={toggleMenu}>Profile</Link>
-                    <Link to="/dashboard/messages" onClick={toggleMenu}>Messages</Link>
-                    <Link to="/dashboard/settings" onClick={toggleMenu}>Settings</Link>
+                    <Link to="/dashboard" onClick={() => toggleMenu('Home')} className={selected === 'Home' ? 'selected' : ''}>Home</Link>
+                    <Link to="/dashboard/requests" onClick={() => toggleMenu('Requests')} className={selected === 'Requests' ? 'selected' : ''}>Requests</Link>
+                    <Link to="/dashboard/profile" onClick={() => toggleMenu('Profile')} className={selected === 'Profile' ? 'selected' : ''}>Profile</Link>
+                    <Link to="/dashboard/messages" onClick={() => toggleMenu('Messages')} className={selected === 'Messages' ? 'selected' : ''}>Messages</Link>
+                    <Link to="/dashboard/settings" onClick={() => toggleMenu('Settings')} className={selected === 'Settings' ? 'selected' : ''}>Settings</Link>
                 </nav>
             </aside>
         </>

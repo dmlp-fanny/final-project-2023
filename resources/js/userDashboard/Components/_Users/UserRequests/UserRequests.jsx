@@ -17,7 +17,6 @@ export default function UserRequests() {
         try {
             const response = await axios.get('/api/requests/user/' + user.id)
             setMyRequests(response.data)
-            console.log(response.data);
         } catch (err) {
             console.log(err)}
     }

@@ -123,6 +123,11 @@ td:nth-child(3) {
     .btn-signup {
       width: 100%;
     }
+
+    .form-signup {
+        padding: 1.2rem;
+        width: 80%;
+    }
   }
   
 

@@ -33,7 +33,6 @@ export default function UntakenRequests() {
                         if (request.translator_id === null) {
                             return <UntakenRequestsCard key={request.id} request={request} />
                         }
-                        console.log(request);
                     })
                 }
             </div>
