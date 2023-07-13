@@ -91,11 +91,6 @@ td:nth-child(3) {
       width: 95%;
     }
   
-    input[type="text"],
-    textarea {
-      width: 75%;
-    }
-  
     table,
     table th,
     table td,
