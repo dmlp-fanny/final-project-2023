@@ -7,7 +7,6 @@
 }
 
 .form-login h1 {
-    /* margin-top: 20px; */
     font-size: 36px;
     text-align: center;
 }
@@ -32,7 +31,6 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 600px;
-    /* color: rgb(250, 223, 187); */
 }
 .form-login .register {
     text-align: center;

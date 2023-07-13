@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
 import './Register.css';
+
 export default function TimeTable({ setScheduleData }) {
     const [schedule, setSchedule] = useState([
         { day: "Monday", from_time: "", till_time: "" },

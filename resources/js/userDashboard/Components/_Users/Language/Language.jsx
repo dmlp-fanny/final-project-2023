@@ -37,7 +37,6 @@ export default function Language( {languageData, setLanguageData, index} ) {
         <div className="competence">
             <div className="competence_input_group">
                 
-                {/* <label htmlFor="from_language">Language 1</label> */}
                 <select
                     name="from_language"
                     value={languageData.from_language}
@@ -61,7 +60,6 @@ export default function Language( {languageData, setLanguageData, index} ) {
             </div>
             <section>↔</section>   
             <div className="competence_input_group">
-                {/* <label htmlFor="to_language">Language 2</label> */}
                 <select
                     name="to_language"
                     value={languageData.to_language}

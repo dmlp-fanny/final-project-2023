@@ -3,7 +3,7 @@ import CalendarView from "../CalendarView";
 import PendingRequests from "../PendingRequests/PendingRequests";
 import Context from "../../../Context";
 import ConfirmedRequests from "../ConfirmedRequests/ConfirmedRequests"
-import './TranslatorsHome1.scss';
+import './TranslatorsHome.scss';
 import axios from "axios";
 import CurrentDate from "../../CurrentDate/CurrentDate";
 export default function TranslatorsHome() {
@@ -37,29 +37,6 @@ export default function TranslatorsHome() {
     }, [])
 
     return (
-            // <>
-            // <div className="translator-home">
-            //     <div className="active-request">
-            //         <CalendarView />
-            //         {/* <ActiveRequests /> */}
-            //     </div>
-            //     <div className="item confirmed-request">
-            //         <ConfirmedRequests confirmedRequests={confirmedRequests}/>
-            //     </div>
-            //     <div className="item new-invitation">
-            //         <NewInvitation />
-            //     </div>
-            //     <div className="item pending-request">
-            //         <h2>Pending requests</h2>
-            //         <PendingRequests pendingRequests={pendingRequests}/>
-            //     </div>
-            // </div>
-            // <div className="calendar">
-            //         <CalendarView />
-            // </div>
-
-                
-            // </>
         <>
             <div className="dashboard-header">
                 <CurrentDate />

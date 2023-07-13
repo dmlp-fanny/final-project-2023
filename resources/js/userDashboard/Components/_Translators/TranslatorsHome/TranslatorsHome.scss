@@ -1,48 +1,18 @@
-// .translator-home {
-//     // background-image: linear-gradient(
-//     //     300deg,
-//     //     rgba(38, 77, 89, 1) 21%,
-//     //     rgba(67, 151, 141, 1) 68%,
-//     //     rgba(249, 173, 106, 0.7049413515406162) 100%);
-//     display: grid;
-//     // grid-template-columns: repeat(3, 1fr);
-//     grid-template-columns: 1fr 2fr;
-//     grid-template-areas: "active active"
-//     "confirmed new"
-//     "confirmed pending";
-//     gap: 2px;
-//     grid-auto-rows: minmax(100px, auto);
-// }
-// .item {
-//     background-image: linear-gradient(
-//         300deg,
-//         rgba(38, 77, 89, 1) 21%,
-//         rgba(67, 151, 141, 1) 68%,
-//         rgba(249, 173, 106, 0.7049413515406162) 100%);
-// }
-// .item:nth-of-type(1) {
-//     border: 1px solid red;
-//     grid-area: active;
-// }
-// .item:nth-of-type(2) {
-//     border: 1px solid red;
-//     grid-row: 2 / 4;
-//     grid-area: confirmed;
-// }
-// .item:nth-of-type(3) {
-//     border: 1px solid red;
-//     grid-area: new;
-// }
-// .item:nth-of-type(4) {
-//     border: 1px solid red;
-//     grid-area: pending;
-// }
-// @media (max-width: 768px) {
-//     .translator-home {
-//         grid-template-columns: 1fr;
-//         grid-template-areas: "active"
-//         "confirmed"
-//         "new"
-//         "pending";
-//     }
-// }
+.dashboard-header {
+    background: linear-gradient(-45deg, #264d59, #43978d);
+    height: 250px;
+    width: 100%;
+}
+
+.dashboard-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-body {
+        flex-direction: column;
+    }
+}

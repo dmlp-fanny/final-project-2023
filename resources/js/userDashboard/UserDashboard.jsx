@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./Components/Navigation/Navigation";
-import Dashboard from "./Components/_Translators/TranslatorsHome/TranslatorsHome";
 import Profile from "./Components/Profile/Profile";
 import "./UserDashboard.scss";
 import ViewRequests from "./Components/_Translators/ViewRequests";

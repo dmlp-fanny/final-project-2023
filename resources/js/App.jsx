@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import reducer from "./userDashboard/Context/reducer";
 import state from "./userDashboard/Context/state";
 import axios from "axios";
@@ -8,14 +8,9 @@ import "../css/app.css";
 import Login from "./userDashboard/Auth/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./userDashboard/Auth/Register";
-// import SuccessMessages from "./userDashboard/Components/SuccessMessages/SuccessMessages";
 
 function App() {
     const [context, dispatch] = useReducer(reducer, state);
-
-    // const [successMessage, setSuccessMessage] = useState(null)
-
-    // const [showPopup, setShowPopup] = useState(true);
 
     const loadUser = async () => {
         try {
@@ -31,8 +26,6 @@ function App() {
                     payload: response.data,
                 });
 
-                // setSuccessMessage('Succesfully logged in.')
-
             }
         } catch (err) {
             console.log(err);
@@ -46,7 +39,6 @@ function App() {
     return (
         <Context.Provider value={{ context, dispatch }}>
             <BrowserRouter>
-                {/* {showPopup ? <SuccessMessages setShowPopup={setShowPopup} successMessage={successMessage}/> : <></>} */}
                 <Routes>
                     <Route path="/dashboard/*" element={ context.user ? (<UserDashboard loadUser={loadUser}/>) : (<Login loadUser={loadUser} />)} />
                     <Route path="/register" element={<Register loadUser={loadUser}/>} />

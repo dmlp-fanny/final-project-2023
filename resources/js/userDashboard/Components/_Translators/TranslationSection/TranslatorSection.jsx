@@ -11,7 +11,6 @@ export default function TranslatorSection( { translator }) {
                 </div>
                 <h3>Categories:</h3>
 
-                {/* <Tag translator={translator}/> */}
                 <div className="profile_container--section">
                     {translator.tags.map((tag) => (
                         <Tag key={tag.id} tag={tag}/>

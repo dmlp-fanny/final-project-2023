@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 export default function RequestCard ({myRequest}) {
 
-    const {title, description, date, from_time, id} = myRequest;
+    const {title, date, from_time, id} = myRequest;
     
 
 

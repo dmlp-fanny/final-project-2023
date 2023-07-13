@@ -8,7 +8,6 @@ export default function LanguageSelection( {from_language, to_language, handleIn
     useEffect(() => {
         axios.get('/api/languages')
       .then(response => {
-        // const languages = response.data;
         setLanguages(response.data)
       })
       .catch(error => {
