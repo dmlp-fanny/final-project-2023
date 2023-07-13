@@ -8,14 +8,14 @@ import "../css/app.css";
 import Login from "./userDashboard/Auth/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./userDashboard/Auth/Register";
-import SuccessMessages from "./userDashboard/Components/SuccessMessages/SuccessMessages";
+// import SuccessMessages from "./userDashboard/Components/SuccessMessages/SuccessMessages";
 
 function App() {
     const [context, dispatch] = useReducer(reducer, state);
 
     // const [successMessage, setSuccessMessage] = useState(null)
 
-    const [showPopup, setShowPopup] = useState(true);
+    // const [showPopup, setShowPopup] = useState(true);
 
     const loadUser = async () => {
         try {
