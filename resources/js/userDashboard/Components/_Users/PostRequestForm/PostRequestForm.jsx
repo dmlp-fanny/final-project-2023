@@ -125,8 +125,9 @@ export default function PostRequestsForm({ loadMyRequests }) {
                     ? errors['time'].map(error => <div className="error">{ error }</div>)
                     : ''
                     }
-                    For how long is this appointment (from 1-8 hours)?
+                    <label htmlFor="duration">For how long is this appointment (from 1-8 hours)?</label>
                     <input
+                        id="duration"
                         type="number"
                         name="duration"
                         min="1"

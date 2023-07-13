@@ -31,11 +31,7 @@
         </div>
     </section>
 
-    <section id="about-us" class="about-us">
-        <div class="about-us-content">
-            <h4>Hi, this is Fanny and Tuyen, we love solving small daily problems and help making your life a bit easier with less hassle to deal with.</h4>
-        </div>
-    </section>
+    
     
     {{-- Description session:  --}}
 
@@ -135,6 +131,16 @@
         </div>
     </section>
 
+    <section id="about-us" class="about-us">
+        <div class="content_left">
+            <img src="/img/teamimg.jpg">
+        </div>
+        <div class="content_right">
+            <h2>About us</h2>
+            <p>Hi, this is Fanny & Tuyen, we love solving small problems and help making your life a bit easier with less hassle.</p>
+            <p>What does connect mean?</p>
+        </div>
+    </section>
     {{-- footer section  --}}
 
     <footer custom-navbar>
