@@ -67,61 +67,6 @@
         </div>
     </section>
 
-    {{-- Review session --}}
-        
-        {{-- <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-            <div class="carousel-item active">
-                {{-- <img src="/img/meeting.jpg" class="d-block w-100" /> --}}
-                {{-- <div class="carousel-caption  d-md-block carousel-meeting">
-                <h5>JOHN DOE</h5>
-                <p>Title: some rating here!</p>
-
-                <p> Rating: ⭐⭐⭐⭐⭐ </p>
-                <p>"I need a translator to help me with an cardiovascular checkup. It went well, the translator was helpful and friendly. I was very happy with the app, highly recommend....".</p>
-                <p class="animated bounceInright" style="animation-delay: 3s"><a href="#">Learn more</a></p>
-                </div>
-            </div> --}}
-            {{-- <div class="carousel-item">
-                <img src="/img/horgward.jpg" class="d-block w-100">
-                <div class="carousel-caption  d-md-block">
-                <h5>HARRY POTTER</h5>
-                <p>Title: [APP NAME] - AN UNKNOWN GEM TO HOGWART !</p>
-
-                <p> Rating: ⭐⭐⭐⭐⭐ </p>
-                <p>"I use the app for my trip to Prague as I need to attend an important meeting in Prague - The Prague Supreme Magic Council. I would not know what to do without a translator. This app works just like Amortentia a powerful love enchantment. Not actually creating love but falling into that connection. Both muggles and wizards can fall under the spell of AMORTENTIA as well as this app!".</p>
-                <p class="animated bounceInright" style="animation-delay: 3s"><a href="#">Learn more</a></p>
-                </div>
-            </div> --}}
-            {{-- <div class="carousel-item">
-                <img src="/img/welikeyoutoo.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption  d-md-block">
-                <h5>FRODO</h5>
-                <p>Title: A Journey through Middle-earth TO PRAGUE - An App for True Adventurers!</p>
-
-                <p> Rating: ⭐⭐⭐⭐⭐ </p> --}}
-                    
-                {{-- <p> Review:
-                    Oh, my dear fellow travelers! If you seek a delightful and enchanting experience akin to the epic quest of the One Ring, look no further than this remarkable app! As Frodo Baggins, a hobbit who has traversed Middle-earth and borne the weight of the world, I wholeheartedly bestow upon this application the highest honor of five shimmering stars!Furthermore, the app's user interface is intuitive and user-friendly, allowing even the humblest of hobbits to navigate with ease. The app's developers have clearly poured their hearts into creating an experience that caters to both seasoned travelers and those venturing into Middle-earth for the first time.ESPECIALLY USEFUL IN CZECH IF YOU DONT SPEAK CZECH!!!</p>
-                    <p class="animated bounceInright" style="animation-delay: 3s"><a href="#">Learn more</a></p>
-                </div>
-            </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-            </button>
-        </div> --}}
-
     {{-- Feedback session --}}
     <section id="join-us" class="feedback">
         
