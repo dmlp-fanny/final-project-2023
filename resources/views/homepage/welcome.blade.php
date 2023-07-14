@@ -50,23 +50,23 @@
             <li>User Flow - BPMN Editor</li>
         </p>
         <div class="screenshot">
-            <img src="/icons/monday.png">
-            <img src="/icons/dbdiagram.png">
-            <img src="/icons/wireframe.png">
-            <img src="/icons/bpmneditor.png">
+            <img src="/icon/monday.png">
+            <img src="/icon/dbdiagram.png">
+            <img src="/icon/wireframe.png">
+            <img src="/icon/bpmneditor.png">
         </div>
             <h4>Tech Stack</h4>
             <p><strong>What programming languages we use?</strong></p>
         <div class="icons">   
-            <img src="/icons/html.png">
-            <img src="icons/css.png">
-            <img src="icons/sass.png">
-            <img src="icons/bootstrap.png">
-            <img src="icons/react.png">
-            <img src="icons/js.png">
-            <img src="icons/laravel.png">
-            <img src="icons/php.png">
-            <img src="icons/mysql.jpg">
+            <img src="/icon/html.png">
+            <img src="/icon/css.png">
+            <img src="/icon/sass.png">
+            <img src="/icon/bootstrap.png">
+            <img src="/icon/react.png">
+            <img src="/icon/js.png">
+            <img src="/icon/laravel.png">
+            <img src="/icon/php.png">
+            <img src="/icon/mysql.jpg">
         </div> 
         <h4>Lessons Learnt</h4>
         <p><strong>What are we taking away from this project?</strong></p>
