@@ -329,10 +329,14 @@ header {
       text-align: center;
       margin: 10px auto;
     }
-  }
+    .login-link {
+        display: inline-block;
+      }
+  
   .about-us {
     display: flex;
     flex-direction: column;
   }
+}
 }
   

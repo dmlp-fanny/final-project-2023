@@ -88,11 +88,15 @@ export default function Login(props) {
                     <button className="btn">
                         Login
                     </button>
-
+                    
                     <div className="register">
                         <p>
                             Don't have an account? <Link to={"/register"}>Sign up</Link>
                         </p>
+                        {/* <Link to="/" className="homepage-link">
+                        Go back to Homepage
+                        </Link> */}
+                        <a href="http://connect.codeboot.cz/">Go back to Homepage</a>
                     </div>
                 </form>
             </div>
