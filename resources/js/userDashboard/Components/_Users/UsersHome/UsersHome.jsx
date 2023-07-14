@@ -39,6 +39,8 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
             setUserPendingRequests(nextStatePendRequests)
             setUserConfirmedRequests(nextStateConfRequests)
 
+            console.log(response.data);
+
         } catch (err) {
             console.log(err);
         }
@@ -48,7 +50,6 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
         loadUserRequests();
     }, []);
 
-
     return (
         <div>
             <div className="dashboard-header">
@@ -56,7 +57,7 @@ const [userPendingRequests, setUserPendingRequests] = useState([]);
                 <CurrentDate />
                 <h2>Confirmed Requests</h2>
                 {
-                    userPendingRequests?.length > 0 ? <ConfirmedRequests userConfirmedRequests={userConfirmedRequests} /> : 'No confirmed requests yet'
+                    userConfirmedRequests?.length > 0 ? <ConfirmedRequests userConfirmedRequests={userConfirmedRequests} /> : 'No confirmed requests yet'
                 }
 
 

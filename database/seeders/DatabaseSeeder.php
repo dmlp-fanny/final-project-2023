@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class
         ]);
 
-        User::factory(10)->create();
+        User::factory(100)->create();
 
         Request::factory(10)
             ->state(new Sequence(fn () => ['user_id' => User::all()->random()]))
@@ -35,11 +35,12 @@ class DatabaseSeeder extends Seeder
                 $request->tags()->sync(Tag::all()->random(mt_rand(1, 2)));
             });
 
-        Translator::factory(100)
+        Translator::factory(50)
+            ->state(new Sequence(fn (Sequence $sequence) => ['user_id' => User::find($sequence->index + 1)]))
             ->create()
             ->each(function ($translator) {
                 $translator->tags()->sync(Tag::all()->random(mt_rand(5, 10)));
-                $translator->languages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => mt_rand(1,2)]);
+                $translator->languages()->syncWithPivotValues(Language::all()->random(), ['to_language_id' => mt_rand(1, 2)]);
                 Timeslot::factory(5)->create(['translator_id' => $translator->id]);
             });
     }
