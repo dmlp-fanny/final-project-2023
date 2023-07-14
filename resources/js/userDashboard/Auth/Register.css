@@ -85,6 +85,9 @@ td:nth-child(3) {
 .error {
     color: red;
 }
+.homepage-btn {
+    text-align: center;
+}
 @media (max-width: 768px) {
     table,
     form {

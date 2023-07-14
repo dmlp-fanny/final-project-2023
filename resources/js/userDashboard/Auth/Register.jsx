@@ -297,6 +297,9 @@ export default function Register({ loadUser }) {
                 </div>
                 <br />
                 <button className="btn-signup">Sign up</button>
+                <div className="homepage-btn">
+                    <a href="http://connect.codeboot.cz/">Go back to Homepage</a>
+                </div>
             </form>
         </div>
     );
