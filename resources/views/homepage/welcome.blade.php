@@ -103,14 +103,14 @@
     </section>
 
     <section id="about-us" class="about-us">
-        <div class="content_left">
-            <img src="/img/teamimg.jpg">
-        </div>
         <div class="content_right">
             <h2>About us</h2>
             <p>Hello, we are Fanny & Tuyen, we love solving everyday challenges, making your life more convenient with less hassle. We are here to lend a helping hand. Let us be a part of making your life smoother and more enjoyable.</p>
             <h4>What does connect mean?</h4>
             <p>"Connect" is a platform that fosters connections between individuals who face language barriers and those who possess language skills and are eager to assist others. Our goal is to bridge the gap and facilitate meaningful interactions, enabling individuals to connect and communicate effectively. "Connect" serves as a catalyst for bringing people together, creating a supportive community where language skills become a powerful tool for making a positive impact and helping others.</p>
+        </div>
+        <div class="content_left">
+            <img src="/img/teamimg.jpg">
         </div>
     </section>
     {{-- footer section  --}}

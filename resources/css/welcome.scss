@@ -209,13 +209,15 @@ header {
 
 .about-us {
     display: flex;
-    flex-direction: row;
-    margin-left: 5rem;
+        width: 80%;
+    // flex-direction: row;
+    // margin-left: 5rem;
     gap: 100px;
-    padding: 50px;
+    margin: 50px auto;
+    // padding: 50px;
 }
 .about-us .content_left {
-    order: 1;
+    // order: 1;
 }
 .about-us .content_right {
     display: flex;
@@ -223,9 +225,10 @@ header {
     justify-content: center;
 }
 .about-us img {
-    max-height: 300px;
+    // max-height: 300px;
+    width: 100%;
     border-radius: 15px;
-    margin-right: 5rem;
+    // margin-right: 5rem;
 }
 //footer styling
 
@@ -333,10 +336,10 @@ header {
         display: inline-block;
       }
   
-  .about-us {
-    display: flex;
-    flex-direction: column;
-  }
-}
+    }
+    .about-us {
+      flex-direction: column;
+        padding: 1rem;
+    }
 }
   
