@@ -36,7 +36,7 @@
       <div class="modal-body">
         
         <div class="qrcode">
-            <img src="/icons/qrcode.png">
+            <img src="/icon/qrcode.png">
         </div>
 
         <h3>Behind the Scenes of the Project</h3>
