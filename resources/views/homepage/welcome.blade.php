@@ -1,5 +1,6 @@
 
 <x-layout>
+
     <header>
         
         <nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary custom-navbar">
@@ -12,6 +13,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about-us">About us</a></li>
                         <li class="nav-item"><a class="nav-link" href="#how-it-works">Services</a></li> 
                         <li class="nav-item"><a class="nav-link" href="#join-us">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#myModal" data-bs-toggle="modal">Demo Day</a></li>
                     </ul>
                 </div>    
                 <a class="nav-link" href="/login">Login</a>
@@ -22,6 +24,30 @@
             </div>
         </nav>
     </header>
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">CONNECT APP</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Team</h4>
+        <h4>Workflow</h4>
+        <p>Helpful tools: 
+            <li>Organization - monday.com </li>
+            <li>Data Modelling - dbdiagram.io </li>
+            <li>Wireframe - invisionapp.com</li>
+            <li>User Flow - BPMN Editor</li>
+        </p>
+        <h4>Tech Stack</h4>
+
+      </div>
+    </div>
+  </div>
+</div>
 
     {{-- Hero session: Headline, background img, short text, Sign up button --}}
    
