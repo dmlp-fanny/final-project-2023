@@ -27,23 +27,64 @@
 
     <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">CONNECT APP</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h4>Team</h4>
+        <h3>Behind the Scenes of the Project</h3>
         <h4>Workflow</h4>
-        <p>Helpful tools: 
+        <p><strong>How did we divide the work?</strong></p>
+
+            <p>
+                <strong>Tuyen:</strong> - Homepage, Login, Registration<br>
+                <strong>Fanny:</strong> - Back End, User Flow
+    
+            </p>
+        <p><strong>What tools did we use? </strong></p>
             <li>Organization - monday.com </li>
             <li>Data Modelling - dbdiagram.io </li>
             <li>Wireframe - invisionapp.com</li>
             <li>User Flow - BPMN Editor</li>
         </p>
-        <h4>Tech Stack</h4>
-
+        <div class="screenshot">
+            <img src="/icons/monday.png">
+            <img src="/icons/dbdiagram.png">
+            <img src="/icons/wireframe.png">
+            <img src="/icons/bpmneditor.png">
+        </div>
+            <h4>Tech Stack</h4>
+            <p><strong>What programming languages we use?</strong></p>
+        <div class="icons">   
+            <img src="/icons/html.png">
+            <img src="icons/css.png">
+            <img src="icons/sass.png">
+            <img src="icons/bootstrap.png">
+            <img src="icons/react.png">
+            <img src="icons/js.png">
+            <img src="icons/laravel.png">
+            <img src="icons/php.png">
+            <img src="icons/mysql.jpg">
+        </div> 
+        <h4>Lessons Learnt</h4>
+        <p><strong>What are we taking away from this project?</strong></p>
+            <ul>
+                <strong>Tuyen:</strong>
+                <li>Approach the project from different angles</li>
+                <li>Communication</li>
+                <strong>Fanny:</strong>
+                <li>Longer brainstorming and planning phase</li>
+                <li>Laravel</li>
+            </ul>
+        <h4>Future Direction</h4>
+        <p><strong>What can be done in the future?</strong></p>
+        <ul>
+            <li>Messages</li>
+            <li>Translators - assessment, ratings, feedback</li>
+            <li>Availability - searching in range</li>
+        </ul>
       </div>
     </div>
   </div>
