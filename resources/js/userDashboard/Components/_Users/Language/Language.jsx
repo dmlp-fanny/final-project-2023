@@ -2,10 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import './Language.scss';
 
-export default function Language( {languageData, setLanguageData, index} ) {
+export default function Language( {languageData, setLanguageData, index, errors} ) {
     
     const [languages, setLanguages] = useState([])
-
+console.log(errors)
     useEffect(() => {
         axios.get('/api/languages')
       .then(response => {
@@ -33,54 +33,61 @@ export default function Language( {languageData, setLanguageData, index} ) {
     }
     return (
         <>
-        <strong>Language competence #{index + 1}</strong>
-        <div className="competence">
-            <div className="competence_input_group">
-                
-                <select
-                    name="from_language"
-                    value={languageData.from_language}
-                    onChange={handleLanguageSelection}
+            <strong>Language competence #{index + 1}</strong>
+            <div className="competence">
+                <div className="competence_input_group">
                     
-                >
-                
+                    <select
+                        name="from_language"
+                        value={languageData.from_language}
+                        onChange={handleLanguageSelection}
+                        
+                    >
                     
-                    <option value={null}>Select a language</option>
-                    {
-                        languages.map(language => {
-                            return <option 
-                                    key={language.id} 
-                                    value={language.id}
-                                    >
-                                    {language.language_name}
-                                    </option>
-                            })
-                    }
-                </select>
+                        
+                        <option value="">Select a language</option>
+                        {
+                            languages.map(language => {
+                                return <option 
+                                        key={language.id} 
+                                        value={language.id}
+                                        >
+                                        {language.language_name}
+                                        </option>
+                                })
+                        }
+                    </select>
+                </div>
+                <section>↔</section>   
+                <div className="competence_input_group">
+                    <select
+                        name="to_language"
+                        value={languageData.to_language}
+                        onChange={handleLanguageSelection}
+                        required
+                        
+                    >
+                        <option value="">Select a language</option>
+                        {
+                            languages.map(language => {
+                                return <option 
+                                        key={language.id} 
+                                        value={language.id}
+                                        >
+                                        {language.language_name}
+                                        </option>
+                                })
+                        }
+                    </select>
+                </div>
             </div>
-            <section>↔</section>   
-            <div className="competence_input_group">
-                <select
-                    name="to_language"
-                    value={languageData.to_language}
-                    onChange={handleLanguageSelection}
-                    required
-                    
-                >
-                    <option value={null}>Select a language</option>
-                    {
-                        languages.map(language => {
-                            return <option 
-                                    key={language.id} 
-                                    value={language.id}
-                                    >
-                                    {language.language_name}
-                                    </option>
-                            })
-                    }
-                </select>
-            </div>
-        </div>
+
+            {
+                (errors[`languageData.${index}.from_language`] || null) ? <div className="error">{ errors[`languageData.${index}.from_language`] }</div> : ''
+            }
+            {
+                (errors[`languageData.${index}.to_language`] || null) ? <div className="error">{ errors[`languageData.${index}.to_language`] }</div> : ''
+            }
         </>
     );
 }

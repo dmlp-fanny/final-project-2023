@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
 
-export default function TimeTable({ setScheduleData }) {
+export default function TimeTable({ setScheduleData, errors }) {
     const [schedule, setSchedule] = useState([
         { day: "Monday", from_time: "", till_time: "" },
         { day: "Tuesday", from_time: "", till_time: "" },
@@ -82,6 +82,7 @@ export default function TimeTable({ setScheduleData }) {
                         ))}
                     </tbody>
       </table>
+
     
     </>
   );

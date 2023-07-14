@@ -43,14 +43,23 @@ class CreateNewUser implements CreatesNewUsers
         if ($input['isTranslator'] === true) {
 
             Validator::make($input, [
-                'scheduleData' => 'sometimes|required|array',
-                'scheduleData.*.from_time' => 'required_if:scheduleData,array',
-                'scheduleData.*.till_time' => 'required_if:scheduleData,array',
+                'scheduleData' => [
+                    'sometimes',
+                    'required',
+                    'array'
+                ],
+                'scheduleData.*' => function ($name, $day, $fail) {
+                    if (($day['from_time'] && !$day['till_time'])
+                        || ($day['till_time'] && !$day['from_time'])
+                    ) {
+                        $fail('Both times must be filled in');
+                    }
+                },
                 'selectedTags' => 'sometimes|required|array',
                 // 'selectedTags.*.value' => 'required_if:selectedTags,array',
                 // 'selectedTags.*.label' => 'required_if:selectedTags,array',
                 'languageData' => 'sometimes|required|array',
-                'languageData.*.from_language' => Rule::requiredIf(gettype($input['languageData']) == "array"), 
+                'languageData.*.from_language' => Rule::requiredIf(gettype($input['languageData']) == "array"),
                 'languageData.*.to_language' => Rule::requiredIf(gettype($input['languageData']) == "array"),
             ])->validate();
         }

@@ -257,16 +257,13 @@ export default function Register({ loadUser }) {
                                     languageData={competence}
                                     index={i}
                                     setLanguageData={setLanguageData}
+                                    errors={ errors }
                                 />
 
                               
                                 
                             ))}
-                                                        {
-                    errors['languageData']
-                    ? errors['languageData'].map(error => <div className="error">{ error }</div>)
-                    : ''
-                    }
+              
 
                             <br />
                                 <button onClick={handleRemovingLanguages}>Remove</button>
@@ -284,12 +281,8 @@ export default function Register({ loadUser }) {
                                 onChange={handleChange}
                             />
 
-                            <TimeTable setScheduleData={setScheduleData} />
-                            {
-                    errors['scheduleData']
-                    ? errors['scheduleData'].map(error => <div className="error">{ error }</div>)
-                    : ''
-                    }
+                            <TimeTable setScheduleData={setScheduleData} errors={errors}/>
+                            
                         </>
                     ) : (
                         ""
