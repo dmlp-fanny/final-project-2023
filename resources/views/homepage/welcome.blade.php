@@ -34,8 +34,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        
+        <div class="qrcode">
+            <img src="/icons/qrcode.png">
+        </div>
+
         <h3>Behind the Scenes of the Project</h3>
         <h4>Workflow</h4>
+        
         <p><strong>How did we divide the work?</strong></p>
 
             <p>

@@ -361,6 +361,10 @@ header {
         width: 45%;
     }
 }
+.qrcode {
+    position: absolute;
+    right: 0;
+}
 
 @media screen and (max-width: 768px) {
     .screenshot {
@@ -368,7 +372,10 @@ header {
         img {
             width: 100%
         }
-    }   
+    } 
+    .qrcode {
+        display: none;
+    }  
 }
 
 h4 {
